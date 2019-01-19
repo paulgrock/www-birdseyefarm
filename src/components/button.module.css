@@ -1,0 +1,8 @@
+
+.button {
+	--buttonColor: #1DB9A6;
+	background: var(--buttonColor);
+	border: 2px solid var(--buttonColor);
+	text-transform: uppercase;
+	color: #F9F9F9;
+}

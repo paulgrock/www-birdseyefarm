@@ -1,0 +1,32 @@
+.header {
+	position: absolute;
+	left: 8.47%;
+	right: 8.47%;
+	display: flex;
+}
+
+.title {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: 'amatic sc';
+	font-size: 45px;
+	text-transform: uppercase;
+}
+
+.nav {
+	align-self: flex-end;
+	flex-grow: 1;
+}
+
+.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+}
+
+.navItem {
+	margin-bottom: 0;
+}

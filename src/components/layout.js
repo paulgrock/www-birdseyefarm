@@ -17,15 +17,15 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div className="pageContainer">
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
+        <main className="main-content">
           {children}
           <footer>
             © 2018, Built with Gatsby
           </footer>
-        </div>
-      </>
+        </main>
+      </div>
     )}
   />
 )

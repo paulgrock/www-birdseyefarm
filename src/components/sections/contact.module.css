@@ -1,0 +1,6 @@
+.button {
+	background: #1DB9A6;
+	border: 2px solid currentColor;
+	text-transform: uppercase;
+	color: #F9F9F9;
+}

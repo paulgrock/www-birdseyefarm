@@ -31,8 +31,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `roboto`,
-          `amatic sc\:400,700` // you can also specify font weights and styles
+          `roboto\:300,400,400i,700`,
+          `Amatic SC\:400,700` // you can also specify font weights and styles
         ]
       }
     },
