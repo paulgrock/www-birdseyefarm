@@ -4,5 +4,11 @@
 	background: var(--buttonColor);
 	border: 2px solid var(--buttonColor);
 	text-transform: uppercase;
+	font-family: Roboto;
+	font-weight: 500;
+	font-size: 20px;
+	letter-spacing: 2.08px;
 	color: #F9F9F9;
+	padding: 17px 0;
+	width: 100%;
 }

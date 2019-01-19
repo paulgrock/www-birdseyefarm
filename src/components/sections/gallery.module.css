@@ -1,5 +1,32 @@
 .galleryContainer {
-	background: url('../../images/bg.svg') center center no-repeat;
-	background-size: cover;
-	height: 100vh;
+	composes: sharedContainer from './shared.module.css';
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 28px;
+}
+
+.imageView {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column: 1 / -1;
+}
+
+.galleryItem {
+	margin: 0;
+}
+
+.buttonContainer {
+	margin-top: 54px;
+	grid-column: 2 / span 1;
+}
+
+.title {
+	grid-column: 1 / -1;
+	margin-bottom: 0;
+	font-family: Amatic SC;
+	font-weight: bold;
+	line-height: 57px;
+	font-size: 45px;
+	letter-spacing: 4.68px;
+	text-transform: uppercase;
+	color: #371D3A;
 }

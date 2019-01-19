@@ -6,7 +6,7 @@ import styles from './contact.module.css';
 
 const Contact = props => {
   return (
-	<section id="contact">
+	<section id="contact" className={styles.container}>
 		<form name="contact" netlify netlify-honeypot="bot-field" hidden>
 			<input type="text" name="name" />
 			<input type="email" name="email" />

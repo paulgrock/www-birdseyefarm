@@ -4,3 +4,8 @@
 	text-transform: uppercase;
 	color: #F9F9F9;
 }
+
+.container {
+	composes: sharedContainer from './shared.module.css';
+	background-color: rgba(76, 40, 81, 1);
+}
