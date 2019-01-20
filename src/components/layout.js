@@ -21,8 +21,8 @@ const Layout = ({ children }) => (
         <Header siteTitle={data.site.siteMetadata.title} />
         <main className="main-content">
           {children}
-          <footer>
-            © 2018, Built with Gatsby
+          <footer className="footer">
+            © {new Date().getFullYear()} Bird’s Eye Farm, Oakland California
           </footer>
         </main>
       </div>

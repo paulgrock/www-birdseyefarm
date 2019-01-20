@@ -1,3 +1,9 @@
 .heroContainer {
 	display: grid;
+	background: url('../../images/july-harvest.jpg') center center no-repeat;
+}
+
+.logo {
+	width: 400px;
+	height: 400px;
 }
