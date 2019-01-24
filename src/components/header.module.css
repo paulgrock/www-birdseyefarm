@@ -3,15 +3,18 @@
 	left: 8.47%;
 	right: 8.47%;
 	display: flex;
+	padding-top: 24px;
+	padding-bottom: 26px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .title {
-	color: black;
 	text-decoration: none;
 	font-weight: bold;
 	font-family: 'amatic sc';
 	font-size: 45px;
 	text-transform: uppercase;
+	color: white;
 }
 
 .nav {
@@ -29,4 +32,23 @@
 
 .navItem {
 	margin-bottom: 0;
+}
+
+.navLink {
+	color: white;
+	font-size: 20px;
+	line-height: 1.2;
+	text-decoration: none;
+	position: relative;
+}
+
+.activeNavLink::after {
+	content: '';
+	position: absolute;
+	height: 5px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: white;
+	border-radius: 2.5px 2.5px 0px 0px;
 }

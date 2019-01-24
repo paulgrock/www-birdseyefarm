@@ -1,8 +1,0 @@
-.sharedContainer {
-	background: rgba(76, 40, 81, .3) url('../../images/bg.svg') center center no-repeat;
-	background-size: cover;
-	min-height: 100vh;
-	display: grid;
-	text-align: center;
-	padding: 62px 8.47%;
-}

@@ -1,11 +1,30 @@
 .button {
-	background: #1DB9A6;
-	border: 2px solid currentColor;
-	text-transform: uppercase;
-	color: #F9F9F9;
+	margin-top: 28px;
 }
 
 .container {
-	composes: sharedContainer from './shared.module.css';
 	background-color: rgba(76, 40, 81, 1);
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.title {
+	color: white;
+	grid-column: 1 / -1;
+}
+
+.form {
+	grid-column: 2;
+}
+
+.form input,
+.form textarea {
+	display: block;
+	width: 100%;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.form input + input,
+.form textarea {
+	margin-top: 43px;
 }

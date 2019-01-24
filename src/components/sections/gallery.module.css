@@ -1,5 +1,4 @@
 .galleryContainer {
-	composes: sharedContainer from './shared.module.css';
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 28px;
 }
@@ -21,12 +20,5 @@
 
 .title {
 	grid-column: 1 / -1;
-	margin-bottom: 0;
-	font-family: Amatic SC;
-	font-weight: bold;
-	line-height: 57px;
-	font-size: 45px;
-	letter-spacing: 4.68px;
-	text-transform: uppercase;
 	color: #371D3A;
 }
