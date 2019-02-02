@@ -29,8 +29,8 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link getProps={isPartiallyActive} className={styles.navLink} to="#goats">
-            Our Goats
+          <Link getProps={isPartiallyActive} className={styles.navLink} to="/goats">
+            Goats
           </Link>
         </li>
         <li className={styles.navItem}>

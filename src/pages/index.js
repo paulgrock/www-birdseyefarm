@@ -5,7 +5,6 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Hero from '../components/sections/hero'
 import Gallery from '../components/sections/gallery'
-import Goats from '../components/sections/goats'
 import Contact from '../components/sections/contact'
 
 const IndexPage = () => (
@@ -13,7 +12,6 @@ const IndexPage = () => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Hero />
     <Gallery />
-    <Goats />
     <Contact />
   </Layout>
 )

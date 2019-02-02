@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Title from '../section-title'
-import Section from '../section-container'
+import { Link } from 'gatsby'
+
+import Title from './section-title'
 
 import styles from './goats.module.css'
 
-import { Link } from 'gatsby'
-import zadie from '../../images/zadie.jpg'
-import chimi from '../../images/chimi.jpg'
+import zadie from '../images/zadie.jpg'
+import chimi from '../images/chimi.jpg'
 
 const Goat = ({ img, children, date, title, link }) => {
   return (
@@ -28,8 +28,7 @@ const Goat = ({ img, children, date, title, link }) => {
 
 const Goats = props => {
   return (
-    <Section id="goats" className={styles.container}>
-      <Title>Goats</Title>
+		<Fragment>
       <Goat
         img={zadie}
         title="Harley Hillside Ginger Zinger"
@@ -96,7 +95,7 @@ const Goats = props => {
           </li>
         </ul>
       </Goat>
-    </Section>
+			</Fragment>
   )
 }
 
