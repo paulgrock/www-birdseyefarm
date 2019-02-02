@@ -1,0 +1,27 @@
+.container {
+	background-image: url('../../images/gaots-bg.jpg');
+}
+
+.goat {
+	border-top: 8px solid #4C2851;
+	display: flex;
+	flex-direction: row;
+	background-color: #fff;
+}
+
+.goat + .goat {
+	margin-top: 85px;
+}
+
+.photo {
+	margin-bottom: 0;
+	width: 380px;
+	height: 380px;
+}
+
+.content {
+	padding-top: 34px;
+	padding-left: 41px;
+	padding-right: 100px;
+	text-align: left;
+}

@@ -20,18 +20,22 @@
 .nav {
 	align-self: flex-end;
 	flex-grow: 1;
+	margin-left: 134px;
 }
 
 .list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	display: flex;
-	justify-content: space-around;
 }
 
 .navItem {
 	margin-bottom: 0;
+	display: inline-block;
+}
+
+.navItem + .navItem {
+	margin-left: 50px;
 }
 
 .navLink {

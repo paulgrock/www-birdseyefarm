@@ -24,7 +24,7 @@ const Gallery = (props) => {
 		<img src={pumpkin} alt="Paul showing off a large pumpkin" className={styles.galleryItem}/>
 		<img src={ximena} alt="Ximena Chilling" className={styles.galleryItem}/>
 		<div className={styles.buttonContainer}>
-			<Button>View All</Button>
+			<Button href="https://instagram.com/birds_eye_farm">View All</Button>
 		</div>
 	</Section>
   )

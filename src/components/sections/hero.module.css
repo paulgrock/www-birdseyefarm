@@ -1,6 +1,7 @@
 .heroContainer {
 	display: grid;
 	background: url('../../images/july-harvest.jpg') center center no-repeat;
+	background-size: cover;
 	min-height: 100vh;
 	text-align: center;
 	padding: 62px 8.47%;

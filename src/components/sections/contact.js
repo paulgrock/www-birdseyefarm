@@ -1,10 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Input from '../input';
 import Button from '../button';
 import styles from './contact.module.css';
 import Title from '../section-title';
-import Section from  '../section-container'
+import Section from  '../section-container';
+
+
+const Input = props => (
+	<input {...props} className={styles.input}/>
+)
 
 const Contact = props => {
   return (
@@ -20,7 +24,7 @@ const Contact = props => {
 			<input type="hidden" name="form-name" value="contact" />
 			<Input placeholder="Name" type="text" name="name" />
 			<Input placeholder="Email Address" type="email" name="email" />
-			<textarea name="message"></textarea>
+			<textarea name="message" className={styles.textarea}></textarea>
 			<Button type="submit" className={styles.button}>Contact Us</Button>
 		</form>
 	</Section>
