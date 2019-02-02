@@ -33,3 +33,20 @@
 .textarea {
 	margin-top: 43px;
 }
+
+.modal {
+	margin: auto;
+	background-color: white;
+	padding: 50px;
+}
+
+.overlay {
+	display: grid;
+	z-index: 10000;
+	position: fixed;
+	background-color: rgba(0, 0, 0, .75);
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+}
