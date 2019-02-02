@@ -1,44 +1,105 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Title from '../section-title';
-import Section from '../section-container';
+import Title from '../section-title'
+import Section from '../section-container'
 
-import styles from './goats.module.css';
+import styles from './goats.module.css'
 
-import { Link } from 'gatsby';
-import zadie from '../../images/zadie.jpg';
-import chimi from '../../images/chimi.jpg';
+import { Link } from 'gatsby'
+import zadie from '../../images/zadie.jpg'
+import chimi from '../../images/chimi.jpg'
 
-const Goat = ({img, body, age, title, link}) => {
-	return (
-		<div className={styles.goat}>
-			{/* has purple top border */}
-			<img src={img} alt={title} className={styles.photo} />
-			<div className={styles.content}>
-				<Title>
-						<Link to={link}>{title}</Link>
-				</Title>
-				<p className={styles.body}>
-					{body}
-				</p>
-				</div>
-			</div>
-	)
-}
-
-const Goats = (props) => {
+const Goat = ({ img, children, date, title, link }) => {
   return (
-	<Section id="goats" className={styles.container}>
-	  <Title>Goats</Title>
-		<Goat img={zadie} title="Zadie" link="/goats/zadie" age="2" body="Zadie is a petite, feminine doe who comes from a long line of great milkers. She stands 20.5” at the withers and has a level topline, straight front legs and nice rear leg angulation. Zadie has good body capacity and a mighty pretty little face. She’s a serious sweetheart, often going for the cuddles even before the treats. Petite though she is, Zadie is herd queen. When we take walks she always needs to be out front." />
-		<Goat img={chimi} title="Chimi" link="/goats/chimi" age="2" body="Chimi is a powerful doe with great body capacity, standing 22 inches at the withers. She has a long, level topline, straight front legs and nice rear leg angulation.  Adorably frosted ears run in her family, making Chim look like a snow-flecked reindeer." />
-	</Section>
+    <div className={styles.goat}>
+      {/* has purple top border */}
+      <img src={img} alt={title} className={styles.photo} />
+
+      <div className={styles.content}>
+        <Title>
+          <Link to={link}>{title}</Link>
+        </Title>
+        <span>Born {date}</span>
+        <p className={styles.body}>{children}</p>
+      </div>
+    </div>
   )
 }
 
-Goats.propTypes = {
-
+const Goats = props => {
+  return (
+    <Section id="goats" className={styles.container}>
+      <Title>Goats</Title>
+      <Goat
+        img={zadie}
+        title="Harley Hillside Ginger Zinger"
+        link="/goats/harley-hillside-ginger-zinger"
+        date="2/1/2017"
+      >
+        <ul>
+          <li>
+            <strong>Sire</strong>:{' '}
+            <a href="https://curbstonevalley.com/blog/?page_id=13133">
+              Castle Rock Roxstar
+            </a>
+          </li>
+          <li>
+            <strong>SS</strong>: Caprine Acres HS Cooper
+          </li>
+          <li>
+            <strong>SD</strong>: GCH CRF Castle Rock Roxanne 1*M *D VEEE 91
+          </li>
+          <li>
+            <strong>Dam</strong>:{' '}
+            <a href="https://harleyhillsidefarm.com/ff/">
+              Harley Hillside iHeart Chai VVV+ 85
+            </a>
+          </li>
+          <li>
+            <strong>DS</strong>: Castle Rock Clark's Nutcracker
+          </li>
+          <li>
+            <strong>DD</strong>: SGCH Castle Rock Breakin My Heart 6*M VEEE 90
+          </li>
+        </ul>
+      </Goat>
+      <Goat
+        img={chimi}
+        title="Harley Hillside Dime Piece"
+        link="/goats/harley-hillside-dime-piece"
+        date="2/3/2017"
+      >
+        <ul>
+          <li>
+            <strong>Sire</strong>:{' '}
+            <a href="https://curbstonevalley.com/blog/?page_id=13133">
+              Castle Rock Roxstar
+            </a>
+          </li>
+          <li>
+            <strong>SS</strong>: Caprine Acres HS Cooper
+          </li>
+          <li>
+            <strong>SD</strong>: GCH CRF Castle Rock Roxanne 1*M
+          </li>
+          <li>
+            <strong>Dam</strong>:{' '}
+            <a href="https://curbstonevalley.com/blog/?page_id=13124">
+              Castle Rock Worth Every Penny 3*M *D AR 3059
+            </a>
+          </li>
+          <li>
+            <strong>DS</strong>: SG Castle Rock Cleveland Sage +*B *S **Elite Sire** 2015/16
+          </li>
+          <li>
+            <strong>DD</strong>: GCH Castle Rock Penny For Luck 2*M VEVV 89
+          </li>
+        </ul>
+      </Goat>
+    </Section>
+  )
 }
 
-export default Goats
+Goats.propTypes = {}
 
+export default Goats
