@@ -5,6 +5,8 @@
 .container {
 	background-color: rgba(76, 40, 81, 1);
 	grid-template-columns: repeat(3, 1fr);
+	min-height: auto;
+	background-image: url('../../images/bg.svg');
 }
 
 .title {
