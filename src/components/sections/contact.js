@@ -13,14 +13,8 @@ const Input = props => (
 const Contact = props => {
   return (
 	<Section id="contact" className={styles.container}>
-		<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-			<input type="text" name="name" />
-			<input type="email" name="email" />
-			<textarea name="message"></textarea>
-		</form>
-
 		<Title className={styles.title}>Contact Us</Title>
-		<form action="" className={styles.form}>
+		<form method="post" className={styles.form} data-netlify="true" name="contact">
 			<input type="hidden" name="form-name" value="contact" />
 			<Input placeholder="Name" type="text" name="name" />
 			<Input placeholder="Email Address" type="email" name="email" />
