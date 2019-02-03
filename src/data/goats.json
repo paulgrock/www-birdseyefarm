@@ -1,0 +1,57 @@
+[{
+		"name": "Harley Hillside Ginger Zinger",
+		"aka": "Zadie",
+		"slug": "harley-hillside-ginger-zinger",
+		"date": "2/1/2017",
+		"pedigree": "http://www.adgagenetics.org/GoatDetail.aspx?RegNumber=D001840906",
+		"sire": {
+			"link": "https://curbstonevalley.com/blog/?page_id=13133",
+			"name": "Castle Rock Roxstar",
+			"sire": {
+				"name": "Caprine Acres HS Cooper"
+			},
+			"dam": {
+				"name": "GCH CRF Castle Rock Roxanne 1*M *D VEEE 91"
+			}
+		},
+		"dam": {
+			"link": "https://harleyhillsidefarm.com/ff/",
+			"name": "Harley Hillside iHeart Chai VVV+ 85",
+			"sire": {
+				"name": "Castle Rock Clark's Nutcracker"
+			},
+			"dam": {
+				"name": "SGCH Castle Rock Breakin My Heart 6*M VEEE 90"
+			}
+		},
+		"copy": ["Zadie is a petite, feminine doe who comes from a long line of great milkers. She stands 20.5” at the withers and has a level topline, straight front legs and nice rear leg angulation. Zadie has good body capacity and a mighty pretty little face. She’s a serious sweetheart, often going for the cuddles even before the treats. Petite though she is, Zadie is herd queen. When we take walks she always needs to be out front.", "Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, is a star in the show ring and on the milkstand, winning Best Udder of Breed no less than fourteen times. Her other grand-dam, SGCH Castle Rock Breakin My Heart 6*M VEEE 90, made Top Ten in ADGA’s protein production category in 2016—and gave 1210 pounds of milk that year.", "She will be freshening for the first time in 2019 and we hope she passes on her dairy genetics and sweet disposition to her kids. Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"]
+	},
+	{
+		"name": "Harley Hillside Dime Piece",
+		"aka": "Chimi",
+		"slug": "harley-hillside-dime-piece",
+		"date": "2/3/2017",
+		"pedigree": "http://www.adgagenetics.org/GoatDetail.aspx?RegNumber=D001840907",
+		"sire": {
+			"link": "https://curbstonevalley.com/blog/?page_id=13133",
+			"name": "Castle Rock Roxstar",
+			"sire": {
+				"name": "Caprine Acres HS Cooper"
+			},
+			"dam": {
+				"name": "GCH CRF Castle Rock Roxanne 1*M"
+			}
+		},
+		"dam": {
+			"link": "https://curbstonevalley.com/blog/?page_id=13124",
+			"name": "Castle Rock Worth Every Penny 3*M *D AR 3059",
+			"sire": {
+				"name": "SG Castle Rock Cleveland Sage +*B *S **Elite Sire** 2015/16"
+			},
+			"dam": {
+				"name": "GCH Castle Rock Penny For Luck 2*M VEVV 89"
+			}
+		},
+		"copy": ["Chimi will be freshening for the first time in 2019 and with her dairy genetics we can’t wait to see what this gal brings to the milk stand! Her dam, Castle Rock Worth Every Penny 3*M *D AR 3059, produced 740 pounds of milk in 247 days as a yearling first-freshener and 950 pounds in a 305-day second lactation.", "Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, has quite the mammary reputation, having won Best Udder of Breed fourteen times. Chimi has a gleeful appetite for hay and browse and we hope to see her turn all that nutrition into abundant milk.", "Chimi is a powerful doe with great body capacity, standing 22 inches at the withers. She has a long, level topline, straight front legs and nice rear leg angulation.  Adorably frosted ears run in her family, making Chim look like a snow-flecked reindeer.", "She’s an all-around charmer and we feel ever so lucky to have begun our herd with such fine genetics. As the saying goes:  “They say she’s a dime; I say she’s underrated.”"]
+	}
+]

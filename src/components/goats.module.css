@@ -25,3 +25,12 @@
 	padding-right: 100px;
 	text-align: left;
 }
+
+.list {
+	list-style-type: none;
+	margin: 0;
+}
+
+.listItem {
+	margin-bottom: 0;
+}
