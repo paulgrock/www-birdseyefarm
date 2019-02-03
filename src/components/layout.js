@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
         <main className="main-content">
           {children}
           <footer className="footer">
-            © {new Date().getFullYear()} Bird’s Eye Farm, Oakland California
+            © {new Date().getFullYear()} Bird’s Eye Farm | Oakland, CA
           </footer>
         </main>
       </div>
