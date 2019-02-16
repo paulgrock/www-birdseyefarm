@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import format from 'date-fns/format'
 
 import Section from './section-container';
 import Title from './section-title'
@@ -26,7 +26,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		</figure>
 	  </td>
 	  <td>
-		{kiddingDate}
+		{format(kiddingDate, 'MMM D, YYYY')}
 	  </td>
 	  <td>
 		<a href={pedigree}>ADGA Pedigree</a>
