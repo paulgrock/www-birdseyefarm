@@ -4,11 +4,13 @@ import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
 import Goats from '../../components/goats';
+import KiddingSchedule from '../../components/kidding-schedule';
 
 const GoatsPage = ({data}) => (
   <Layout>
     <SEO title="Nigerian Dwarf Goats" />
     <Goats goats={data.allGoatsJson.edges} data={data} />
+    <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
   </Layout>
 )
 
@@ -21,6 +23,7 @@ export const query = graphql`
           date
           aka
           slug
+          pedigree
           sire {
             link
             name
@@ -41,6 +44,14 @@ export const query = graphql`
               name
             }
           }
+          notes
+          mate {
+            link
+            image
+            name
+          }
+          prices
+          kiddingDate
         }
       }
     }

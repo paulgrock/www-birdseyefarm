@@ -50,15 +50,15 @@ const Goat = ({ img, name, slug, date, sire, dam }) => {
   )
 }
 
+
 const Goats = ({goats, data}) => {
-  console.log(data)
   return (
 		<Section className={styles.container}>
       <Title>Does</Title>
       {goats.map(({node}) => (
         <Goat {...node} key={node.slug} img={data[node.aka.toLowerCase()]} />
       ))}
-			</Section>
+    </Section>
   )
 }
 

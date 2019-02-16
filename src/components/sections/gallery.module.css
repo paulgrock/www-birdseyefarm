@@ -19,7 +19,11 @@
 	grid-column: 2 / span 1;
 }
 
-.title {
+.heading {
 	grid-column: 1 / -1;
 	color: #371D3A;
+	background-color: rgba(255, 255, 255, .3);
+}
+
+.title {
 }
