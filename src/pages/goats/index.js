@@ -57,14 +57,20 @@ export const query = graphql`
     }
     zadie: file(relativePath: { eq: "harley-hillside-ginger-zinger.jpg" }) {
       childImageSharp {
-        fixed(width: 380, height: 380) {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
     }
     chimi: file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
-        fixed(width: 380, height: 380) {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }

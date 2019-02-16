@@ -11,17 +11,19 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	<tr>
 	  <td>
 		<figure>
-		  <Img fixed={img.childImageSharp.fixed} alt={name} width="150px" height="150px"/>
+		  <img src={img.childImageSharp.fixed.src} alt={name} />
 		  <figcaption>
 			<Link to={`/goats/${slug}`}>{name}</Link>
 		  </figcaption>
 		</figure>
 	  </td>
 	  <td>
+		<figure>
 		  <img src={mate.image} alt={mate.name} />
 		  <figcaption>
 			<Link to={mate.link}>{mate.name}</Link>
 		  </figcaption>
+		</figure>
 	  </td>
 	  <td>
 		{kiddingDate}

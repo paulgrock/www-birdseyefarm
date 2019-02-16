@@ -11,7 +11,7 @@ import styles from './goats.module.css'
 const Goat = ({ img, name, slug, date, sire, dam }) => {
   return (
     <div className={styles.goat}>
-      <Img fixed={img.childImageSharp.fixed} alt={name} className={styles.photo} />
+      <img src={img.childImageSharp.fluid.src} alt={name} className={styles.photo} />
 
       <div className={styles.content}>
         <Title>
