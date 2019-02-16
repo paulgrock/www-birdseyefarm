@@ -1,5 +1,7 @@
 .container {
-	background: rgba(76, 40, 81, .3) center center no-repeat;
+	background-color: rgba(76, 40, 81, .3);
+	background-position: center center;
+	background-repeat: no-repeat;
 	background-size: cover;
 	display: grid;
 	text-align: center;

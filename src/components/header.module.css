@@ -51,7 +51,7 @@
 	position: absolute;
 	height: 5px;
 	right: 0;
-	bottom: 0;
+	bottom: -28px;
 	left: 0;
 	background: white;
 	border-radius: 2.5px 2.5px 0px 0px;

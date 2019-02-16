@@ -7,7 +7,7 @@ const isPartiallyActive = (props) => {
   console.log(props)
   console.log(props.isPartiallyCurrent)
   return props.isPartiallyCurrent
-    ? { className: styles.activeNavLink }
+    ? { className: `${styles.activeNavLink} ${styles.navLink}` }
     : null
 }
 
