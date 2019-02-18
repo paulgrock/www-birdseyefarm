@@ -68,7 +68,7 @@ export default class contact extends Component {
 					</div>
 					<Input placeholder="Name" type="text" name="name" onChange={this.handleChange} />
 					<Input placeholder="Email Address" type="email" name="email" onChange={this.handleChange} />
-					<textarea name="message" className={styles.textarea} onChange={this.handleChange}></textarea>
+					<textarea name="message" className={styles.textarea} onChange={this.handleChange} placeholder="Adopt a goat!"></textarea>
 					<Button type="submit" className={styles.button}>Contact Us</Button>
 				</form>
 

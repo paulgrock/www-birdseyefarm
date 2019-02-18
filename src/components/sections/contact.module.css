@@ -4,7 +4,7 @@
 
 .container {
 	background-color: rgba(76, 40, 81, 1);
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: 1fr auto 1fr;
 	min-height: auto;
 	background-image: url('../../images/bg.svg');
 }
@@ -16,6 +16,7 @@
 
 .form {
 	grid-column: 2;
+	min-width: 300px;
 }
 
 .input,
