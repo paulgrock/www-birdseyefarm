@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import format from 'date-fns/format'
 
 import Section from './section-container';
@@ -11,7 +12,7 @@ import styles from './goats.module.css'
 const Goat = ({ img, name, slug, date, sire, dam }) => {
   return (
     <div className={styles.goat}>
-      <img src={img.childImageSharp.fluid.src} alt={name} className={styles.photo} />
+    <Img fluid={img.childImageSharp.fluid} alt={name} className={styles.photo} />
 
       <div className={styles.content}>
         <Title>
