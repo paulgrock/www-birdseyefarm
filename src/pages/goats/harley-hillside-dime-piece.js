@@ -55,7 +55,7 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "harley-hillside-ginger-zinger.jpg" }) {
+    file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
