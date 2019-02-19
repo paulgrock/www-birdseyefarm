@@ -9,7 +9,7 @@ import KiddingSchedule from '../../components/kidding-schedule';
 const GoatsPage = ({data}) => (
   <Layout>
     <SEO title="Nigerian Dwarf Goats" />
-    <Goats goats={data.allGoatsJson.edges} data={data} />
+    <Goats goats={data.allGoatsJson.edges} data={data} title="Does" />
     <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
   </Layout>
 )

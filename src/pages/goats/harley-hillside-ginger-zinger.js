@@ -1,11 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql } from "gatsby";
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
 
-function Zadie(props) {
+import GoatPage from '../../components/goat-page';
+
+function Zadie({data}) {
+	const {edges} = data.allGoatsJson;
+	console.log(edges);
   return (
-	<div>
-	  Zadie
-	</div>
+		<Layout>
+			<SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
+			<GoatPage goats={edges} data={data} title={edges[0].node.name} />
+		</Layout>
   )
 }
 
@@ -13,5 +21,51 @@ Zadie.propTypes = {
 
 }
 
-export default Zadie
 
+export const query = graphql`
+  query {
+		allGoatsJson(filter: {slug: {eq:"harley-hillside-ginger-zinger"}}) {
+      edges {
+        node {
+          name
+          date
+          aka
+          slug
+          sire {
+            link
+            name
+            sire {
+              name
+            }
+            dam {
+              name
+            }
+          }
+          dam {
+            link
+            name
+            sire {
+              name
+            }
+            dam {
+              name
+            }
+          }
+					copy
+        }
+      }
+    }
+    zadie: file(relativePath: { eq: "harley-hillside-ginger-zinger.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+	}
+`
+
+export default Zadie;

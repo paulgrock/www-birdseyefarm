@@ -4,8 +4,6 @@ import React from 'react'
 import styles from './header.module.css'
 
 const isPartiallyActive = (props) => {
-  console.log(props)
-  console.log(props.isPartiallyCurrent)
   return props.isPartiallyCurrent
     ? { className: `${styles.activeNavLink} ${styles.navLink}` }
     : null

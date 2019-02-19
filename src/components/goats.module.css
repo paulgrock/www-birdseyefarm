@@ -36,3 +36,13 @@
 .listItem {
 	margin-bottom: 0;
 }
+
+.bodyContent {
+	padding-left: 34px;
+	padding-right: 34px;
+	margin-top: 1rem;
+}
+
+.bodyContent + .bodyContent {
+	margin-top: 0;
+}
