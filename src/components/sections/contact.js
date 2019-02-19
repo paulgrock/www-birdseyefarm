@@ -39,11 +39,11 @@ export default class contact extends Component {
 
 	handleChange = e => {
 		this.setState({ [e.target.name]: e.target.value }, () => {
-			schema.validate(this.state).catch(err => {
-				this.setState({
-					errors: err.errors
-				});
-			})
+			// schema.validate(this.state).catch(err => {
+			// 	this.setState({
+			// 		errors: err.errors
+			// 	});
+			// })
 		});
 	};
 
@@ -74,9 +74,9 @@ export default class contact extends Component {
 		return (
 			<Section id="contact" className={styles.container}>
 				<Title className={styles.title}>Contact Us</Title>
-				{this.state.errors.length && (
+				{/* {this.state.errors.length && (
 					this.state.errors.map(err => <p>{err}</p>)
-				)}
+				)} */}
 				<form method="post" className={styles.form} data-netlify="true" name="contact" onSubmit={this.handleSubmit} netlify-honeypot="botField">
 					<input type="hidden" name="form-name" value="contact" />
 					<div hidden>
