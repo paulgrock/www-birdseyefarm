@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import ReactModal from 'react-modal';
+import * as yup from 'yup';
 import Button from '../button';
 import styles from './contact.module.css';
 import Title from '../section-title';
 import Section from  '../section-container';
-import ReactModal from 'react-modal';
 
 import { navigateTo } from "gatsby-link";
+
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  message: yup.string().required(),
+  botField: yup.string()
+});
 
 function encode(data) {
   return Object.keys(data)
@@ -25,10 +33,18 @@ export default class contact extends Component {
 
 	}
 
-	state = {}
+	state = {
+		errors: []
+	}
 
 	handleChange = e => {
-		this.setState({ [e.target.name]: e.target.value });
+		this.setState({ [e.target.name]: e.target.value }, () => {
+			schema.validate(this.state).catch(err => {
+				this.setState({
+					errors: err.errors
+				});
+			})
+		});
 	};
 
 	handleSubmit = e => {
@@ -58,12 +74,15 @@ export default class contact extends Component {
 		return (
 			<Section id="contact" className={styles.container}>
 				<Title className={styles.title}>Contact Us</Title>
-				<form method="post" className={styles.form} data-netlify="true" name="contact" onSubmit={this.handleSubmit}>
+				{this.state.errors.length && (
+					this.state.errors.map(err => <p>{err}</p>)
+				)}
+				<form method="post" className={styles.form} data-netlify="true" name="contact" onSubmit={this.handleSubmit} netlify-honeypot="botField">
 					<input type="hidden" name="form-name" value="contact" />
 					<div hidden>
 						<label>
 							Don’t fill this out:{" "}
-							<input name="bot-field" onChange={this.handleChange} />
+							<input name="botField" onChange={this.handleChange} />
 						</label>
 					</div>
 					<Input placeholder="Name" type="text" name="name" onChange={this.handleChange} />
