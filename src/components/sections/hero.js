@@ -8,6 +8,7 @@ import logo from '../../images/logo-large.png';
 
 const Hero = ({ siteTitle }) => (
 	<Section className={styles.heroContainer}>
+		<div className={styles.bgi}></div>
 		<img src={logo} alt="Bird's Eye Farm" className={styles.logo}/>
 		{/* slider probably goes here */}
 	</Section>
