@@ -7,6 +7,8 @@ import format from 'date-fns/format'
 import Section from './section-container';
 import Title from './section-title'
 
+import styles from './kidding-schedule.module.css';
+
 const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree}) =>  (
 	<tr>
 	  <td>
@@ -21,7 +23,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		<figure>
 		  <img src={mate.image} alt={mate.name} />
 		  <figcaption>
-			<Link to={mate.link}>{mate.name}</Link>
+				<a href={mate.link}>{mate.name}</a>
 		  </figcaption>
 		</figure>
 	  </td>
@@ -59,6 +61,7 @@ const KiddingScheduleContainer = ({goats, data}) => {
 			))}
 		</tbody>
 		</table>
+		<small className={styles.attribution}>Tigris appears courtesy of Dog Island Farm</small>
 	</Section>
   )
 }
