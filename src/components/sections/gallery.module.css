@@ -23,4 +23,9 @@
 	grid-column: 1 / -1;
 	color: #371D3A;
 	background-color: rgba(255, 255, 255, .3);
+	padding: 0 1em;
+}
+
+.heading p {
+	text-align: left;
 }
