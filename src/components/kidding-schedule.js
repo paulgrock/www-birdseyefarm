@@ -43,7 +43,8 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
   )
 const KiddingScheduleContainer = ({goats, data}) => {
   return (
-	<Section className={'styles.container'}>
+	<Section className={'styles.container'} id="kidding-schedule">
+		<Title>2019 Kidding Schedule</Title>
 		<table>
 		<thead>
 			<tr>
