@@ -3,6 +3,8 @@
 	left: 8.47%;
 	right: 8.47%;
 	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 	padding-top: 24px;
 	padding-bottom: 26px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -10,33 +12,35 @@
 }
 
 .title {
-	text-decoration: none;
+	margin: 0;
 	font-weight: bold;
 	font-family: 'amatic sc';
 	font-size: 45px;
 	text-transform: uppercase;
+	flex-shrink: 0;
+}
+
+.title a {
+	text-decoration: none;
 	color: white;
 }
 
 .nav {
-	align-self: flex-end;
 	flex-grow: 1;
-	margin-left: 134px;
+	max-width: 568px;
 }
 
 .list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	justify-content: space-between;
 }
 
 .navItem {
 	margin-bottom: 0;
-	display: inline-block;
-}
-
-.navItem + .navItem {
-	margin-left: 50px;
+	margin-left: 10px;
 }
 
 .navLink {

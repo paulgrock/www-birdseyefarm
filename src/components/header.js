@@ -11,11 +11,8 @@ const isPartiallyActive = (props) => {
 
 const Header = ({ siteTitle }) => (
   <header className={styles.header}>
-    <h1 style={{ margin: 0 }}>
-      <Link
-        to="/"
-        className={styles.title}
-      >
+    <h1 className={styles.title}>
+      <Link to="/">
         {siteTitle}
       </Link>
     </h1>
