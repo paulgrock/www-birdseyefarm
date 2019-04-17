@@ -23,7 +23,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		<figure>
 		  <img src={mate.image} alt={mate.name} />
 		  <figcaption>
-				<a href={mate.link}>{mate.name}</a>
+				<a href={mate.link} target="_blank">{mate.name}</a>
 		  </figcaption>
 		</figure>
 	  </td>
@@ -31,7 +31,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		{format(kiddingDate, 'MMM D, YYYY')}
 	  </td>
 	  <td>
-		<a href={pedigree}>ADGA Planned Pedigree</a>
+		<a href={pedigree} target="_blank">ADGA Planned Pedigree</a>
 	  </td>
 	  <td>
 		{notes.map(note => <p key={note}>{note}</p>)}
@@ -43,26 +43,26 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
   )
 const KiddingScheduleContainer = ({goats, data}) => {
   return (
-	<Section className={'styles.container'} id="kidding-schedule">
+	<Section id="kidding-schedule">
 		<Title>2019 Kidding Schedule</Title>
 		<table>
 		<thead>
 			<tr>
-			<td>Dam</td>
-			<td>Sire</td>
-			<td>Date</td>
-			<td>ADGA Pedigree</td>
-			<td>Notes</td>
-			<td>Price</td>
+				<td className={styles.tableHeading}>Dam</td>
+				<td className={styles.tableHeading}>Sire</td>
+				<td className={styles.tableHeading}>Due Date</td>
+				<td className={styles.tableHeading}>ADGA Pedigree</td>
+				<td className={styles.tableHeading}>Notes</td>
+				<td className={styles.tableHeading}>Price</td>
 			</tr>
 		</thead>
 		<tbody>
 			{goats.map(({node}) => (
-			<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} />
+				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} />
 			))}
 		</tbody>
 		</table>
-		<small className={styles.attribution}>Tigris appears courtesy of Dog Island Farm</small>
+		<small className={styles.attribution}>Tigris appears courtesy of <a href="http://dogislandfarm.com" target="_blank">Dog Island Farm</a></small>
 	</Section>
   )
 }

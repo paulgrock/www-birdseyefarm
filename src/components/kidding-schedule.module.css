@@ -4,3 +4,7 @@
 	display: block;
 	text-align: left;
 }
+
+.tableHeading {
+	text-align: center;
+}
