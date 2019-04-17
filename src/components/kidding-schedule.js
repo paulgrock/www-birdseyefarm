@@ -62,7 +62,7 @@ const KiddingScheduleContainer = ({goats, data}) => {
 			))}
 		</tbody>
 		</table>
-		<small className={styles.attribution}>Tigris appears courtesy of <a href="http://dogislandfarm.com" target="_blank">Dog Island Farm</a></small>
+		<small className={styles.attribution}>Tigris appears courtesy of <a href="http://dogislandfarm.com" target="_blank">Dog Island Farm</a>.</small>
 	</Section>
   )
 }
