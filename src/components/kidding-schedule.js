@@ -31,7 +31,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		{format(kiddingDate, 'MMM D, YYYY')}
 	  </td>
 	  <td>
-		<a href={pedigree}>ADGA Pedigree</a>
+		<a href={pedigree}>ADGA Planned Pedigree</a>
 	  </td>
 	  <td>
 		{notes.map(note => <p key={note}>{note}</p>)}
