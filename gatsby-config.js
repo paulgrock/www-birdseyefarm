@@ -32,7 +32,8 @@ module.exports = {
 			options: {
 				fonts: [
 					`roboto\:300,400,400i,700`,
-					`Amatic SC\:400,700` // you can also specify font weights and styles
+					`Amatic SC\:400,700`, // you can also specify font weights and styles
+					`Josefin Slab\:400,700`
 				]
 			}
 		},

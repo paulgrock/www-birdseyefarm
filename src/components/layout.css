@@ -1,5 +1,5 @@
 html {
-  font-family: Roboto, sans-serif;
+  font-family: 'Josefin Slab', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -183,7 +183,7 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em Roboto, sans-serif;
+  font: 112.5%/1.45em 'Josefin Slab', sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -198,7 +198,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: Roboto, sans-serif;
+  font-family: 'Josefin Slab', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
