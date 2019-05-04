@@ -38,8 +38,8 @@
 		],
 		"mate": {
 			"name": "Curbstone Valley Tigris *B",
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
-			"image": "http://dogislandfarm.com/wp-content/uploads/2016/05/Tig-150x150.jpg"
+			"slug": "tigris",
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
 		}
 	},
 	{
@@ -82,8 +82,8 @@
 		],
 		"mate": {
 			"name": "Curbstone Valley Tigris *B",
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
-			"image": "http://dogislandfarm.com/wp-content/uploads/2016/05/Tig-150x150.jpg"
+			"slug": "tigris",
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
 		}
 	}
 ]

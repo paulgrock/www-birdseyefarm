@@ -47,7 +47,7 @@ export const query = graphql`
           notes
           mate {
             link
-            image
+            slug
             name
           }
           prices
@@ -70,6 +70,13 @@ export const query = graphql`
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    tigris: file(relativePath: { eq: "tigris.jpg" }) {
+      childImageSharp {
         fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }

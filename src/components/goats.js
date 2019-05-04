@@ -11,7 +11,6 @@ import styles from './goats.module.css'
 import GoatBio from './goat-bio';
 
 const Goats = ({goats, data, title}) => {
-  console.log(data)
   return (
 		<Section className={styles.container}>
       <Title>{title}</Title>

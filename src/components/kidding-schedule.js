@@ -9,7 +9,7 @@ import Title from './section-title'
 
 import styles from './kidding-schedule.module.css';
 
-const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree}) =>  (
+const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree, mateImg}) =>  (
 	<tr>
 	  <td>
 		<figure>
@@ -21,7 +21,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	  </td>
 	  <td>
 		<figure>
-		  <img src={mate.image} alt={mate.name} />
+		  <img src={mateImg.childImageSharp.fixed.src} alt={mate.name} />
 		  <figcaption>
 				<a href={mate.link} target="_blank">{mate.name}</a>
 		  </figcaption>
@@ -58,7 +58,7 @@ const KiddingScheduleContainer = ({goats, data}) => {
 		</thead>
 		<tbody>
 			{goats.map(({node}) => (
-				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} />
+				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
 			))}
 		</tbody>
 		</table>
