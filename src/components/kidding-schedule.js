@@ -9,9 +9,7 @@ import Title from './section-title'
 
 import styles from './kidding-schedule.module.css';
 
-const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree, mateImg}) => {
-	console.log(mateImg)
-	return (
+const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree, mateImg}) => (
 	<tr>
 	  <td>
 		<figure>
@@ -42,11 +40,8 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		{prices.map(price => <p key={price}>{price}</p>)}
 	  </td>
 	</tr>
-	)
-}
-const KiddingScheduleContainer = ({goats, data}) => {
-	console.log(data)
-  return (
+)
+const KiddingScheduleContainer = ({goats, data}) => (
 	<Section id="kidding-schedule">
 		<Title>2019 Kidding Schedule</Title>
 		<table>
@@ -61,18 +56,15 @@ const KiddingScheduleContainer = ({goats, data}) => {
 			</tr>
 		</thead>
 		<tbody>
-			{goats.map(({node}) => {
-				{console.log(data[node.mate.slug.toLowerCase()])}
-				return (
+			{goats.map(({node}) => (
 				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
-			)}
+			)
 			)}
 		</tbody>
 		</table>
 		<small className={styles.attribution}>Tigris appears courtesy of <a href="http://dogislandfarm.com" target="_blank">Dog Island Farm</a>.</small>
 	</Section>
-  )
-}
+)
 
 KiddingScheduleContainer.propTypes = {
 

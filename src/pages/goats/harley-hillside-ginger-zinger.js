@@ -8,7 +8,6 @@ import GoatPage from '../../components/goat-page';
 
 function Zadie({data}) {
 	const {edges} = data.allGoatsJson;
-	console.log(edges);
   return (
 		<Layout>
 			<SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
