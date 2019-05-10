@@ -45,7 +45,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	)
 }
 const KiddingScheduleContainer = ({goats, data}) => {
-
+	console.log(data)
   return (
 	<Section id="kidding-schedule">
 		<Title>2019 Kidding Schedule</Title>
@@ -62,7 +62,7 @@ const KiddingScheduleContainer = ({goats, data}) => {
 		</thead>
 		<tbody>
 			{goats.map(({node}) => {
-				{console.log(node.mate.slug.toLowerCase())}
+				{console.log(data[node.mate.slug.toLowerCase()])}
 				return (
 				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
 			)}
