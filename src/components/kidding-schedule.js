@@ -9,7 +9,9 @@ import Title from './section-title'
 
 import styles from './kidding-schedule.module.css';
 
-const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree, mateImg}) =>  (
+const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree, mateImg}) => {
+	console.log(mateImg)
+	return (
 	<tr>
 	  <td>
 		<figure>
@@ -40,8 +42,10 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		{prices.map(price => <p key={price}>{price}</p>)}
 	  </td>
 	</tr>
-  )
+	)
+}
 const KiddingScheduleContainer = ({goats, data}) => {
+
   return (
 	<Section id="kidding-schedule">
 		<Title>2019 Kidding Schedule</Title>
@@ -57,9 +61,12 @@ const KiddingScheduleContainer = ({goats, data}) => {
 			</tr>
 		</thead>
 		<tbody>
-			{goats.map(({node}) => (
+			{goats.map(({node}) => {
+				{console.log(node.mate.slug.toLowerCase())}
+				return (
 				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
-			))}
+			)}
+			)}
 		</tbody>
 		</table>
 		<small className={styles.attribution}>Tigris appears courtesy of <a href="http://dogislandfarm.com" target="_blank">Dog Island Farm</a>.</small>
