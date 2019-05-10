@@ -3,13 +3,21 @@ import { graphql } from "gatsby";
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
+import Info from '../../components/info'
 import Goats from '../../components/goats';
 import KiddingSchedule from '../../components/kidding-schedule';
 
 const GoatsPage = ({data}) => (
   <Layout>
     <SEO title="Nigerian Dwarf Goats" />
-    <Goats goats={data.allGoatsJson.edges} data={data} title="Does" />
+    <Goats goats={data.allGoatsJson.edges} data={data}>
+      <Info title="Does">
+        <p>
+        We keep a small herd of ADGA registered Nigerian Dwarf dairy goats, the pride and joy of Bird’s Eye Farm. Goats were among the first species domesticated by humans—at the dawn of agriculture, some 10,000 years ago—and it’s no wonder. Humans just thrive better with goats around.
+        </p>
+        <p>Our herd tested negative for CAE, CL and Johne’s as of 11/15/2018.</p>
+      </Info>
+    </Goats>
     <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
   </Layout>
 )

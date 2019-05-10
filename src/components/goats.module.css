@@ -1,16 +1,13 @@
 .container {
 	background-image: url('../images/goats-bg.jpg');
 	padding-top: 120px;
+	grid-row-gap: 2.5rem;
 }
 
 .goat {
 	border-top: 8px solid #4C2851;
 	background-color: #fff;
 	text-align: left;
-}
-
-.goat + .goat {
-	margin-top: 85px;
 }
 
 .photo {

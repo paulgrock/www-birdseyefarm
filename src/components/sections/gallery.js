@@ -13,15 +13,16 @@ import pumpkin from '../../images/pumpkin.jpg';
 import flowers from '../../images/flowers.jpg';
 import ximena from '../../images/ximena.jpg';
 
+import Info from '../info'
+
 const Gallery = (props) => {
   return (
 	<Section id="gallery" className={styles.galleryContainer}>
-		<div className={styles.heading}>
-			<Title className={styles.title}>Welcome to our farm</Title>
+		<Info title="Welcome to our farm">
 			<p>
 			We live on a quarter-acre urban farm on the glorious sunny side of the Bay in Oakland, California. On this modest patch of earth we grow produce and keep laying hens, dairy goats and honeybees. The Crew also includes a handsome pair of English Angora rabbits whose fur Emma spins into yarn. Emma also handles farm management, goat milking and the nursing of any unwell Crew members. Paul heads up our security division, intimidating foxes, hawks and other rascals. His duties also include building, fixing, hay hauling, barn mucking and web development.
 			</p>
-		</div>
+		</Info>
 		<img src={goats} alt="Chimi clearing the fence" className={styles.galleryItem}/>
 		<img src={artichoke} alt="Some of our fantastic artichokes" className={styles.galleryItem}/>
 		<img src={chicks} alt="The trio: Aaliyah, Yvette, and Aretha" className={styles.galleryItem}/>
