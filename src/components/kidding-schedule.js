@@ -34,10 +34,10 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 		<a href={pedigree} target="_blank">ADGA Planned Pedigree</a>
 	  </td>
 	  <td>
-		{notes.map(note => <p key={note}>{note}</p>)}
+		{notes.map(note => <p className={styles.note} key={note}>{note}</p>)}
 	  </td>
 	  <td>
-		{prices.map(price => <p key={price}>{price}</p>)}
+		{prices.map(price => <p className={styles.note} key={price}>{price}</p>)}
 	  </td>
 	</tr>
 )
