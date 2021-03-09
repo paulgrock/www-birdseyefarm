@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: `Bird's Eye Farm`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+		description: `Farmstead lifestyle. Nigerian Dwarf goats, chickens, bees and Angora rabbits in Yamhill County, Oregon.`,
 		author: `@paulgrock`,
 	},
 	plugins: [
