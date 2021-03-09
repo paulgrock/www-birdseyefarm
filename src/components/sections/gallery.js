@@ -20,7 +20,7 @@ const Gallery = (props) => {
 	<Section id="gallery" className={styles.galleryContainer}>
 		<Info title="Welcome to our farm">
 			<p>
-			We live on 14 glorious acres in the town of Carlton, in Oregon's lush Willamette Valley. Here we grow produce and keep laying hens, dairy goats and honeybees. The Crew also includes a handsome pair of English Angora rabbits whose fur Emma spins into yarn. Emma also handles farm management, goat milking and the nursing of any unwell Crew members. Paul heads up our security division, intimidating foxes, hawks and other rascals. His duties also include building, fixing, hay hauling, barn mucking and web development.
+			We live on 14 glorious acres in Yamhill County, a vibrantly rural piece of Oregon’s lush Willamette Valley. Here we grow produce and keep dairy goats, laying hens, honeybees and fiber rabbits. Emma is the farmstead’s resident gardener, chief milker, hoof pedicurist, Angora spinner and dreamer/planner. Paul heads up our buildings and security division and also handles hay hauling, barn mucking, compost management, dreams/plans implementation and web development. Laila is in charge of bunny appreciation and is training to be an egg collector, specializing in obscure nests.
 			</p>
 		</Info>
 		<img src={goats} alt="Chimi clearing the fence" className={styles.galleryItem}/>
