@@ -53,6 +53,13 @@ const GoatBio = ({ img, name, slug, date, sire, dam, copy, showCopy, withTitle =
 				<p className={styles.bodyContent} key={idx}>{content}</p>
 			))
 		)}
+
+		{/* {slug === 'harley-hillside-dime-piece' && (
+			<>
+				<Img src="../images/chimi-udder.jpg" alt="Dime Piece Udder" />
+				<Img src="../images/chimi-udder.jpg" alt="Dime Piece Udder" />
+			</>
+		)} */}
 	  </div>
 	)
   }
