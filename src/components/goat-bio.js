@@ -10,7 +10,9 @@ import styles from './goats.module.css'
 const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCopy, withTitle = true }) => {
 	return (
 	  <div className={styles.goat}>
-		<Img fluid={img.childImageSharp.fluid} alt={name} className={styles.photo} />
+		{img && (
+			<Img fluid={img.childImageSharp.fluid} alt={name} className={styles.photo} />
+		)}
 
 		<header className={styles.content}>
 			{withTitle && (

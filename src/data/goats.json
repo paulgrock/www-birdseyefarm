@@ -90,5 +90,77 @@
 			"slug": "tigris",
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
 		}
+	},
+	{
+		"name": "Bird’s Eye Farm Zora Neale",
+		"aka": "Zora",
+		"slug": "birds-eye-farm-zora-neale",
+		"date": "2019-05-01",
+		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
+		"sire": {
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
+			"name": "Curbstone Valley Tigris *B",
+			"sire": {
+				"name": "Curbstone Valley Sheldon *B *S",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
+			},
+			"dam": {
+				"name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
+			}
+		},
+		"dam": {
+			"name": "Harley Hillside Ginger Zinger",
+			"link": "/goats/harley-hillside-ginger-zinger",
+			"sire": {
+				"name": "Castle Rock Roxstar"
+			},
+			"dam": {
+				"name": "Harley Hillside iHeart Chai VVV+ 85",
+				"link": "https://www.oldwashoe.com/copy-of-harley-hillside-red-sunflow"
+			}
+		},
+		"copy": [
+			"Zora was the first Bird’s Eye Farm-born doe that we retained and we’re so proud of her.",
+			"Her dam, Ginger Zinger (aka Zadie) is our herd queen and one of our foundational does. Zora is spritely, angular and feminine. Like her dam, she is very level with straight front legs and well-angled rear legs. She’s incredibly friendly and as a kid was always looking for a human lap in which to snuggle. In a herd with lots of gold coats, Zora stands out rocking her white-flecked-with-chocolate look.",
+			"Her dam Zadie freshened with a gorgeous, capacious udder and bestowed such patient maternal love that Zora was teat-fed until she was well over a year old. Hopefully through all that milk Zadie was also conferring her superb dairy genetics, as this Castle Rock line has racked up a lot of milk stars.",
+			"Zora has great genetics from her handsome sire Curbstone Valley Tigris *B as well. Her paternal granddam GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92 is a show ring and milk stand legend, producing 1080 lbs of milk on 305-day test in 2017. Ocean also made the AGS Top Ten list in 2016 for protein production.",
+			"We plan to breed Zora soon and can’t wait to see what this gal can do."
+		]
+	},
+	{
+		"name": "Bird’s Eye Farm Ina May",
+		"aka": "Ina",
+		"slug": "birds-eye-farm-ina-may",
+		"date": "2019-05-08",
+		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002074269",
+		"sire": {
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
+			"name": "Curbstone Valley Tigris *B",
+			"sire": {
+				"name": "Curbstone Valley Sheldon *B *S",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
+			},
+			"dam": {
+				"name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
+			}
+		},
+		"dam": {
+			"name": "Harley Hillside Dime Piece",
+			"link": "/goats/harley-hillside-dime-piece",
+			"sire": {
+				"name": "Castle Rock Roxstar"
+			},
+			"dam": {
+				"name": "Castle Rock Worth Every Penny 3*M *D"
+			}
+		},
+		"copy": [
+			"Ina was among the first Bird’s Eye Farm-born goats, one of five girls born to two does in our first season. We lucked out! Ina has the same powerful, capacious build and tabletop line as her dam, Dime Piece (aka Chimi), but with more graceful angularity (which seems to come from her paternal granddam). She also inherited Chimi’s frosted ears and cool beard. It’s a pleasure to watch the mother-daughter pair out on pasture since they’re both so lovely on the move. Ina is keen on finding the best snacking spots, which often means her face is in the grass inches from her mama’s nose.",
+			"Ina’s dam, Chimi, has a very well-formed, productive mammary system and is a pleasure to milk. Her maternal granddam Castle Rock Worth Every Penny 3*M *D really put it in the pail, too, so we hope Chimi and Ina can earn milk stars soon to continue the family dynasty.",
+			"Ina bears a striking resemblance to her paternal granddam, GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92. Ocean is a show ring and milk stand legend, producing 1080 lbs of milk on 305-day test in 2017 and making AGS Top Ten in 2016 for protein production.",
+			"Ina is looking great as she matures and we’re excited to see her freshen and take the milk stand."
+		]
 	}
 ]
