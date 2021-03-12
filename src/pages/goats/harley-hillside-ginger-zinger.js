@@ -65,4 +65,17 @@ export const query = graphql`
 	}
 `
 
+/*
+bottom: file(relativePath: { eq: "zadie-wedding.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+*/
+
 export default Zadie;

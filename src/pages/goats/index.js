@@ -88,6 +88,26 @@ export const query = graphql`
         }
       }
     }
+    zora: file(relativePath: { eq: "birds-eye-farm-zora-neale.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    ina: file(relativePath: { eq: "birds-eye-farm-ina-may.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     tigris: file(relativePath: { eq: "tigris.jpg" }) {
       childImageSharp {
         fixed(width: 150, height: 150) {
