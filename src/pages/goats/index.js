@@ -5,7 +5,7 @@ import SEO from '../../components/seo'
 
 import Info from '../../components/info'
 import Goats from '../../components/goats';
-import KiddingSchedule from '../../components/kidding-schedule';
+// import KiddingSchedule from '../../components/kidding-schedule';
 
 const GoatsPage = ({data}) => (
   <Layout>
@@ -18,7 +18,7 @@ const GoatsPage = ({data}) => (
         <p>Our herd tested negative for CAE, CL and Johne’s as of 11/15/2018.</p>
       </Info>
     </Goats>
-    <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
+    {/* <KiddingSchedule goats={data.allGoatsJson.edges} data={data} /> */}
   </Layout>
 )
 
@@ -30,6 +30,7 @@ export const query = graphql`
           name
           date
           aka
+          adgaPedigree
           slug
           pedigree
           sire {

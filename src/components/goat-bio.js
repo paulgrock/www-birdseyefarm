@@ -7,7 +7,7 @@ import format from 'date-fns/format'
 
 import Title from './section-title'
 import styles from './goats.module.css'
-const GoatBio = ({ img, name, slug, date, sire, dam, copy, showCopy, withTitle = true }) => {
+const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCopy, withTitle = true }) => {
 	return (
 	  <div className={styles.goat}>
 		<Img fluid={img.childImageSharp.fluid} alt={name} className={styles.photo} />
@@ -20,6 +20,8 @@ const GoatBio = ({ img, name, slug, date, sire, dam, copy, showCopy, withTitle =
 			</Title>
 			)}
 		  <span>Born {format(date, "M/D/YYYY")}</span>
+		  <br />
+		  <a href={adgaPedigree}>ADGA Pedigree</a>
 
 		  <ul className={styles.list}>
 			<li className={styles.listItem}>
@@ -44,7 +46,7 @@ const GoatBio = ({ img, name, slug, date, sire, dam, copy, showCopy, withTitle =
 			  <strong>DS</strong>: {dam.sire.name}
 			</li>
 			<li className={styles.listItem}>
-			  <strong>DD</strong>: {dam.dam.name}
+			  <strong>DD</strong>: {dam.dam.link ? <a href={dam.dam.link}>{dam.dam.name}</a>: dam.dam.name}
 			</li>
 		  </ul>
 		</header>

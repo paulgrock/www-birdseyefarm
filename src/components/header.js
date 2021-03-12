@@ -28,11 +28,11 @@ const Header = ({ siteTitle }) => (
             Goats
           </Link>
         </li>
-        <li className={styles.navItem}>
+        {/* <li className={styles.navItem}>
           <Link getProps={isPartiallyActive} className={styles.navLink} to="/goats#kidding-schedule">
             Kidding Schedule
           </Link>
-        </li>
+        </li> */}
         <li className={styles.navItem}>
           <Link getProps={isPartiallyActive} className={styles.navLink} to="#contact">
             Contact Us

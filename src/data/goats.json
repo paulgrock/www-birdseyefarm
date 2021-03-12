@@ -1,50 +1,8 @@
 [
 	{
-		"name": "Harley Hillside Ginger Zinger",
-		"aka": "Zadie",
-		"slug": "harley-hillside-ginger-zinger",
-		"date": "2017-02-01",
-		"pedigree": "http://www.adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001845956&DamNum=D001840906",
-		"sire": {
-			"link": "https://curbstonevalley.com/blog/?page_id=13133",
-			"name": "Castle Rock Roxstar",
-			"sire": {
-				"name": "Caprine Acres HS Cooper"
-			},
-			"dam": {
-				"name": "GCH CRF Castle Rock Roxanne 1*M *D VEEE 91"
-			}
-		},
-		"dam": {
-			"link": "https://harleyhillsidefarm.com/ff/",
-			"name": "Harley Hillside iHeart Chai VVV+ 85",
-			"sire": {
-				"name": "Castle Rock Clark's Nutcracker"
-			},
-			"dam": {
-				"name": "SGCH Castle Rock Breakin My Heart 6*M VEEE 90"
-			}
-		},
-		"copy": [
-			"Zadie is a petite, feminine doe who comes from a long line of great milkers. She stands 20.5” at the withers and has a level topline, straight front legs and nice rear leg angulation. Zadie has good body capacity and a mighty pretty little face. She’s a serious sweetheart, often going for the cuddles even before the treats. Petite though she is, Zadie is herd queen. When we take walks she always needs to be out front.",
-			"Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, is a star in the show ring and on the milkstand, winning Best Udder of Breed no less than fourteen times. Her other grand-dam, SGCH Castle Rock Breakin My Heart 6*M VEEE 90, made Top Ten in ADGA’s protein production category in 2016—and gave 1210 pounds of milk that year.",
-			"She will be freshening for the first time in 2019 and we hope she passes on her dairy genetics and sweet disposition to her kids. Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"
-		],
-		"kiddingDate": "2019-05-01",
-		"notes": ["First Freshening", "1 doe reserved - CR"],
-		"prices": [
-			"Does: $400",
-			"Wethers: $150"
-		],
-		"mate": {
-			"name": "Curbstone Valley Tigris *B",
-			"slug": "tigris",
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
-		}
-	},
-	{
 		"name": "Harley Hillside Dime Piece",
 		"aka": "Chimi",
+		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D001840907",
 		"slug": "harley-hillside-dime-piece",
 		"date": "2017-02-03",
 		"pedigree": "http://www.adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001845956&DamNum=D001840907",
@@ -76,6 +34,53 @@
 		],
 		"kiddingDate": "2019-05-08",
 		"notes": ["First Freshening", "1 doe reserved - LM"],
+		"prices": [
+			"Does: $400",
+			"Wethers: $150"
+		],
+		"mate": {
+			"name": "Curbstone Valley Tigris *B",
+			"slug": "tigris",
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
+		}
+	},
+	{
+		"name": "Harley Hillside Ginger Zinger",
+		"aka": "Zadie",
+		"slug": "harley-hillside-ginger-zinger",
+		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D001840906",
+		"date": "2017-02-01",
+		"pedigree": "http://www.adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001845956&DamNum=D001840906",
+		"sire": {
+			"link": "https://curbstonevalley.com/blog/?page_id=13133",
+			"name": "Castle Rock Roxstar",
+			"sire": {
+				"name": "Caprine Acres HS Cooper"
+			},
+			"dam": {
+				"name": "GCH CRF Castle Rock Roxanne 1*M *D VEEE 91"
+			}
+		},
+		"dam": {
+			"link": "https://www.oldwashoe.com/copy-of-harley-hillside-red-sunflow",
+			"name": "Harley Hillside iHeart Chai VVV+ 85",
+			"sire": {
+				"name": "Castle Rock Clark's Nutcracker"
+			},
+			"dam": {
+				"name": "SGCH Castle Rock Breakin My Heart 6*M 6*D VEEE 90",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/sgch-castle-rock-breakin-my-heart-6m-ar/"
+			}
+		},
+		"copy": [
+			"Zadie is a petite, feminine doe who comes from a long line of stellar milkers. She stands 20.5” at the withers and has a level topline, straight front legs and nice rear leg angulation. Zadie has good body capacity and a mighty pretty little face. She’s a serious sweetheart, often going for the cuddles even before the treats. Petite though she is, Zadie is herd queen. When the goats head out to pasture she takes the lead.",
+			"Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, is a star in the show ring and on the milkstand, winning Best Udder of Breed no less than fourteen times. Her other granddam, SGCH Castle Rock Breakin My Heart 6*M 6*D VEEE 90, made Top Ten in ADGA’s protein production category in 2016—and gave 1210 pounds of milk that year.",
+			"Zadie had such a smooth 2019 kidding that the first babe was on the ground before we could run from house to barn. She easily fed three kids, including her big wether Giannis. And she kept right on patiently feeding the pair we retained for well over a year. (Being curious about extended lactations, we find this a promising trait in terms of sustaining will to milk over a long period.) The long lactation did seem to wear on her, so she’s taking a well-earned break. Her daughter Zora has the same sweet disposition and elegant bearing as her dam and will be next up on our breeding schedule.",
+			"Zadie’s first freshening udder was soft with great attachment and capacity, though her teat placement and orifices aren’t as ideal as her half-sister Chimi’s, so she took longer to milk out. Since our primary focus for 2019 was growing our herd, we let her kids hog the milk (as mentioned above), but Zadie was still giving us over a pound of milk each morning; we’d love to get her on milk test when she next freshens.",
+			"Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"
+		],
+		"kiddingDate": "2019-05-01",
+		"notes": ["First Freshening", "1 doe reserved - CR"],
 		"prices": [
 			"Does: $400",
 			"Wethers: $150"

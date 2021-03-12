@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from "gatsby";
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
@@ -15,11 +14,6 @@ function Zadie({data}) {
 		</Layout>
   )
 }
-
-Zadie.propTypes = {
-
-}
-
 
 export const query = graphql`
   query {
@@ -48,6 +42,7 @@ export const query = graphql`
             }
             dam {
               name
+              link
             }
           }
 					copy
