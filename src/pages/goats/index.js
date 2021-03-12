@@ -38,9 +38,11 @@ export const query = graphql`
             name
             sire {
               name
+              link
             }
             dam {
               name
+              link
             }
           }
           dam {
@@ -48,9 +50,11 @@ export const query = graphql`
             name
             sire {
               name
+              link
             }
             dam {
               name
+              link
             }
           }
           notes

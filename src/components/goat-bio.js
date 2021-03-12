@@ -7,6 +7,13 @@ import format from 'date-fns/format'
 
 import Title from './section-title'
 import styles from './goats.module.css'
+
+const ParentText = ({type, grandParent}) => (
+	<>
+		<strong>{type}</strong>: {grandParent.link ? <a href={grandParent.link}>{grandParent.name}</a>: grandParent.name}
+	</>
+);
+
 const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCopy, withTitle = true }) => {
 	return (
 	  <div className={styles.goat}>
@@ -33,22 +40,20 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			  </a>
 			</li>
 			<li className={styles.listItem}>
-			  <strong>SS</strong>: {sire.sire.name}
+				<ParentText type="SS" grandParent={sire.sire} />
 			</li>
 			<li className={styles.listItem}>
-			  <strong>SD</strong>: {sire.dam.name}
+				<ParentText type="SD" grandParent={sire.dam} />
 			</li>
 			<li className={styles.listItem}>
 			  <strong>Dam</strong>:{' '}
-			  <a href={dam.link}>
-			  {dam.name}
-			  </a>
+			  <a href={dam.link}>{dam.name}</a>
 			</li>
 			<li className={styles.listItem}>
-			  <strong>DS</strong>: {dam.sire.name}
+				<ParentText type="DS" grandParent={dam.sire} />
 			</li>
 			<li className={styles.listItem}>
-			  <strong>DD</strong>: {dam.dam.link ? <a href={dam.dam.link}>{dam.dam.name}</a>: dam.dam.name}
+				<ParentText type="DD" grandParent={dam.dam} />
 			</li>
 		  </ul>
 		</header>
