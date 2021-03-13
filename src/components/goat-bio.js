@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
@@ -65,9 +64,9 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 
 		{slug === 'harley-hillside-dime-piece' && data && (
 			<>
-				<Img fluid={datadata.udder.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
-				<Img fluid={datadata.udder2.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
-				<Img fluid={datadata.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
+				<Img fluid={data.udder.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
+				<Img fluid={data.udder2.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
+				<Img fluid={data.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
 		)}
 	  </div>
