@@ -14,10 +14,10 @@ const ParentText = ({type, grandParent}) => (
 	</>
 );
 
-const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCopy, withTitle = true }) => {
+const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCopy, data, withTitle = true }) => {
 	return (
 	  <div className={styles.goat}>
-		{img && (
+		{img && img.childImageSharp && (
 			<Img fluid={img.childImageSharp.fluid} alt={name} className={styles.photo} />
 		)}
 
@@ -63,12 +63,13 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			))
 		)}
 
-		{/* {slug === 'harley-hillside-dime-piece' && (
+		{slug === 'harley-hillside-dime-piece' && (
 			<>
-				<Img src="../images/chimi-udder.jpg" alt="Dime Piece Udder" />
-				<Img src="../images/chimi-udder.jpg" alt="Dime Piece Udder" />
+				<Img fluid={data.udder.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
+				<Img fluid={data.udder2.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
+				<Img fluid={data.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
-		)} */}
+		)}
 	  </div>
 	)
   }

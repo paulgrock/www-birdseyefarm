@@ -12,7 +12,7 @@ const Goat = ({goats, data, title}) => {
 		<Section className={styles.container}>
       <Title>{title}</Title>
       {goats.map(({node}) => (
-        <GoatBio {...node} key={node.slug} img={data.file} showCopy={true} withTitle={false} />
+        <GoatBio {...node} key={node.slug} img={data.file} showCopy={true} withTitle={false} data={data} />
       ))}
     </Section>
   )
