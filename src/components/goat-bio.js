@@ -69,6 +69,10 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 				<Img fluid={data.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
 		)}
+
+		{['birds-eye-farm-zora-neale', 'birds-eye-farm-ina-may'].includes(slug) && data && (
+			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
+		)}
 	  </div>
 	)
   }
