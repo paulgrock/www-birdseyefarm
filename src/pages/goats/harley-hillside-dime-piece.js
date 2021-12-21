@@ -29,7 +29,7 @@ export const query = graphql`
           date
           aka
           slug
-          pedigree
+          adgaPedigree
           sire {
             link
             name
