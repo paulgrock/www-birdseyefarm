@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react';
 
 import Section from '../section-container'
-import styles from './hero.module.css';
+import * as styles from './hero.module.css';
 
 import logo from '../../images/logo-large.png';
 

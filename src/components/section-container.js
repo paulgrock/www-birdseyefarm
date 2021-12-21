@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './section-container.module.css';
+import * as styles from './section-container.module.css';
 
 const SectionContainer = ({children, className, ...rest}) => {
   return (

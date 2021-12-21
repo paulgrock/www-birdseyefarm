@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import format from 'date-fns/format'
 
 import Title from './section-title'
-import styles from './goats.module.css'
+import * as styles from './goats.module.css'
 
 const ParentText = ({type, grandParent}) => (
 	<>

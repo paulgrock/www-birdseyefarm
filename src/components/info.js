@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './info.module.css'
+import * as styles from './info.module.css'
 import Title from './section-title';
 
 const info = ({title, children}) => (

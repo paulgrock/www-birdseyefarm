@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ReactModal from 'react-modal';
 import * as yup from 'yup';
 import Button from '../button';
-import styles from './contact.module.css';
+import * as styles from './contact.module.css';
 import Title from '../section-title';
 import Section from  '../section-container';
 

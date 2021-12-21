@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from './section-container';
 
-import styles from './goats.module.css'
+import * as styles from './goats.module.css'
 import GoatBio from './goat-bio';
 
 const Goats = ({goats, data, children}) => {

@@ -4,7 +4,7 @@ import Button from '../button'
 import Title from '../section-title';
 import Section from '../section-container'
 
-import styles from './gallery.module.css';
+import * as styles from './gallery.module.css';
 
 import goats from '../../images/goats.jpg';
 import artichoke from '../../images/artichoke.jpg';

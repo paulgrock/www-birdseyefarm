@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './section-title.module.css'
+import * as styles from './section-title.module.css'
 
 const SectionTitle = ({children, className}) => {
   const classes = className ? `${styles.title} ${className}` : styles.title;

@@ -7,7 +7,7 @@ import format from 'date-fns/format'
 import Section from './section-container';
 import Title from './section-title'
 
-import styles from './kidding-schedule.module.css';
+import * as styles from './kidding-schedule.module.css';
 
 const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, pedigree, mateImg}) => (
 	<tr>
