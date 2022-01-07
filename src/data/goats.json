@@ -39,16 +39,16 @@
 
 			"We feel so lucky to have begun our herd with such fine genetics. As the saying goes: “They say she’s a dime; I say she’s underrated.”"
 		],
-		"kiddingDate": "2019-05-08",
-		"notes": ["First Freshening", "1 doe reserved - LM"],
+		"kiddingDate": "TBA",
+		"notes": [],
 		"prices": [
-			"Does: $400",
-			"Wethers: $150"
+			"Does: TBD",
+			"Wethers: TBD"
 		],
 		"mate": {
-			"name": "Curbstone Valley Tigris *B",
-			"slug": "tigris",
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
+			"name": "Diji Farm PN Montego Bay",
+			"slug": "montego",
+			"link": "https://www.dijifarm.com/diji-farm-pn-montego-bay"
 		}
 	},
 	{
@@ -89,11 +89,10 @@
 			"Zadie’s first freshening udder was soft with great attachment and capacity, though her teat placement and orifices aren’t as ideal as her half-sister Chimi’s, so she took longer to milk out. Since our primary focus for 2019 was growing our herd, we let her kids hog the milk (as mentioned above), but Zadie was still giving us over a pound of milk each morning; we’d love to get her on milk test when she next freshens.",
 			"Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"
 		],
-		"kiddingDate": "2019-05-01",
 		"notes": ["First Freshening", "1 doe reserved - CR"],
 		"prices": [
-			"Does: $400",
-			"Wethers: $150"
+			"Does: TBD",
+			"Wethers: TBD"
 		],
 		"mate": {
 			"name": "Curbstone Valley Tigris *B",
@@ -106,6 +105,18 @@
 		"aka": "Zora",
 		"slug": "birds-eye-farm-zora-neale",
 		"date": "2019-05-01",
+		"kiddingDate": "2022-05-31",
+		"mate": {
+			"name": "Diji Farm BL Oliver",
+			"slug": "oliver",
+			"link": "https://www.dijifarm.com/diji-farm-bl-oliver"
+		},
+		"notes": ["First Freshening"],
+		"prices": [
+			"Does: TBD",
+			"Wethers: TBD"
+		],
+		"pedigree": "https://adgagenetics.org/PlannedPedigree.aspx",
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
 		"sire": {
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
@@ -144,7 +155,18 @@
 		"aka": "Ina",
 		"slug": "birds-eye-farm-ina-may",
 		"date": "2019-05-08",
-		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002074269",
+		"kiddingDate": "TBA",
+		"mate": {
+			"name": "Diji Farm CRE Elohim",
+			"slug": "Elohim",
+			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
+		},
+		"notes": ["First Freshening"],
+		"prices": [
+			"Does: TBD",
+			"Wethers: TBD"
+		],
+		"pedigree": "https://adgagenetics.org/PlannedPedigree.aspx",
 		"sire": {
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
 			"name": "Curbstone Valley Tigris *B",

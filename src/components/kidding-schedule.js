@@ -21,14 +21,14 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	  </td>
 	  <td>
 		<figure>
-		  <img src={mateImg.childImageSharp.fixed.src} alt={mate.name} />
+		  {/* <img src={mateImg.childImageSharp.fixed.src} alt={mate.name} /> */}
 		  <figcaption>
 				<a href={mate.link} target="_blank">{mate.name}</a>
 		  </figcaption>
 		</figure>
 	  </td>
 	  <td>
-		{format(kiddingDate, 'MMM D, YYYY')}
+		{kiddingDate === 'TBA' ? kiddingDate : format(kiddingDate, 'MMM D, YYYY')}
 	  </td>
 	  <td>
 		<a href={pedigree} target="_blank">ADGA Planned Pedigree</a>
@@ -43,7 +43,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 )
 const KiddingScheduleContainer = ({goats, data}) => (
 	<Section id="kidding-schedule">
-		<Title>2019 Kidding Schedule</Title>
+		<Title>2022 Kidding Schedule</Title>
 		<table>
 		<thead>
 			<tr>
@@ -56,13 +56,13 @@ const KiddingScheduleContainer = ({goats, data}) => (
 			</tr>
 		</thead>
 		<tbody>
-			{goats.map(({node}) => (
+			{goats.filter(({node}) => !!node.kiddingDate).map(({node}) => (
 				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
 			)
 			)}
 		</tbody>
 		</table>
-		<small className={styles.attribution}>Tigris appears courtesy of <a href="http://dogislandfarm.com" target="_blank">Dog Island Farm</a>.</small>
+		{/* <small className={styles.attribution}>Diji Farm CRE Elohim, Diji Farm BL Oliver and Diji Farm PN Montego Bay appear courtesy of <a href="https://www.dijifarm.com" target="_blank">Diji Farm</a>.</small> */}
 	</Section>
 )
 

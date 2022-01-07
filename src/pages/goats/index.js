@@ -5,7 +5,7 @@ import SEO from '../../components/seo'
 
 import Info from '../../components/info'
 import Goats from '../../components/goats';
-// import KiddingSchedule from '../../components/kidding-schedule';
+import KiddingSchedule from '../../components/kidding-schedule';
 
 const GoatsPage = ({data}) => (
   <Layout>
@@ -18,7 +18,7 @@ const GoatsPage = ({data}) => (
         <p>Our herd tested negative for CAE, CL, OPP and Johne’s as of November 2021.</p>
       </Info>
     </Goats>
-    {/* <KiddingSchedule goats={data.allGoatsJson.edges} data={data} /> */}
+    <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
   </Layout>
 )
 
@@ -109,6 +109,27 @@ export const query = graphql`
       }
     }
     tigris: file(relativePath: { eq: "tigris.jpg" }) {
+      childImageSharp {
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    oliver: file(relativePath: { eq: "oliver.jpg" }) {
+      childImageSharp {
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    montego: file(relativePath: { eq: "montego.jpg" }) {
+      childImageSharp {
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    elohim: file(relativePath: { eq: "elohim.jpg" }) {
       childImageSharp {
         fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
