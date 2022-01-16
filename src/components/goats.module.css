@@ -13,9 +13,15 @@
 .photo {
 	margin-bottom: 0;
 	display: inline-block;
-	width: 33%;
-	max-width: 380px;
 	vertical-align: middle;
+	max-width: 380px;
+	width: 100%;
+}
+
+@media screen and (min-width: 960px) {
+	.photo {
+		width: 33%;
+	}
 }
 
 .content {
