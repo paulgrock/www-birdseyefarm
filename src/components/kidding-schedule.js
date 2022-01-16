@@ -33,12 +33,12 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	  <td>
 		<a href={pedigree} target="_blank">ADGA Planned Pedigree</a>
 	  </td>
-	  <td>
+	  {/* <td>
 		{notes.map(note => <p className={styles.note} key={note}>{note}</p>)}
 	  </td>
 	  <td>
 		{prices.map(price => <p className={styles.note} key={price}>{price}</p>)}
-	  </td>
+	  </td> */}
 	</tr>
 )
 const KiddingScheduleContainer = ({goats, data}) => (
@@ -51,8 +51,8 @@ const KiddingScheduleContainer = ({goats, data}) => (
 				<td className={styles.tableHeading}>Sire</td>
 				<td className={styles.tableHeading}>Due Date</td>
 				<td className={styles.tableHeading}>ADGA Pedigree</td>
-				<td className={styles.tableHeading}>Notes</td>
-				<td className={styles.tableHeading}>Fee</td>
+				{/* <td className={styles.tableHeading}>Notes</td>
+				<td className={styles.tableHeading}>Fee</td> */}
 			</tr>
 		</thead>
 		<tbody>
