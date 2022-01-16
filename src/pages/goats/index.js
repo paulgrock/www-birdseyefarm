@@ -122,6 +122,13 @@ export const query = graphql`
         }
       }
     }
+    austin: file(relativePath: { eq: "austin.jpg" }) {
+      childImageSharp {
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     montego: file(relativePath: { eq: "montego.jpg" }) {
       childImageSharp {
         fixed(width: 150, height: 150) {

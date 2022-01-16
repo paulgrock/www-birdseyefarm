@@ -39,16 +39,13 @@
 
 			"We feel so lucky to have begun our herd with such fine genetics. As the saying goes: “They say she’s a dime; I say she’s underrated.”"
 		],
-		"kiddingDate": "TBA",
+		"kiddingDate": "2022-06-01",
 		"notes": [],
-		"prices": [
-			"Does: TBD",
-			"Wethers: TBD"
-		],
+		"prices": [""],
 		"mate": {
-			"name": "Diji Farm PN Montego Bay",
-			"slug": "montego",
-			"link": "https://www.dijifarm.com/diji-farm-pn-montego-bay"
+			"name": "Diji Farm CRB Austin Healey",
+			"slug": "austin",
+			"link": "https://www.dijifarm.com/diji-farm-crb-austin-healey"
 		}
 	},
 	{
@@ -90,10 +87,7 @@
 			"Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"
 		],
 		"notes": ["First Freshening", "1 doe reserved - CR"],
-		"prices": [
-			"Does: TBD",
-			"Wethers: TBD"
-		],
+		"prices": [""],
 		"mate": {
 			"name": "Curbstone Valley Tigris *B",
 			"slug": "tigris",
@@ -112,10 +106,7 @@
 			"link": "https://www.dijifarm.com/diji-farm-bl-oliver"
 		},
 		"notes": ["First Freshening"],
-		"prices": [
-			"Does: TBD",
-			"Wethers: TBD"
-		],
+		"prices": [""],
 		"pedigree": "https://adgagenetics.org/PlannedPedigree.aspx",
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
 		"sire": {
@@ -155,17 +146,13 @@
 		"aka": "Ina",
 		"slug": "birds-eye-farm-ina-may",
 		"date": "2019-05-08",
-		"kiddingDate": "TBA",
 		"mate": {
 			"name": "Diji Farm CRE Elohim",
 			"slug": "Elohim",
 			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
 		},
 		"notes": ["First Freshening"],
-		"prices": [
-			"Does: TBD",
-			"Wethers: TBD"
-		],
+		"prices": [""],
 		"pedigree": "https://adgagenetics.org/PlannedPedigree.aspx",
 		"sire": {
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",

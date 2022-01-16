@@ -21,7 +21,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	  </td>
 	  <td>
 		<figure>
-		  {/* <img src={mateImg.childImageSharp.fixed.src} alt={mate.name} /> */}
+		  <img src={mateImg.childImageSharp.fixed.src} alt={mate.name} />
 		  <figcaption>
 				<a href={mate.link} target="_blank">{mate.name}</a>
 		  </figcaption>
@@ -62,7 +62,7 @@ const KiddingScheduleContainer = ({goats, data}) => (
 			)}
 		</tbody>
 		</table>
-		{/* <small className={styles.attribution}>Diji Farm CRE Elohim, Diji Farm BL Oliver and Diji Farm PN Montego Bay appear courtesy of <a href="https://www.dijifarm.com" target="_blank">Diji Farm</a>.</small> */}
+		<small className={styles.attribution}> Diji Farm BL Oliver and Diji Farm CRB Austin Healey appear courtesy of <a href="https://www.dijifarm.com" target="_blank">Diji Farm</a>.</small>
 	</Section>
 )
 
