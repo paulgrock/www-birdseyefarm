@@ -7,7 +7,7 @@
 		"date": "2017-02-03",
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D002108754&DamNum=D001840907",
 		"sire": {
-			"link": "https://curbstonevalley.com/blog/?page_id=13133",
+			"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/",
 			"name": "Castle Rock Roxstar",
 			"sire": {
 				"name": "Caprine Acres HS Cooper",
@@ -56,7 +56,7 @@
 		"date": "2017-02-01",
 		"pedigree": "http://www.adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001845956&DamNum=D001840906",
 		"sire": {
-			"link": "https://curbstonevalley.com/blog/?page_id=13133",
+			"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/",
 			"name": "Castle Rock Roxstar",
 			"sire": {
 				"name": "Caprine Acres HS Cooper",
@@ -126,7 +126,7 @@
 			"link": "/goats/harley-hillside-ginger-zinger",
 			"sire": {
 				"name": "Castle Rock Roxstar",
-				"link": ""
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
 			},
 			"dam": {
 				"name": "Harley Hillside iHeart Chai VVV+ 85",
@@ -171,7 +171,7 @@
 			"link": "/goats/harley-hillside-dime-piece",
 			"sire": {
 				"name": "Castle Rock Roxstar",
-				"link": ""
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
 			},
 			"dam": {
 				"name": "Castle Rock Worth Every Penny 3*M *D",
