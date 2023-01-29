@@ -72,9 +72,9 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			</>
 		)}
 
-		{data && data.milkstand && (
+		{data && data.other && (
 			<>
-				<Img fluid={data.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
+				<Img fluid={data.other.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
 		)}
 	  </div>

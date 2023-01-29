@@ -58,7 +58,7 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
+    file(relativePath: { eq: "chimi-milkstand.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
@@ -88,7 +88,7 @@ export const query = graphql`
         }
       }
     }
-    milkstand: file(relativePath: { eq: "chimi-milkstand.jpg" }) {
+    other: file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
