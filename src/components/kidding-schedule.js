@@ -43,7 +43,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 )
 const KiddingScheduleContainer = ({goats, data}) => (
 	<Section id="kidding-schedule">
-		<Title>2022 Kidding Schedule</Title>
+		<Title>2023 Kidding Schedule</Title>
 		<table>
 		<thead>
 			<tr>
@@ -62,7 +62,7 @@ const KiddingScheduleContainer = ({goats, data}) => (
 			)}
 		</tbody>
 		</table>
-		<small className={styles.attribution}> Diji Farm BL Oliver and Diji Farm CRB Austin Healey appear courtesy of <a href="https://www.dijifarm.com" target="_blank">Diji Farm</a>.</small>
+		<small className={styles.attribution}> Diji Farm BL Oliver, Diji Farm JRB Typhoon and Diji Farm CRB Austin Healey appear courtesy of <a href="https://www.dijifarm.com" target="_blank">Diji Farm</a>.</small>
 	</Section>
 )
 

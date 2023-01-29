@@ -74,6 +74,26 @@ export const query = graphql`
         }
       }
     }
+    udder: file(relativePath: { eq: "chimi-udder.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    udder2: file(relativePath: { eq: "chimi-udder-two.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
 	}
 `
 

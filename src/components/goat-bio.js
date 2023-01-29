@@ -22,10 +22,9 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 
 		<header className={styles.content}>
 			{withTitle && (
-
 				<Title>
-				<Link to={`/goats/${slug}`}>{name}</Link>
-			</Title>
+					<Link to={`/goats/${slug}`}>{name}</Link>
+				</Title>
 			)}
 		  <span>Born {format(date, "M/D/YYYY")}</span>
 		  <br />
@@ -62,16 +61,21 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			))
 		)}
 
-		{slug === 'harley-hillside-dime-piece' && data && (
+		{['birds-eye-farm-zora-neale', 'birds-eye-farm-ina-may'].includes(slug) && data && (
+			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
+		)}
+
+		{data && data.udder && data.udder2 && (
 			<>
 				<Img fluid={data.udder.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
 				<Img fluid={data.udder2.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
-				<Img fluid={data.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
 		)}
 
-		{['birds-eye-farm-zora-neale', 'birds-eye-farm-ina-may'].includes(slug) && data && (
-			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
+		{data && data.milkstand && (
+			<>
+				<Img fluid={data.milkstand.childImageSharp.fluid} alt={name} className={styles.photo} />
+			</>
 		)}
 	  </div>
 	)

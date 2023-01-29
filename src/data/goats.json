@@ -31,22 +31,103 @@
 			}
 		},
 		"copy": [
-			"Chimi is a powerful doe with great body capacity, standing 22 inches at the withers. She has a long, level topline, straight front legs and nice rear leg angulation. Adorably frosted ears run in her family, making Chim look like a snow-flecked reindeer. She has a gleeful appetite for pasture and is occasionally eager enough to bust through the electric fence to the next paddock. She doesn’t have the elegant angularity of some dairy does, a quality we want to improve on with her offspring.",
+			"Chimi is a powerful doe with great body capacity, standing 22 inches at the withers. She has a long, level topline, straight front legs and nice rear leg angulation. Adorably frosted ears run in her family, making Chim look like a snow-flecked reindeer. She has a gleeful appetite for pasture and is occasionally eager enough to bust through the electric fence to the next paddock. She doesn’t have the elegant angularity of some dairy does, a quality are working to improve on with her offspring.",
 
 			"With both parents from Castle Rock Farm, Chimi has superb dairy genetics. Her dam, Castle Rock Worth Every Penny 3*M *D, produced 740 pounds of milk in 247 days as a yearling first-freshener and 950 pounds in a 305-day second lactation. Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, also has quite the mammary reputation, having won Best Udder of Breed fourteen times.",
 
-			"Chimi freshened in 2019 with a soft, well-attached, capacious udder with good teat placement and lovely open orifices, making her a joy to milk. We kept two of her daughters (because, who wouldn’t want more Chimis?) and let them nurse throughout her lactation. We figured it was worth giving up some milk to get extra hale and hearty doelings for our growing herd, though this also meant we didn’t get full production records. Still, she was giving us well over a pound of milk in the mornings, so when we are more competent milkers and she doesn’t have kids on her, I bet she can do 3 lbs plus per day, like her dam. We alas weren’t able to get her on milk test as an FF, but we’re excited to test when she freshens again, because this gal is destined to be a beast of a milker!",
+			"Chimi freshened in 2019 with a soft, well-attached, capacious udder with good teat placement and lovely open orifices, making her a joy to milk. She began milk test as a second freshener in 2022 and peaked at nearly 4 pounds per day. Since she had a summer freshening and is such an excellent producer we are milking her through in 2023 to see how long she can maintain production. She will soon earn her milk star and have complete DHIR records available.",
 
 			"We feel so lucky to have begun our herd with such fine genetics. As the saying goes: “They say she’s a dime; I say she’s underrated.”"
 		],
-		"kiddingDate": "2022-06-01",
 		"notes": [],
-		"prices": [""],
+		"prices": [""]
+	},
+	{
+		"name": "Bird’s Eye Farm Ina May",
+		"aka": "Ina",
+		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002074269",
+		"slug": "birds-eye-farm-ina-may",
+		"date": "2019-05-08",
+		"kiddingDate": "2023-01-30",
 		"mate": {
-			"name": "Diji Farm CRB Austin Healey",
-			"slug": "austin",
-			"link": "https://www.dijifarm.com/diji-farm-crb-austin-healey"
-		}
+			"name": "Diji Farm JRB Typhoon",
+			"slug": "typhoon",
+			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
+		},
+		"notes": ["First Freshening"],
+		"prices": [""],
+		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002074269",
+		"sire": {
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
+			"name": "Curbstone Valley Tigris *B",
+			"sire": {
+				"name": "Curbstone Valley Sheldon *B *S",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
+			},
+			"dam": {
+				"name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
+			}
+		},
+		"dam": {
+			"name": "Harley Hillside Dime Piece",
+			"link": "/goats/harley-hillside-dime-piece",
+			"sire": {
+				"name": "Castle Rock Roxstar *B",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
+			},
+			"dam": {
+				"name": "Castle Rock Worth Every Penny 3*M *D",
+				"link": ""
+			}
+		},
+		"copy": [
+			"Ina was among the first Bird’s Eye Farm-born goats, one of five girls born to two does in our first season. We lucked out! Ina has the same powerful, capacious build and tabletop line as her dam, Dime Piece (aka Chimi), but with a bit more graceful angularity (which seems to come from her paternal granddam). It’s a pleasure to watch the mother-daughter pair out on pasture since they’re both so lovely on the move. Ina is keen on finding the best snacking spots, which often means her face is in the grass inches from her mama’s nose.",
+			"Ina is due to kid in late January 2023 and will be on milk test, eligible to become 5*M, following in the milky footsteps of her dam and granddam.",
+			"Ina’s dam, Chimi, has a very well-formed, productive mammary system and is a pleasure to milk. Chim is on extended lactation through 2023 and will earn her milk star very soon, having peaked near four pounds per day.",
+			"Ina bears a striking resemblance to her paternal granddam, GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92. Ocean is a show ring and milk stand legend, producing 1080 lbs of milk on 305-day test in 2017 and making AGS Top Ten in 2016 for protein production."
+		]
+	},
+	{
+		"name": "Bird’s Eye Farm Zora Neale",
+		"aka": "Zora",
+		"slug": "birds-eye-farm-zora-neale",
+		"date": "2019-05-01",
+		"notes": ["First Freshening"],
+		"prices": [""],
+		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001802605&DamNum=D002111884",
+		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
+		"sire": {
+			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
+			"name": "Curbstone Valley Tigris *B",
+			"sire": {
+				"name": "Curbstone Valley Sheldon *B *S",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
+			},
+			"dam": {
+				"name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
+			}
+		},
+		"dam": {
+			"name": "Harley Hillside Ginger Zinger",
+			"link": "/goats/harley-hillside-ginger-zinger",
+			"sire": {
+				"name": "Castle Rock Roxstar *B",
+				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
+			},
+			"dam": {
+				"name": "Harley Hillside iHeart Chai VVV+ 85",
+				"link": "https://www.oldwashoe.com/copy-of-harley-hillside-red-sunflow"
+			}
+		},
+		"copy": [
+			"Zora was the first Bird’s Eye Farm-born doe that we retained and we’re so proud of her.",
+			"Her dam, Ginger Zinger (aka Zadie) is one of our foundational does. Zora is spritely, angular and feminine. Like her dam, she is very level with straight front legs and well-angled rear legs. She’s incredibly friendly and as a kid was always looking for a human lap in which to snuggle. In a herd with many gold coats, Zora stands out rocking her white-flecked-with-chocolate look.",
+			"Her dam Zadie has a gorgeous, capacious udder and bestowed such patient maternal love that Zora was teat-fed until she was well over a year old.",
+			"Zora has great genetics from both sides. Her Castle Rock lineage is rich with milk stars. And her paternal granddam GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92 is a show ring and milk stand legend, producing 1080 lbs of milk on 305-day test in 2017.",
+			"Zora freshened in 2022 and milked nearly three pounds per day that summer. We are experimenting with extended lactations and staggered breedings; our expected schedule has her kidding again in 2024. We also plan to put her on test to earn her milk star at her second freshening."
+		]
 	},
 	{
 		"name": "Harley Hillside Ginger Zinger",
@@ -87,102 +168,6 @@
 			"Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"
 		],
 		"notes": ["First Freshening", "1 doe reserved - CR"],
-		"prices": [""],
-		"mate": {
-			"name": "Curbstone Valley Tigris *B",
-			"slug": "tigris",
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/"
-		}
-	},
-	{
-		"name": "Bird’s Eye Farm Zora Neale",
-		"aka": "Zora",
-		"slug": "birds-eye-farm-zora-neale",
-		"date": "2019-05-01",
-		"kiddingDate": "2022-05-31",
-		"mate": {
-			"name": "Diji Farm BL Oliver",
-			"slug": "oliver",
-			"link": "https://www.dijifarm.com/diji-farm-bl-oliver"
-		},
-		"notes": ["First Freshening"],
-		"prices": [""],
-		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001802605&DamNum=D002111884",
-		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
-		"sire": {
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
-			"name": "Curbstone Valley Tigris *B",
-			"sire": {
-				"name": "Curbstone Valley Sheldon *B *S",
-				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
-			},
-			"dam": {
-				"name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
-				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
-			}
-		},
-		"dam": {
-			"name": "Harley Hillside Ginger Zinger",
-			"link": "/goats/harley-hillside-ginger-zinger",
-			"sire": {
-				"name": "Castle Rock Roxstar *B",
-				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
-			},
-			"dam": {
-				"name": "Harley Hillside iHeart Chai VVV+ 85",
-				"link": "https://www.oldwashoe.com/copy-of-harley-hillside-red-sunflow"
-			}
-		},
-		"copy": [
-			"Zora was the first Bird’s Eye Farm-born doe that we retained and we’re so proud of her.",
-			"Her dam, Ginger Zinger (aka Zadie) is our herd queen and one of our foundational does. Zora is spritely, angular and feminine. Like her dam, she is very level with straight front legs and well-angled rear legs. She’s incredibly friendly and as a kid was always looking for a human lap in which to snuggle. In a herd with lots of gold coats, Zora stands out rocking her white-flecked-with-chocolate look.",
-			"Her dam Zadie freshened with a gorgeous, capacious udder and bestowed such patient maternal love that Zora was teat-fed until she was well over a year old. Hopefully through all that milk Zadie was also conferring her superb dairy genetics, as this Castle Rock line has racked up a lot of milk stars.",
-			"Zora has great genetics from her handsome sire Curbstone Valley Tigris *B as well. Her paternal granddam GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92 is a show ring and milk stand legend, producing 1080 lbs of milk on 305-day test in 2017. Ocean also made the AGS Top Ten list in 2016 for protein production.",
-			"We plan to breed Zora soon and can’t wait to see what this gal can do."
-		]
-	},
-	{
-		"name": "Bird’s Eye Farm Ina May",
-		"aka": "Ina",
-		"slug": "birds-eye-farm-ina-may",
-		"date": "2019-05-08",
-		"mate": {
-			"name": "Diji Farm CRE Elohim",
-			"slug": "Elohim",
-			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
-		},
-		"notes": ["First Freshening"],
-		"prices": [""],
-		"pedigree": "https://adgagenetics.org/PlannedPedigree.aspx",
-		"sire": {
-			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
-			"name": "Curbstone Valley Tigris *B",
-			"sire": {
-				"name": "Curbstone Valley Sheldon *B *S",
-				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
-			},
-			"dam": {
-				"name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
-				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
-			}
-		},
-		"dam": {
-			"name": "Harley Hillside Dime Piece",
-			"link": "/goats/harley-hillside-dime-piece",
-			"sire": {
-				"name": "Castle Rock Roxstar *B",
-				"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
-			},
-			"dam": {
-				"name": "Castle Rock Worth Every Penny 3*M *D",
-				"link": ""
-			}
-		},
-		"copy": [
-			"Ina was among the first Bird’s Eye Farm-born goats, one of five girls born to two does in our first season. We lucked out! Ina has the same powerful, capacious build and tabletop line as her dam, Dime Piece (aka Chimi), but with more graceful angularity (which seems to come from her paternal granddam). She also inherited Chimi’s frosted ears and cool beard. It’s a pleasure to watch the mother-daughter pair out on pasture since they’re both so lovely on the move. Ina is keen on finding the best snacking spots, which often means her face is in the grass inches from her mama’s nose.",
-			"Ina’s dam, Chimi, has a very well-formed, productive mammary system and is a pleasure to milk. Her maternal granddam Castle Rock Worth Every Penny 3*M *D really put it in the pail, too, so we hope Chimi and Ina can earn milk stars soon to continue the family dynasty.",
-			"Ina bears a striking resemblance to her paternal granddam, GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92. Ocean is a show ring and milk stand legend, producing 1080 lbs of milk on 305-day test in 2017 and making AGS Top Ten in 2016 for protein production.",
-			"Ina is looking great as she matures and we’re excited to see her freshen and take the milk stand."
-		]
+		"prices": [""]
 	}
 ]

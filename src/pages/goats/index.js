@@ -115,6 +115,13 @@ export const query = graphql`
         }
       }
     }
+    typhoon: file(relativePath: { eq: "typhoon.webp" }) {
+      childImageSharp {
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     oliver: file(relativePath: { eq: "oliver.jpg" }) {
       childImageSharp {
         fixed(width: 150, height: 150) {
