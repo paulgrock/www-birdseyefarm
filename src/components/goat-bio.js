@@ -57,7 +57,7 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 		</header>
 		{showCopy && (
 			copy.map((content, idx) => (
-				<p className={styles.bodyContent} key={idx}>{content}</p>
+				<p className={styles.bodyContent} key={idx} dangerouslySetInnerHTML={{__html: content}} />
 			))
 		)}
 

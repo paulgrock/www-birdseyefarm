@@ -645,3 +645,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #251128;
   padding: 15px;
 }
+
+.udder-photo {
+	width: calc(50% - 0.5em);
+	margin: 0;
+}
+.udder-photo + .udder-photo {
+	margin-inline-start: 1em;
+}
