@@ -64,6 +64,16 @@ export const query = graphql`
         }
       }
     }
+    young: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-young.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     # other: file(relativePath: { eq: "diji-farm-cacao-nib-other.jpg" }) {
     #   childImageSharp {
     #     fluid(maxWidth: 380, maxHeight: 380) {

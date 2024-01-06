@@ -61,7 +61,7 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			))
 		)}
 
-		{['birds-eye-farm-zora-neale', 'birds-eye-farm-ina-may'].includes(slug) && data && (
+		{data?.young && (
 			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
 		)}
 

@@ -42,8 +42,8 @@
 			"With both parents from Castle Rock Farm, Chimi has superb dairy genetics. Her dam, Castle Rock Worth Every Penny 3*M *D, produced 740 pounds of milk in 247 days as a yearling first-freshener and 950 pounds in a 305-day second lactation. Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, has quite the mammary reputation, having won Best Udder of Breed fourteen times.",
 			"Chimi and her half-sis Zadie are our foundation does, and we feel lucky to have begun our herd with such fine genetics. As the saying goes: \"They say she’s a dime; I say she’s underrated.\""
 		],
-		"notes": [],
-		"prices": [""]
+		"notes": ["1st Choice Doe Retained"],
+		"prices": ["Does: $400", "Wethers: $125"]
 	},
 	{
 		"name": "Bird’s Eye Farm Ina May 5*M (pending) VGVG 83",
@@ -57,8 +57,8 @@
 			"slug": "typhoon",
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
 		},
-		"notes": ["First Freshening"],
-		"prices": [""],
+		"notes": [],
+		"prices": ["Does: $350", "Wethers: $125"],
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002074269",
 		"sire": {
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
@@ -96,8 +96,8 @@
 		"aka": "Zora",
 		"slug": "birds-eye-farm-zora-neale",
 		"date": "2019-05-01",
-		"notes": ["First Freshening"],
-		"prices": [""],
+		"notes": ["1st Choice Doe Retained"],
+		"prices": ["Does: $325", "Wethers: $125"],
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001802605&DamNum=D002111884",
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
 		"mate": {
@@ -177,7 +177,7 @@
 			"Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn’t have wished for a finer duo to start our herd!"
 		],
 		"notes": [],
-		"prices": [""]
+		"prices": []
 	},
 	{
 		"name": "Diji Farm Cacao Nib",
@@ -209,7 +209,7 @@
 			"name": "Sans Gene EP Skeeter 4*M VEVV 87",
 			"sire": {
 				"name": "Castle Rock Elika *B",
-				"link": ""
+				"link": "https://www.sansgenegoats.com/bucks.html"
 			},
 			"dam": {
 				"name": "Sans Gene V Pearline V+E+ 84 3*M",
@@ -221,8 +221,8 @@
 			"Diji breeds for great conformation, and Nib’s line has particularly excellent mammary systems with large, easy-milking teats. Nib is angular and dairy, qualities we’ve needed to improve on in our herd. Her grand-sires are both *B Castle Rock hotshots, widening our range of top-notch Castle Rock lines.",
 			"Our sweet Nib is freshening for the first time in 2024 and we can’t wait to see her udder! She was bred by Diji Farm JRB “Jimmy Legs” Typhoon. Jimmy fathered our great-looking 2023 doelings Elena and Lizzo, so this pairing promises to make beautiful goat children."
 		],
-		"notes": [],
-		"prices": [""]
+		"notes": ["1st Choice Doe Retained"],
+		"prices": ["Does: $300", "Wethers: $125"]
 	},
 	{
 		"name": "Bird’s Eye Farm Elena Ferrante",
@@ -257,7 +257,7 @@
 		},
 		"copy": [""],
 		"notes": [],
-		"prices": [""]
+		"prices": []
 	},
 	{
 		"name": "Bird’s Eye Farm Lizabeth Darcy",
@@ -292,6 +292,6 @@
 		},
 		"copy": [""],
 		"notes": [],
-		"prices": [""]
+		"prices": []
 	}
 ]
