@@ -7,7 +7,7 @@
 		"date": "2017-02-03",
 		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002095200&DamNum=D001840907",
 		"mate": {
-			"name": "Diji Farm CRE Elohim",
+			"name": "Diji Farm CRE Elohim GGV 84",
 			"slug": "elohim",
 			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
 		},
@@ -42,7 +42,7 @@
 			"With both parents from Castle Rock Farm, Chimi has superb dairy genetics. Her dam, Castle Rock Worth Every Penny 3*M *D, produced 740 pounds of milk in 247 days as a yearling first-freshener and 950 pounds in a 305-day second lactation. Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, has quite the mammary reputation, having won Best Udder of Breed fourteen times.",
 			"Chimi and her half-sis Zadie are our foundation does, and we feel lucky to have begun our herd with such fine genetics. As the saying goes: \"They say she’s a dime; I say she’s underrated.\""
 		],
-		"notes": ["1st Choice Doe Retained"],
+		"notes": ["3rd Freshening", "1st Choice Doe Retained"],
 		"prices": ["Does: $400", "Wethers: $125"]
 	},
 	{
@@ -53,11 +53,11 @@
 		"date": "2019-05-08",
 		"kiddingDate": "2024-03-05",
 		"mate": {
-			"name": "Diji Farm JRB Typhoon",
+			"name": "Diji Farm JRB Typhoon VGV 85",
 			"slug": "typhoon",
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
 		},
-		"notes": [],
+		"notes": ["2nd Freshening"],
 		"prices": ["Does: $350", "Wethers: $125"],
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002074269",
 		"sire": {
@@ -96,12 +96,12 @@
 		"aka": "Zora",
 		"slug": "birds-eye-farm-zora-neale",
 		"date": "2019-05-01",
-		"notes": ["1st Choice Doe Retained"],
+		"notes": ["2nd Freshening", "1st Choice Doe Retained"],
 		"prices": ["Does: $325", "Wethers: $125"],
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001802605&DamNum=D002111884",
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
 		"mate": {
-			"name": "Diji Farm AH Snow’s Legacy",
+			"name": "Diji Farm AH Snow’s Legacy *B",
 			"slug": "snow",
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-ah-snows-legacy"
 		},
@@ -187,7 +187,7 @@
 		"date": "2022-04-14",
 		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002280248",
 		"mate": {
-			"name": "Diji Farm JRB Typhoon",
+			"name": "Diji Farm JRB Typhoon VGV 85",
 			"slug": "typhoon",
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
 		},
@@ -221,7 +221,7 @@
 			"Diji breeds for great conformation, and Nib’s line has particularly excellent mammary systems with large, easy-milking teats. Nib is angular and dairy, qualities we’ve needed to improve on in our herd. Her grand-sires are both *B Castle Rock hotshots, widening our range of top-notch Castle Rock lines.",
 			"Our sweet Nib is freshening for the first time in 2024 and we can’t wait to see her udder! She was bred by Diji Farm JRB “Jimmy Legs” Typhoon. Jimmy fathered our great-looking 2023 doelings Elena and Lizzo, so this pairing promises to make beautiful goat children."
 		],
-		"notes": ["1st Choice Doe Retained"],
+		"notes": ["1st Freshening", "1st Choice Doe Retained"],
 		"prices": ["Does: $300", "Wethers: $125"]
 	},
 	{
@@ -233,7 +233,7 @@
 		"pedigree": "",
 		"sire": {
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
-			"name": "Diji Farm JRB Typhoon",
+			"name": "Diji Farm JRB Typhoon VGV 85",
 			"sire": {
 				"name": "Diji Farm Jackson’s Royal Bayliner *B EEE91",
 				"link": "https://www.dijifarm.com/jacksons-royal-bw-bayliner"
@@ -268,7 +268,7 @@
 		"pedigree": "",
 		"sire": {
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
-			"name": "Diji Farm JRB Typhoon",
+			"name": "Diji Farm JRB Typhoon VGV 85",
 			"sire": {
 				"name": "Diji Farm Jackson’s Royal Bayliner *B EEE91",
 				"link": "https://www.dijifarm.com/jacksons-royal-bw-bayliner"
