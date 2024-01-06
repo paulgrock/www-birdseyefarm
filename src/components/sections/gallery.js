@@ -20,7 +20,7 @@ const Gallery = (props) => {
 	<Section id="gallery" className={styles.galleryContainer}>
 		<Info title="Welcome to our farm">
 			<p>
-			We live on 14 glorious acres in Yamhill County, a vibrantly rural piece of Oregon’s lush Willamette Valley. Here we grow produce and keep dairy goats, laying hens, honeybees and fiber rabbits. Emma is the farmstead’s resident gardener, chief milker, hoof pedicurist, Angora spinner and dreamer/planner. Paul heads up our buildings and security division and also handles hay hauling, barn mucking, compost management, dreams/plans implementation and web development. Laila is in charge of bunny appreciation and is training to be an egg collector, specializing in obscure nests.
+			We live on 14 glorious acres in Yamhill County, a vibrantly rural piece of Oregon’s lush Willamette Valley. Here we grow produce and keep dairy goats, laying hens, guard geese, honeybees and fiber rabbits. Emma is the farmstead’s resident gardener, food processor, hoof pedicurist, amateur poultry nurse and dreamer/planner. Paul heads up buildings and security and also handles hay hauling, compost management, dreams/plans implementation and web development. Laila is in charge of berry picking, radish pulling and spoiling bantam hens.
 			</p>
 		</Info>
 		<img src={goats} alt="Chimi clearing the fence" className={styles.galleryItem}/>

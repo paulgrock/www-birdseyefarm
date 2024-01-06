@@ -5,7 +5,7 @@ import SEO from '../../components/seo'
 
 import GoatPage from '../../components/goat-page';
 
-function Zora({data}) {
+function Ina({data}) {
 	const {edges} = data.allGoatsJson;
   return (
 		<Layout>
@@ -18,7 +18,7 @@ function Zora({data}) {
 
 export const query = graphql`
   query {
-		allGoatsJson(filter: {slug: {eq:"birds-eye-farm-zora-neale"}}) {
+		allGoatsJson(filter: {slug: {eq:"birds-eye-farm-elena-ferrante"}}) {
       edges {
         node {
           name
@@ -54,7 +54,7 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "birds-eye-farm-zora-neale.jpg" }) {
+    file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
@@ -64,27 +64,27 @@ export const query = graphql`
         }
       }
     }
-    young: file(relativePath: { eq: "birds-eye-farm-zora-neale-young.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    other: file(relativePath: { eq: "birds-eye-farm-zora-neale-other.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
+    # other: file(relativePath: { eq: "diji-farm-cacao-nib-other.jpg" }) {
+    #   childImageSharp {
+    #     fluid(maxWidth: 380, maxHeight: 380) {
+    #       ...GatsbyImageSharpFluid
+    #     }
+    #     fixed(width: 150, height: 150) {
+    #       ...GatsbyImageSharpFixed
+    #     }
+    #   }
+    # }
+    # bottom: file(relativePath: { eq: "diji-farm-cacao-nib-bottom.jpg" }) {
+    #   childImageSharp {
+    #     fluid(maxWidth: 380, maxHeight: 380) {
+    #       ...GatsbyImageSharpFluid
+    #     }
+    #     fixed(width: 150, height: 150) {
+    #       ...GatsbyImageSharpFixed
+    #     }
+    #   }
+    # }
 	}
 `
 
-export default Zora;
+export default Ina;

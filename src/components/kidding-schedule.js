@@ -43,7 +43,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 )
 const KiddingScheduleContainer = ({goats, data}) => (
 	<Section id="kidding-schedule">
-		<Title>2023 Kidding Schedule</Title>
+		<Title>2024 Kidding Schedule</Title>
 		<table>
 		<thead>
 			<tr>

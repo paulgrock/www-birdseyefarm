@@ -77,6 +77,12 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 				<Img fluid={data.other.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
 		)}
+
+		{data && data.bottom && (
+			<>
+				<Img fluid={data.bottom.childImageSharp.fluid} alt={name} className={styles.photo} />
+			</>
+		)}
 	  </div>
 	)
   }
