@@ -54,7 +54,7 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "birds-eye-farm-ina-may.jpg" }) {
+    file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
