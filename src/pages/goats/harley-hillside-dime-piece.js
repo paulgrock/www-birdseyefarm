@@ -60,10 +60,10 @@ export const query = graphql`
     }
     file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 760, maxHeight: 760) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 300, height: 300) {
           ...GatsbyImageSharpFixed
         }
       }

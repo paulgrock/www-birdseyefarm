@@ -80,10 +80,10 @@ export const query = graphql`
     }
     chimi: file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 760, maxHeight: 760) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 300, height: 300) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -100,7 +100,7 @@ export const query = graphql`
     }
     ina: file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 507, maxHeight: 380) {
+        fluid(maxWidth: 760, maxHeight: 570) {
           ...GatsbyImageSharpFluid
         }
         fixed(width: 200, height: 150) {
@@ -120,7 +120,7 @@ export const query = graphql`
     }
     elena: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 507, maxHeight: 380) {
+        fluid(maxWidth: 760, maxHeight: 570) {
           ...GatsbyImageSharpFluid
         }
         fixed(width: 200, height: 150) {
@@ -154,7 +154,7 @@ export const query = graphql`
     }
     elohim: file(relativePath: { eq: "elohim.webp" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
+        fixed(width: 150, height: 113) {
           ...GatsbyImageSharpFixed
         }
       }
