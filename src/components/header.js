@@ -29,7 +29,7 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link getProps={isPartiallyActive} className={styles.navLink} to="#contact">
+          <Link getProps={isPartiallyActive} className={styles.navLink} to="/#contact">
             Contact Us
           </Link>
         </li>
