@@ -56,10 +56,10 @@ export const query = graphql`
     }
     file(relativePath: { eq: "birds-eye-farm-zora-neale.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 412, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 163, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
