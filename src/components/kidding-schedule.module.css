@@ -13,3 +13,10 @@
 .note {
 	margin-bottom: .5em;
 }
+
+@media screen and (max-width: 660px) {
+	.tableContainer {
+		max-width: 100%;
+		overflow-x: scroll;
+	}
+}

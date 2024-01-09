@@ -44,24 +44,26 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 const KiddingScheduleContainer = ({goats, data}) => (
 	<Section id="kidding-schedule">
 		<Title>2024 Kidding Schedule</Title>
-		<table>
-		<thead>
-			<tr>
-				<td className={styles.tableHeading}>Dam</td>
-				<td className={styles.tableHeading}>Sire</td>
-				<td className={styles.tableHeading}>Due Date</td>
-				<td className={styles.tableHeading}>ADGA Pedigree</td>
-				<td className={styles.tableHeading}>Notes</td>
-				<td className={styles.tableHeading}>Fee</td>
-			</tr>
-		</thead>
-		<tbody>
-			{goats.filter(({node}) => !!node.kiddingDate).map(({node}) => (
-				<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
-			)
-			)}
-		</tbody>
-		</table>
+		<div className={styles.tableContainer}>
+			<table>
+				<thead>
+					<tr>
+						<td className={styles.tableHeading}>Dam</td>
+						<td className={styles.tableHeading}>Sire</td>
+						<td className={styles.tableHeading}>Due Date</td>
+						<td className={styles.tableHeading}>ADGA Pedigree</td>
+						<td className={styles.tableHeading}>Notes</td>
+						<td className={styles.tableHeading}>Fee</td>
+					</tr>
+				</thead>
+				<tbody>
+					{goats.filter(({node}) => !!node.kiddingDate).map(({node}) => (
+						<KiddingSchedule {...node} key={node.slug} img={data[node.aka.toLowerCase()]} mateImg={data[node.mate.slug.toLowerCase()]} />
+					)
+					)}
+				</tbody>
+			</table>
+		</div>
 		<small className={styles.attribution}>Diji Farm CRE Elohim, Diji Farm JRB Typhoon and Diji Farm AH Snow’s Legacy appear courtesy of <a href="https://www.dijifarm.com" target="_blank">Diji Farm</a>.</small>
 	</Section>
 )
