@@ -64,7 +64,17 @@ export const query = graphql`
         }
       }
     }
-    young: file(relativePath: { eq: "birds-eye-farm-zora-neale-young.jpg" }) {
+    other: file(relativePath: { eq: "harley-hillside-ginger-zinger-udder-two.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 285, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 113, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+		}
+    bottom: file(relativePath: { eq: "birds-eye-farm-zora-neale-other.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
@@ -74,7 +84,7 @@ export const query = graphql`
         }
       }
     }
-    other: file(relativePath: { eq: "birds-eye-farm-zora-neale-other.jpg" }) {
+    young: file(relativePath: { eq: "birds-eye-farm-zora-neale-young.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid

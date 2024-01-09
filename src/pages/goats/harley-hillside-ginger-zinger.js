@@ -63,7 +63,27 @@ export const query = graphql`
         }
       }
 		}
-		other: file(relativePath: { eq: "zadie-other.jpg" }) {
+    other: file(relativePath: { eq: "harley-hillside-ginger-zinger-udder.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 285, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 113, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+		}
+    bottom: file(relativePath: { eq: "harley-hillside-ginger-zinger-udder-two.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 285, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 113, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+		}
+		young: file(relativePath: { eq: "zadie-other.jpg" }) {
 			childImageSharp {
 				fluid(maxWidth: 380, maxHeight: 380) {
 					...GatsbyImageSharpFluid
