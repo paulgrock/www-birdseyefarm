@@ -20,6 +20,15 @@
 	flex-shrink: 0;
 }
 
+@media screen and (max-width: 660px) {
+	.header {
+		display: block;
+	}
+	.title {
+		text-align: center;
+	}
+}
+
 .title a {
 	text-decoration: none;
 	color: white;
