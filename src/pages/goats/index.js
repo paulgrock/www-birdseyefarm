@@ -80,10 +80,10 @@ export const query = graphql`
     }
     chimi: file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 760, maxHeight: 760) {
+        fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 300, height: 300) {
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -100,7 +100,7 @@ export const query = graphql`
     }
     ina: file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 760, maxHeight: 570) {
+        fluid(maxWidth: 380, maxHeight: 285) {
           ...GatsbyImageSharpFluid
         }
         fixed(width: 200, height: 150) {
