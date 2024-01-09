@@ -88,16 +88,6 @@ export const query = graphql`
         }
       }
     }
-    young: file(relativePath: { eq: "chimi-other.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
 	}
 `
 

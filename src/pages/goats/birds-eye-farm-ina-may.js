@@ -74,17 +74,17 @@ export const query = graphql`
         }
       }
     }
-    bottom: file(relativePath: { eq: "birds-eye-farm-ina-may-bottom.jpg" }) {
+    bottom: file(relativePath: { eq: "harley-hillside-dime-piece-udder-two.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 285, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 113, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    young: file(relativePath: { eq: "birds-eye-farm-ina-may-young.jpg" }) {
+    young: file(relativePath: { eq: "birds-eye-farm-ina-may-bottom.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid
