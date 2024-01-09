@@ -68,12 +68,12 @@ export const query = graphql`
         }
       }
     }
-    zadie: file(relativePath: { eq: "harley-hillside-ginger-zinger.jpg" }) {
+    zadie: file(relativePath: { eq: "harley-hillside-ginger-zinger-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 507, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 200, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }

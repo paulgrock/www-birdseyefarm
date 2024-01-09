@@ -64,6 +64,16 @@ export const query = graphql`
         }
       }
     }
+    other: file(relativePath: { eq: "birds-eye-farm-ina-may-other.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 380, maxHeight: 380) {
+          ...GatsbyImageSharpFluid
+        }
+        fixed(width: 150, height: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     bottom: file(relativePath: { eq: "birds-eye-farm-ina-may-bottom.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {

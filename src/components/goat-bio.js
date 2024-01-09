@@ -61,10 +61,6 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			))
 		)}
 
-		{data?.young && (
-			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
-		)}
-
 		{data && data.udder && data.udder2 && (
 			<>
 				<Img fluid={data.udder.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
@@ -82,6 +78,10 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 			<>
 				<Img fluid={data.bottom.childImageSharp.fluid} alt={name} className={styles.photo} />
 			</>
+		)}
+
+		{data?.young && (
+			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
 		)}
 	  </div>
 	)

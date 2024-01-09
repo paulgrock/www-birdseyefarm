@@ -68,27 +68,27 @@ export const query = graphql`
         }
       }
     }
-    udder: file(relativePath: { eq: "chimi-udder.jpg" }) {
+    other: file(relativePath: { eq: "harley-hillside-dime-piece-udder.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 285, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 113, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    udder2: file(relativePath: { eq: "chimi-udder-two.jpg" }) {
+    bottom: file(relativePath: { eq: "harley-hillside-dime-piece-udder-two.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 285, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 113, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    other: file(relativePath: { eq: "chimi-other.jpg" }) {
+    young: file(relativePath: { eq: "chimi-other.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 380, maxHeight: 380) {
           ...GatsbyImageSharpFluid

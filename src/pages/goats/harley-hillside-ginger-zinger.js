@@ -53,30 +53,30 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "harley-hillside-ginger-zinger.jpg" }) {
+    file(relativePath: { eq: "harley-hillside-ginger-zinger-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
+        fluid(maxWidth: 507, maxHeight: 380) {
           ...GatsbyImageSharpFluid
         }
-        fixed(width: 150, height: 150) {
+        fixed(width: 200, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
+		}
+		other: file(relativePath: { eq: "zadie-other.jpg" }) {
+			childImageSharp {
+				fluid(maxWidth: 380, maxHeight: 380) {
+					...GatsbyImageSharpFluid
+				}
+				fixed(width: 150, height: 150) {
+					...GatsbyImageSharpFixed
+				}
+			}
     }
 	}
 `
 
 /*
-bottom: file(relativePath: { eq: "zadie-wedding.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
 */
 
 export default Zadie;
