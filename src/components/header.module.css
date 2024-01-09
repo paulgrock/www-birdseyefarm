@@ -26,6 +26,7 @@
 	}
 	.title {
 		text-align: center;
+		margin-block-end: 12px;
 	}
 }
 
