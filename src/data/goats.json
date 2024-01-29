@@ -42,7 +42,7 @@
 			"With both parents from Castle Rock Farm, Chimi has superb dairy genetics. Her dam, Castle Rock Worth Every Penny 3*M *D, produced 740 pounds of milk in 247 days as a yearling first-freshener and 950 pounds in a 305-day second lactation. Her sire’s dam, GCH CRF Castle Rock Roxanne 1*M *D VEEE 91, has quite the mammary reputation, having won Best Udder of Breed fourteen times.",
 			"Chimi and her half-sis Zadie are our foundation does, and we feel lucky to have begun our herd with such fine genetics. As the saying goes: \"They say she’s a dime; I say she’s underrated.\""
 		],
-		"notes": ["3rd Freshening", "1st Choice Doe Retained"],
+		"notes": ["3rd Freshening", "1st choice doe retained; 1st choice wether CS"],
 		"prices": ["Does: $400", "Wethers: $125"]
 	},
 	{
@@ -57,7 +57,7 @@
 			"slug": "typhoon",
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
 		},
-		"notes": ["2nd Freshening"],
+		"notes": ["2nd Freshening", "1st choice wether MB; 2nd choice wether CS"],
 		"prices": ["Does: $350", "Wethers: $125"],
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002074269",
 		"sire": {
@@ -96,7 +96,7 @@
 		"aka": "Zora",
 		"slug": "birds-eye-farm-zora-neale",
 		"date": "2019-05-01",
-		"notes": ["2nd Freshening", "1st Choice Doe Retained"],
+		"notes": ["2nd Freshening", "1st choice doe retained; 2nd choice doe LF; 1st choice wether CS"],
 		"prices": ["Does: $325", "Wethers: $125"],
 		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D001802605&DamNum=D002111884",
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
@@ -224,7 +224,7 @@
 			"<img src='/skeeter-udder.jpg' alt='Skeeter Udder' />",
 			"Our sweet Nib is freshening for the first time in 2024 and we can’t wait to see her udder! She was bred by Diji Farm JRB “Jimmy Legs” Typhoon. Jimmy fathered our great-looking 2023 doelings Elena and Lizzo, so this pairing promises to make beautiful goat children."
 		],
-		"notes": ["1st Freshening", "1st Choice Doe Retained"],
+		"notes": ["1st Freshening", "1st choice doe retained; 2nd choice doe LF"],
 		"prices": ["Does: $300", "Wethers: $125"]
 	},
 	{
