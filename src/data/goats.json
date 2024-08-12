@@ -6,12 +6,6 @@
 		"slug": "harley-hillside-dime-piece",
 		"date": "2017-02-03",
 		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002095200&DamNum=D001840907",
-		"mate": {
-			"name": "Diji Farm CRE Elohim GGV 84",
-			"slug": "elohim",
-			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
-		},
-		"kiddingDate": "2024-03-05",
 		"sire": {
 			"link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/",
 			"name": "Castle Rock Roxstar *B",
@@ -51,11 +45,11 @@
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002074269",
 		"slug": "birds-eye-farm-ina-may",
 		"date": "2019-05-08",
-		"kiddingDate": "2024-03-05",
+		"kiddingDate": "2024-08-18",
 		"mate": {
-			"name": "Diji Farm JRB Typhoon VGV 85",
-			"slug": "typhoon",
-			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
+			"name": "Diji Farm CRE Elohim GGV84",
+			"slug": "elohim",
+			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
 		},
 		"notes": ["2nd Freshening", "1st & 2nd choice doe MM; 1st choice wether MB; 2nd choice wether CS"],
 		"prices": ["Does: $350", "Wethers: $125"],
@@ -100,12 +94,6 @@
 		"prices": ["Does: $325", "Wethers: $125"],
 		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002247729&DamNum=D002111884",
 		"adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
-		"mate": {
-			"name": "Diji Farm AH Snow’s Legacy *B",
-			"slug": "snow",
-			"link": "https://www.dijifarm.com/copy-of-diji-farm-ah-snows-legacy"
-		},
-		"kiddingDate": "2024-03-05",
 		"sire": {
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
 			"name": "Curbstone Valley Tigris *B",
@@ -186,12 +174,6 @@
 		"adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002280248",
 		"date": "2022-04-14",
 		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002280248",
-		"mate": {
-			"name": "Diji Farm JRB Typhoon VGV 85",
-			"slug": "typhoon",
-			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
-		},
-		"kiddingDate": "2024-04-20",
 		"sire": {
 			"link": "https://www.adgagenetics.org/GoatDetail.aspx?RegNumber=D002108754",
 			"name": "Diji Farm CRB Austin Healey",
@@ -230,6 +212,12 @@
 	{
 		"name": "Bird’s Eye Farm Elena Ferrante",
 		"aka": "Elena",
+		"kiddingDate": "2024-08-18",
+		"mate": {
+			"name": "Diji Farm CRE Elohim GGV84",
+			"slug": "elohim",
+			"link": "https://www.dijifarm.com/diji-farm-cre-elohim"
+		},
 		"slug": "birds-eye-farm-elena-ferrante",
 		"adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002350114",
 		"date": "2023-01-31",
@@ -259,8 +247,8 @@
 			}
 		},
 		"copy": [""],
-		"notes": [],
-		"prices": []
+		"notes": ["1st Freshening"],
+		"prices": ["Does: $300", "Wethers: $125"]
 	},
 	{
 		"name": "Bird’s Eye Farm Lizabeth Darcy",
