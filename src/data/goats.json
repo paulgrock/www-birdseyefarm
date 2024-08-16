@@ -53,7 +53,7 @@
 		},
 		"notes": ["2nd Freshening", "1st & 2nd choice doe MM; 1st choice wether MB; 2nd choice wether CS"],
 		"prices": ["Does: $350", "Wethers: $125"],
-		"pedigree": "https://adgagenetics.org/PlannedPedigreePrint.aspx?SireNum=D002162839&DamNum=D002074269",
+		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002095200&DamNum=D002074269",
 		"sire": {
 			"link": "http://dogislandfarm.com/curbstone-valley-tigris/",
 			"name": "Curbstone Valley Tigris *B",
@@ -221,7 +221,7 @@
 		"slug": "birds-eye-farm-elena-ferrante",
 		"adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002350114",
 		"date": "2023-01-31",
-		"pedigree": "",
+		"pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002095200&DamNum=D002350114",
 		"sire": {
 			"link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
 			"name": "Diji Farm JRB Typhoon VGV 85",
