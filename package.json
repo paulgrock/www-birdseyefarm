@@ -4,6 +4,9 @@
   "description": "Bird's Eye Farm Website",
   "version": "0.1.0",
   "author": "Paul Grock <pauglrock@gmail.com>",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
