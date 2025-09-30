@@ -56,22 +56,12 @@ export const query = graphql`
     }
     file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     young: file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy-young.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 491, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 194, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 491, height: 380, layout: CONSTRAINED)
       }
     }
     # bottom: file(relativePath: { eq: "diji-farm-cacao-nib-bottom.jpg" }) {

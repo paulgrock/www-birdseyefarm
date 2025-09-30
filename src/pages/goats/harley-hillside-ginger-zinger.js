@@ -55,42 +55,22 @@ export const query = graphql`
     }
     file(relativePath: { eq: "harley-hillside-ginger-zinger-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 507, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 200, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 507, height: 380, layout: CONSTRAINED)
       }
 		}
     other: file(relativePath: { eq: "harley-hillside-ginger-zinger-udder.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 285, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 113, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 285, height: 380, layout: CONSTRAINED)
       }
 		}
     bottom: file(relativePath: { eq: "harley-hillside-ginger-zinger-udder-two.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 285, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 113, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 285, height: 380, layout: CONSTRAINED)
       }
 		}
 		young: file(relativePath: { eq: "zadie-other.jpg" }) {
 			childImageSharp {
-				fluid(maxWidth: 380, maxHeight: 380) {
-					...GatsbyImageSharpFluid
-				}
-				fixed(width: 150, height: 150) {
-					...GatsbyImageSharpFixed
-				}
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
 			}
     }
 	}

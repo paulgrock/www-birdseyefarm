@@ -60,32 +60,17 @@ export const query = graphql`
     }
     file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 760, maxHeight: 760) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 300, height: 300) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 760, height: 760, layout: CONSTRAINED)
       }
     }
     other: file(relativePath: { eq: "harley-hillside-dime-piece-udder.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 285, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 113, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 285, height: 380, layout: CONSTRAINED)
       }
     }
     bottom: file(relativePath: { eq: "harley-hillside-dime-piece-udder-two.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 285, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 113, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 285, height: 380, layout: CONSTRAINED)
       }
     }
 	}

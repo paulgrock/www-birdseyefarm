@@ -9,7 +9,7 @@ function Ina({data}) {
 	const {edges} = data.allGoatsJson;
   return (
 		<Layout>
-		<SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
+		<SEO title={edges[0].node.name} description={`Information about ${edges[0].node.name}, a Nigerian Dwarf Goat`} />
 		<GoatPage goats={edges} data={data} title={edges[0].node.name} />
 		</Layout>
   )
@@ -56,42 +56,22 @@ export const query = graphql`
     }
     file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 285) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 190, height: 143) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 285, layout: CONSTRAINED)
       }
     }
     other: file(relativePath: { eq: "birds-eye-farm-ina-may-other.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     bottom: file(relativePath: { eq: "harley-hillside-dime-piece-udder-two.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 285, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 113, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 285, height: 380, layout: CONSTRAINED)
       }
     }
     young: file(relativePath: { eq: "birds-eye-farm-ina-may-bottom.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
 	}

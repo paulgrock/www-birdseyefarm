@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import format from 'date-fns/format'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { format } from 'date-fns'
 
 import Title from './section-title'
 import * as styles from './goats.module.css'
@@ -14,10 +14,12 @@ const ParentText = ({type, grandParent}) => (
 );
 
 const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCopy, data, withTitle = true }) => {
+	console.log(getImage(img));
+	img && console.log(img.childImageSharp);
 	return (
 	  <div className={styles.goat}>
 		{img && img.childImageSharp && (
-			<Img fluid={img.childImageSharp.fluid} alt={name} className={styles.photo} />
+			<GatsbyImage image={getImage(img)} alt={name} className={styles.photo} />
 		)}
 
 		<header className={styles.content}>
@@ -26,7 +28,7 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 					<Link to={`/goats/${slug}`}>{name}</Link>
 				</Title>
 			)}
-		  <span>Born {format(date, "M/D/YYYY")}</span>
+		  <span>Born {format(date, "M/d/yyyy")}</span>
 		  <br />
 		  <a href={adgaPedigree}>ADGA Pedigree</a>
 
@@ -63,25 +65,25 @@ const GoatBio = ({ img, name, slug, adgaPedigree, date, sire, dam, copy, showCop
 
 		{data && data.udder && data.udder2 && (
 			<>
-				<Img fluid={data.udder.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
-				<Img fluid={data.udder2.childImageSharp.fluid} alt="Dime Piece Udder"className={styles.photo} />
+				<GatsbyImage image={data.udder.childImageSharp.gatsbyImageData} alt="Dime Piece Udder"className={styles.photo} />
+				<GatsbyImage image={data.udder2.childImageSharp.gatsbyImageData} alt="Dime Piece Udder"className={styles.photo} />
 			</>
 		)}
 
 		{data && data.other && (
 			<>
-				<Img fluid={data.other.childImageSharp.fluid} alt={name} className={styles.photo} />
+				<GatsbyImage image={data.other.childImageSharp.gatsbyImageData} alt={name} className={styles.photo} />
 			</>
 		)}
 
 		{data && data.bottom && (
 			<>
-				<Img fluid={data.bottom.childImageSharp.fluid} alt={name} className={styles.photo} />
+				<GatsbyImage image={data.bottom.childImageSharp.gatsbyImageData} alt={name} className={styles.photo} />
 			</>
 		)}
 
 		{data?.young && (
-			<Img fluid={data.young.childImageSharp.fluid} alt={`${name} Young`} className={styles.photo} />
+			<GatsbyImage image={data.young.childImageSharp.gatsbyImageData} alt={`${name} Young`} className={styles.photo} />
 		)}
 	  </div>
 	)

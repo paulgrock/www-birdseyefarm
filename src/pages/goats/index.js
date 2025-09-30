@@ -70,121 +70,72 @@ export const query = graphql`
     }
     zadie: file(relativePath: { eq: "harley-hillside-ginger-zinger-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 507, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 200, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 507, height: 380, layout: CONSTRAINED)
       }
     }
     chimi: file(relativePath: { eq: "harley-hillside-dime-piece.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     zora: file(relativePath: { eq: "birds-eye-farm-zora-neale.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 412, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 163, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 412, height: 380, layout: CONSTRAINED)
       }
     }
     ina: file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 285) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 200, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     nib: file(relativePath: { eq: "diji-farm-cacao-nib-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     elena: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 760, maxHeight: 570) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 200, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 760, height: 760, layout: CONSTRAINED)
       }
     }
     lizzo: file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     tigris: file(relativePath: { eq: "tigris.jpg" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
     typhoon: file(relativePath: { eq: "typhoon.webp" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
     elohim: file(relativePath: { eq: "elohim.webp" }) {
       childImageSharp {
-        fixed(width: 150, height: 113) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 113, layout: CONSTRAINED)
       }
     }
     snow: file(relativePath: { eq: "snows-legacy.webp" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
     oliver: file(relativePath: { eq: "oliver.jpg" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
     austin: file(relativePath: { eq: "austin.jpg" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
     montego: file(relativePath: { eq: "montego.jpg" }) {
       childImageSharp {
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
   }

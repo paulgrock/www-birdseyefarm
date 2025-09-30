@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from "gatsby";
+import { graphql } from "gatsby"
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
@@ -56,22 +56,12 @@ export const query = graphql`
     }
     file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     young: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-young.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     # other: file(relativePath: { eq: "diji-farm-cacao-nib-other.jpg" }) {

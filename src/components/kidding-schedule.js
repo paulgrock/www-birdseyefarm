@@ -2,7 +2,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import format from 'date-fns/format'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { format } from 'date-fns'
 
 import Section from './section-container';
 import Title from './section-title'
@@ -13,7 +14,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	<tr>
 	  <td>
 		<figure>
-		  <img src={img.childImageSharp.fixed.src} alt={name} />
+		  <GatsbyImage image={img.childImageSharp.gatsbyImageData} alt={name} />
 		  <figcaption>
 			<Link to={`/goats/${slug}`}>{name}</Link>
 		  </figcaption>
@@ -21,7 +22,7 @@ const KiddingSchedule = ({mate, name, img, notes, prices, kiddingDate, slug, ped
 	  </td>
 	  <td>
 		<figure>
-		  <img src={mateImg.childImageSharp.fixed.src} alt={mate.name} />
+		  <GatsbyImage image={mateImg.childImageSharp.gatsbyImageData} alt={mate.name} />
 		  <figcaption>
 				<a href={mate.link} target="_blank">{mate.name}</a>
 		  </figcaption>

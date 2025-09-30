@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from "gatsby";
+import { graphql } from "gatsby"
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
@@ -9,7 +9,7 @@ function Ina({data}) {
 	const {edges} = data.allGoatsJson;
   return (
 		<Layout>
-		<SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
+		<SEO title={edges[0].node.name} description={`Information about ${edges[0].node.name}, a Nigerian Dwarf Goat`} />
 		<GoatPage goats={edges} data={data} title={edges[0].node.name} />
 		</Layout>
   )
@@ -56,32 +56,17 @@ export const query = graphql`
     }
     file(relativePath: { eq: "diji-farm-cacao-nib-profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     other: file(relativePath: { eq: "diji-farm-cacao-nib-other.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
     bottom: file(relativePath: { eq: "diji-farm-cacao-nib-bottom.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 380, maxHeight: 380) {
-          ...GatsbyImageSharpFluid
-        }
-        fixed(width: 150, height: 150) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
 	}
