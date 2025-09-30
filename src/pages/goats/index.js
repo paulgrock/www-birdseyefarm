@@ -18,7 +18,7 @@ const GoatsPage = ({data}) => (
         <p>Our herd tested negative for CAE, CL, OPP and Johne’s as of September 2023.</p>
       </Info>
     </Goats>
-    <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
+    {/* <KiddingSchedule goats={data.allGoatsJson.edges} data={data} /> */}
   </Layout>
 )
 
