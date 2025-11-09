@@ -15,7 +15,7 @@ const GoatsPage = ({data}) => (
         <p>
         We keep a small herd of ADGA registered Nigerian Dwarf dairy goats, the pride and joy of Bird’s Eye Farm. Goats were among the first species domesticated by humans—at the dawn of agriculture, some 10,000 years ago—and it’s no wonder. Humans just thrive better with goats around.
         </p>
-        <p>Our herd tested negative for CAE, CL, OPP and Johne’s as of September 2023.</p>
+        <p>Our herd tested negative for CAE, CL, OPP and Johne’s as of October 2025.</p>
       </Info>
     </Goats>
     {/* <KiddingSchedule goats={data.allGoatsJson.edges} data={data} /> */}
