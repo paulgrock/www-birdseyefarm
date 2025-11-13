@@ -1,16 +1,20 @@
 .galleryContainer {
-	grid-template-columns: repeat(auto-fill, minmax(160px, 300px));
-	grid-gap: 28px;
-	background-image: url('../../images/bg.svg');
-	justify-items: center;
-	justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 300px));
+  grid-gap: 28px;
+  background-image: url('../../images/bg.svg');
+  justify-items: center;
+  justify-content: center;
 }
 
 .galleryItem {
-	margin: 0;
+  margin: 0;
 }
 
 .buttonContainer {
-	margin-top: 54px;
-	grid-column: 1 / -1;
+  margin-top: 54px;
+  grid-column: 1 / -1;
+}
+
+.mainPhoto {
+  width: 300px;
 }

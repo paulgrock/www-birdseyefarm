@@ -20,7 +20,7 @@ const Gallery = (props) => {
   return (
     <Section id="gallery" className={styles.galleryContainer}>
       <Info title="Welcome to our farm">
-        <img src={family} alt="Family photo" />
+        <img src={family} alt="Family photo" className={styles.mainPhoto} />
         <p>
           We live on 14 glorious acres in Yamhill County, a vibrantly rural
           piece of Oregon’s lush Willamette Valley. Here we grow produce and
