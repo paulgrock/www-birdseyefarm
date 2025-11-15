@@ -12,24 +12,34 @@ const isPartiallyActive = (props) => {
 const Header = ({ siteTitle }) => (
   <header className={styles.header}>
     <h1 className={styles.title}>
-      <Link to="/">
-        {siteTitle}
-      </Link>
+      <Link to="/">{siteTitle}</Link>
     </h1>
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.navItem}>
-          <Link getProps={isPartiallyActive} className={styles.navLink} to="/goats">
+          <Link
+            getProps={isPartiallyActive}
+            className={styles.navLink}
+            to="/goats"
+          >
             Goats
           </Link>
         </li>
-        {/* <li className={styles.navItem}>
-          <Link getProps={isPartiallyActive} className={styles.navLink} to="/goats#kidding-schedule">
+        <li className={styles.navItem}>
+          <Link
+            getProps={isPartiallyActive}
+            className={styles.navLink}
+            to="/goats#kidding-schedule"
+          >
             Kidding Schedule
           </Link>
-        </li> */}
+        </li>
         <li className={styles.navItem}>
-          <Link getProps={isPartiallyActive} className={styles.navLink} to="/#contact">
+          <Link
+            getProps={isPartiallyActive}
+            className={styles.navLink}
+            to="/#contact"
+          >
             Contact Us
           </Link>
         </li>

@@ -1,24 +1,31 @@
 import React from 'react'
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
 import Info from '../../components/info'
-import Goats from '../../components/goats';
-import KiddingSchedule from '../../components/kidding-schedule';
+import Goats from '../../components/goats'
+import KiddingSchedule from '../../components/kidding-schedule'
 
-const GoatsPage = ({data}) => (
+const GoatsPage = ({ data }) => (
   <Layout>
     <SEO title="Nigerian Dwarf Goats" />
     <Goats goats={data.allGoatsJson.edges} data={data}>
       <Info title="Does">
         <p>
-        We keep a small herd of ADGA registered Nigerian Dwarf dairy goats, the pride and joy of Bird’s Eye Farm. Goats were among the first species domesticated by humans—at the dawn of agriculture, some 10,000 years ago—and it’s no wonder. Humans just thrive better with goats around.
+          We keep a small herd of ADGA registered Nigerian Dwarf dairy goats,
+          the pride and joy of Bird’s Eye Farm. Goats were among the first
+          species domesticated by humans—at the dawn of agriculture, some 10,000
+          years ago—and it’s no wonder. Humans just thrive better with goats
+          around.
         </p>
-        <p>Our herd tested negative for CAE, CL, OPP and Johne’s as of October 2025.</p>
+        <p>
+          Our herd tested negative for CAE, CL, OPP and Johne’s as of October
+          2025.
+        </p>
       </Info>
     </Goats>
-    {/* <KiddingSchedule goats={data.allGoatsJson.edges} data={data} /> */}
+    <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
   </Layout>
 )
 
@@ -68,7 +75,9 @@ export const query = graphql`
         }
       }
     }
-    zadie: file(relativePath: { eq: "harley-hillside-ginger-zinger-profile.jpg" }) {
+    zadie: file(
+      relativePath: { eq: "harley-hillside-ginger-zinger-profile.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(width: 507, height: 380, layout: CONSTRAINED)
       }
@@ -93,12 +102,16 @@ export const query = graphql`
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    elena: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
+    elena: file(
+      relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(width: 760, height: 760, layout: CONSTRAINED)
       }
     }
-    lizzo: file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy-profile.jpg" }) {
+    lizzo: file(
+      relativePath: { eq: "birds-eye-farm-lizabeth-darcy-profile.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
@@ -139,6 +152,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 export default GoatsPage
