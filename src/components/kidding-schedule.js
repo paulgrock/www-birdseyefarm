@@ -23,7 +23,12 @@ const KiddingSchedule = ({
   <tr>
     <td>
       <figure>
-        <GatsbyImage image={img.childImageSharp.gatsbyImageData} alt={name} />
+        <GatsbyImage
+          image={img.childImageSharp.gatsbyImageData}
+          alt={name}
+          style={{ width: '150px', height: '150px' }}
+          layout="fixed"
+        />
         <figcaption>
           <Link to={`/goats/${slug}`}>{name}</Link>
         </figcaption>
@@ -32,7 +37,7 @@ const KiddingSchedule = ({
     <td>
       <figure>
         <GatsbyImage
-          image={mateImg.childImageSharp.gatsbyImageData}
+          image={mateImg?.childImageSharp?.gatsbyImageData}
           alt={mate.name}
         />
         <figcaption>
@@ -84,7 +89,7 @@ const KiddingScheduleContainer = ({ goats, data }) => (
           </tr>
         </thead>
         <tbody>
-          <tr span={6}>
+          {/* <tr span={6}>
             <td>
               <span
                 style={{
@@ -95,17 +100,19 @@ const KiddingScheduleContainer = ({ goats, data }) => (
                 Coming Soon
               </span>
             </td>
-          </tr>
-          {/* {goats
+          </tr>*/}
+          {goats
             .filter(({ node }) => !!node.kiddingDate)
-            .map(({ node }) => (
-              <KiddingSchedule
-                {...node}
-                key={node.slug}
-                img={data[node.aka.toLowerCase()]}
-                mateImg={data[node.mate.slug.toLowerCase()]}
-              />
-            ))}*/}
+            .map(({ node }) => {
+              return (
+                <KiddingSchedule
+                  {...node}
+                  key={node.slug}
+                  img={data[node.aka.toLowerCase()]}
+                  mateImg={data[node?.mate?.slug.toLowerCase()]}
+                />
+              )
+            })}
         </tbody>
       </table>
     </div>
