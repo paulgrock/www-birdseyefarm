@@ -84,7 +84,9 @@ const KiddingScheduleContainer = ({ goats, data }) => (
           <tr>
             <td className={styles.tableHeading}>Dam</td>
             <td className={styles.tableHeading}>Sire</td>
-            <td className={styles.tableHeading}>Due Date</td>
+            <td className={`${styles.tableHeading} ${styles.dueDateColumn}`}>
+              Due Date
+            </td>
             <td className={styles.tableHeading}>ADGA Pedigree</td>
             <td className={styles.tableHeading}>Notes</td>
             <td className={styles.tableHeading}>Fee</td>
