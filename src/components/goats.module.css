@@ -1,51 +1,53 @@
 .container {
-	background-image: url('../images/goats-bg.jpg');
-	padding-top: 120px;
-	grid-row-gap: 2.5rem;
+  background-image: url('../images/goats-bg.jpg');
+  padding-top: 120px;
+  grid-row-gap: 2.5rem;
 }
 
 .goat {
-	border-top: 8px solid #4C2851;
-	background-color: #fff;
-	text-align: left;
+  border-top: 8px solid #4c2851;
+  background-color: #fff;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .photo {
-	margin-bottom: 0;
-	display: inline-block;
-	vertical-align: middle;
-	max-width: 380px;
-	width: 100%;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 380px;
+  width: 100%;
 }
 
 @media screen and (min-width: 960px) {
-	.photo {
-		width: 33%;
-	}
+  .goat {
+    flex-direction: row;
+  }
 }
 
 .content {
-	display: inline-block;
-	padding: 34px 34px 0 34px;
-	text-align: left;
-	vertical-align: top;
+  display: inline-block;
+  padding: 34px 34px 0 34px;
+  text-align: left;
+  vertical-align: top;
 }
 
 .list {
-	list-style-type: none;
-	margin: 0;
+  list-style-type: none;
+  margin: 0;
 }
 
 .listItem {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .bodyContent {
-	padding-left: 34px;
-	padding-right: 34px;
-	margin-top: 1rem;
+  padding-left: 34px;
+  padding-right: 34px;
+  margin-top: 1rem;
 }
 
 .bodyContent + .bodyContent {
-	margin-top: 0;
+  margin-top: 0;
 }
