@@ -126,6 +126,11 @@ export const query = graphql`
         gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
       }
     }
+    shaboozie: file(relativePath: { eq: "shaboozie.avif" }) {
+      childImageSharp {
+        gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
+      }
+    }
     typhoon: file(relativePath: { eq: "typhoon.webp" }) {
       childImageSharp {
         gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
