@@ -8,8 +8,8 @@
   border-top: 8px solid #4c2851;
   background-color: #fff;
   text-align: left;
-  display: flex;
-  flex-direction: column;
+  /*display: flex;
+  flex-direction: column;*/
 }
 
 .photo {
@@ -21,8 +21,11 @@
 }
 
 @media screen and (min-width: 960px) {
-  .goat {
+  /*.goat {
     flex-direction: row;
+  }*/
+  .photo {
+    width: 33%;
   }
 }
 
