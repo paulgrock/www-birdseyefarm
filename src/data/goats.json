@@ -103,7 +103,6 @@
     "slug": "birds-eye-farm-elena-ferrante",
     "adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002350114",
     "date": "2023-01-31",
-    "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002095200&DamNum=D002350114",
     "sire": {
       "link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
       "name": "Diji Farm JRB Typhoon VGV 85",
@@ -136,8 +135,14 @@
       "While her production is very good, Elena has thus far been easier to milk by machine than by hand. Her teats were on the smaller side this first lactation, though that should improve. Her medial suspensory ligament is also not as strong as I’d like.",
       "We were tickled when Elena brought her little chamoisée doeling Gilia into the world and onto the farm. Gilia represents the fourth generation of our herd. And when Elena becomes a grandma in 2026: fifth generation!"
     ],
+    "kiddingDate": "TBD",
     "notes": ["2nd Freshening"],
-    "prices": ["Does: $300", "Wethers: $125"]
+    "prices": ["Does: $400", "Wethers: $125"],
+    "mate": {
+      "name": "TBD",
+      "slug": "TBD"
+    },
+    "pedigree": ""
   },
   {
     "name": "Bird’s Eye Farm Lizabeth Darcy",

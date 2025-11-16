@@ -48,12 +48,14 @@ const KiddingSchedule = ({
       </figure>
     </td>
     <td>
-      {kiddingDate === 'TBA' ? kiddingDate : format(kiddingDate, 'MMM d, yyyy')}
+      {kiddingDate === 'TBD' ? kiddingDate : format(kiddingDate, 'MMM d, yyyy')}
     </td>
     <td>
-      <a href={pedigree} target="_blank">
-        ADGA Planned Pedigree
-      </a>
+      {Boolean(pedigree) && (
+        <a href={pedigree} target="_blank">
+          ADGA Planned Pedigree
+        </a>
+      )}
     </td>
     <td>
       {Boolean(notes?.length) &&
