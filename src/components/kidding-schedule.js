@@ -49,6 +49,12 @@ const KiddingSchedule = ({
     </td>
     <td>
       {kiddingDate === 'TBD' ? kiddingDate : format(kiddingDate, 'MMM d, yyyy')}
+      {kiddingDate === 'TBD' && (
+        <>
+          <br />
+          <small>Likely mid-late May</small>
+        </>
+      )}
     </td>
     <td>
       {Boolean(pedigree) && (
