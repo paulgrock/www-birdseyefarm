@@ -10,21 +10,24 @@ import KiddingSchedule from '../../components/kidding-schedule'
 const GoatsPage = ({ data }) => (
   <Layout>
     <SEO title="Nigerian Dwarf Goats" />
-    <Goats goats={data.allGoatsJson.edges} data={data}>
-      <Info title="Does">
-        <p>
-          We keep a small herd of ADGA registered Nigerian Dwarf dairy goats,
-          the pride and joy of Bird’s Eye Farm. Goats were among the first
-          species domesticated by humans—at the dawn of agriculture, some 10,000
-          years ago—and it’s no wonder. Humans just thrive better with goats
-          around.
-        </p>
-        <p>
-          Our herd tested negative for CAE, CL, OPP and Johne’s as of October
-          2025.
-        </p>
-      </Info>
-    </Goats>
+    {/* TODO: style this so the images on the list page don't look awful*/}
+    <div className="blah-blah">
+      <Goats goats={data.allGoatsJson.edges} data={data}>
+        <Info title="Does">
+          <p>
+            We keep a small herd of ADGA registered Nigerian Dwarf dairy goats,
+            the pride and joy of Bird’s Eye Farm. Goats were among the first
+            species domesticated by humans—at the dawn of agriculture, some
+            10,000 years ago—and it’s no wonder. Humans just thrive better with
+            goats around.
+          </p>
+          <p>
+            Our herd tested negative for CAE, CL, OPP and Johne’s as of October
+            2025.
+          </p>
+        </Info>
+      </Goats>
+    </div>
     <KiddingSchedule goats={data.allGoatsJson.edges} data={data} />
   </Layout>
 )
