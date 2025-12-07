@@ -1,15 +1,18 @@
 .container {
   background-image: url('../images/goats-bg.jpg');
   padding-top: 120px;
-  grid-row-gap: 2.5rem;
+  gap: 2.5rem;
 }
 
 .goat {
   border-top: 8px solid #4c2851;
   background-color: #fff;
   text-align: left;
-  /*display: flex;
-  flex-direction: column;*/
+}
+
+.goatList .goat {
+  display: flex;
+  flex-direction: column;
 }
 
 .photo {
@@ -21,9 +24,9 @@
 }
 
 @media screen and (min-width: 960px) {
-  /*.goat {
+  .goatList .goat {
     flex-direction: row;
-  }*/
+  }
   .photo {
     width: 33%;
   }
