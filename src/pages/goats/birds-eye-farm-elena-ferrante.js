@@ -59,31 +59,21 @@ export const query = graphql`
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    young: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-young.jpg" }) {
+    other: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-udder.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    # other: file(relativePath: { eq: "diji-farm-cacao-nib-other.jpg" }) {
-    #   childImageSharp {
-    #     fluid(maxWidth: 380, maxHeight: 380) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #     fixed(width: 150, height: 150) {
-    #       ...GatsbyImageSharpFixed
-    #     }
-    #   }
-    # }
-    # bottom: file(relativePath: { eq: "diji-farm-cacao-nib-bottom.jpg" }) {
-    #   childImageSharp {
-    #     fluid(maxWidth: 380, maxHeight: 380) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #     fixed(width: 150, height: 150) {
-    #       ...GatsbyImageSharpFixed
-    #     }
-    #   }
-    # }
+    bottom: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-other.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
+      }
+    }
+    young: file(relativePath: { eq: "birds-eye-farm-ina-may-other.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
+      }
+    }
 	}
 `
 
