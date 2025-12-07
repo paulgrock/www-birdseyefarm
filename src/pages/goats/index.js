@@ -18,7 +18,7 @@ const GoatsPage = ({ data }) => (
             We keep a small herd of ADGA registered Nigerian Dwarf dairy goats, the pride and joy of Bird's Eye Farm. Goats were among the first species domesticated by humans—at the dawn of agriculture, some 10,000 years ago—and it's no wonder. Humans just thrive better with goats around.
           </p>
           <p>
-            Excellent milk production is our priority, and we carefully limit herd size so we can have close, affectionate working relationships with our milkers. We specialize in extended lactations, breeding in alternate years and milking through to keep supply going in the off years. We've been pleased to see how well our does perform on this schedule.
+            Excellent milk production is our priority, and we carefully limit herd size so we can have close, affectionate working relationships with our milkers. We specialize in extended lactations, breeding in alternate years and milking through to keep supply going in the off years. We've been pleased to see how well our does perform on this schedule—see their individual doe pages for details.
           </p>
           <p>
             Our herd tested negative for CAE, CL, OPP and Johne's as of October 2025.
