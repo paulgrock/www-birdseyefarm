@@ -123,7 +123,7 @@ export const query = graphql`
       relativePath: { eq: "birds-eye-farm-gianaclis-profile.jpg" }
     ) {
       childImageSharp {
-        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
+        gatsbyImageData(width: 380, height: 285, layout: CONSTRAINED)
       }
     }
     tigris: file(relativePath: { eq: "tigris.jpg" }) {
