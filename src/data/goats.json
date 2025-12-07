@@ -27,7 +27,7 @@
       }
     },
     "dam": {
-      "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+      "name": "Harley Hillside Dime Piece 4*M VGVG 84",
       "link": "/goats/harley-hillside-dime-piece",
       "sire": {
         "name": "Castle Rock Roxstar *B",
@@ -123,7 +123,7 @@
         "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
       },
       "dam": {
-        "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+        "name": "Harley Hillside Dime Piece 4*M VGVG 84",
         "link": "/goats/harley-hillside-dime-piece"
       }
     },
@@ -170,7 +170,7 @@
         "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
       },
       "dam": {
-        "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+        "name": "Harley Hillside Dime Piece 4*M VGVG 84",
         "link": "/goats/harley-hillside-dime-piece"
       }
     },
@@ -184,6 +184,53 @@
     },
     "prices": ["Does: $300", "Wethers: $125"],
     "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002350113"
+  },
+  {
+    "name": "Bird's Eye Farm Gianaclis",
+    "aka": "Giana",
+    "slug": "birds-eye-farm-gianaclis",
+    "adgaPedigree": "https://geneticstest.adga.org/PedigreePrint.aspx?RegNumber=D002414494",
+    "date": "2024-04-21",
+    "sire": {
+      "link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
+      "name": "Diji Farm JRB Typhoon *B VGV 85",
+      "sire": {
+        "name": "Diji Farm Jackson's Royal Bayliner *B EEE91",
+        "link": "https://www.dijifarm.com/jacksons-royal-bw-bayliner"
+      },
+      "dam": {
+        "name": "Diji Farm PU Lil Ms D-Vyne 4*M VEEV90",
+        "link": "https://www.dijifarm.com/diji-farm-pu-lil-ms-d-vyne"
+      }
+    },
+    "dam": {
+      "link": "/goats/diji-farm-cacao-nib",
+      "name": "Diji Farm Cacao Nib 5*M (pending)",
+      "sire": {
+        "name": "Diji Farm CRB Austin Healey *B",
+        "link": "https://www.dijifarm.com/diji-farm-crb-austin-healey"
+      },
+      "dam": {
+        "name": "Sans Gene EP Skeeter 4*M VEVV 87",
+        "link": "https://www.dijifarm.com/sans-gene-ep-skeeter"
+      }
+    },
+    "copy": [
+      "Our young princess Gianaclis! Giana is the first daughter of our rockstar milker Diji Farms AH Cacao Nib 5*M. Once we'd seen Nib's lovely udder and staggering milk haul (1000 lbs in 305 days) there was no doubt little Giana had a big future. She is built exactly like her mom, dairy and angular but also strong. (When Giana's adorable white patches and Nib's big udder are out of view you can barely tell mother from daughter!) Like her dam and granddam, Giana is very level, with straight front legs and well-angled rear legs.",
+      "Giana will be gunning for her 6*M designation with her first freshening in 2026. She's scheduled to freshen the same week as her dam, so Nib can be Giana's milkstand partner and teach her daughter excellent milk stand manners.",
+      "We're also big fans of Giana's sire, Diji Farm's own JRB Typhoon aka \"Jimmy Leggs.\" Jimmy previously bred our Ina, and their daughter Elena has grown into a great, productive dairy doe. Jimmy brings primo genetics from both Diji and the legendary Buttin' Heads herd.",
+      "And speaking of legends, Giana is named for dairywoman extraordinaire Gianaclis Caldwell, whose books on goat care and cheesemaking—along with her exceptional Oregon herd of Nigerian Dwarf goats at Pholia Farm—have inspired our farm.",
+      "The world is yours, Giana!"
+    ],
+    "notes": ["1st Freshening"],
+    "prices": ["Does: $300", "Wethers: $125"],
+    "kiddingDate": "2026-04-03",
+    "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002414494",
+    "mate": {
+      "name": "Till-Riv BNS Smooth Edition *B",
+      "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition",
+      "slug": "ed"
+    }
   },
   {
     "name": "Bird’s Eye Farm Zora Neale 1*M (pending)",
@@ -271,7 +318,7 @@
     "prices": []
   },
   {
-    "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+    "name": "Harley Hillside Dime Piece 4*M VGVG 84",
     "aka": "Chimi",
     "adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D001840907",
     "slug": "harley-hillside-dime-piece",

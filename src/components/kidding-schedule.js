@@ -23,12 +23,14 @@ const KiddingSchedule = ({
   <tr>
     <td>
       <figure>
-        <GatsbyImage
-          image={img.childImageSharp.gatsbyImageData}
-          alt={name}
-          style={{ width: '150px', height: '150px' }}
-          layout="fixed"
-        />
+        {img && img.childImageSharp && (
+          <GatsbyImage
+            image={img.childImageSharp.gatsbyImageData}
+            alt={name}
+            style={{ width: '150px', height: '150px' }}
+            layout="fixed"
+          />
+        )}
         <figcaption>
           <Link to={`/goats/${slug}`}>{name.replace('(pending)', '').trim()}</Link>
         </figcaption>
