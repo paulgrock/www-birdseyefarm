@@ -103,6 +103,7 @@ const GoatBio = ({
             image={data.other.childImageSharp.gatsbyImageData}
             alt={name}
             className={styles.photo}
+            objectFit='contain'
           />
         </>
       )}
@@ -113,6 +114,7 @@ const GoatBio = ({
             image={data.bottom.childImageSharp.gatsbyImageData}
             alt={name}
             className={styles.photo}
+            objectFit='contain'
           />
         </>
       )}
@@ -122,6 +124,7 @@ const GoatBio = ({
           image={data.young.childImageSharp.gatsbyImageData}
           alt={`${name} Young`}
           className={styles.photo}
+          objectFit='contain'
         />
       )}
     </div>
