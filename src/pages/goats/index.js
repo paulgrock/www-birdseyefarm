@@ -133,6 +133,13 @@ export const query = graphql`
         gatsbyImageData(width: 380, height: 285, layout: CONSTRAINED)
       }
     }
+    gilia: file(
+      relativePath: { eq: "birds-eye-farm-gilia-profile.jpg" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(width: 380, height: 250, layout: CONSTRAINED)
+      }
+    }
     tigris: file(relativePath: { eq: "tigris.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 150, height: 150, layout: CONSTRAINED)
