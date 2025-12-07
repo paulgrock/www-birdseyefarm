@@ -5,7 +5,7 @@ import SEO from '../../components/seo'
 
 import GoatPage from '../../components/goat-page'
 
-function Ina({ data }) {
+function Nib({ data }) {
   const { edges } = data.allGoatsJson
   return (
     <Layout>
@@ -17,6 +17,9 @@ function Ina({ data }) {
     </Layout>
   )
 }
+
+// TODO: move nib udder photos above skeeter photos.
+// TODO: add back in nib-profile-old and nib-other images
 
 export const query = graphql`
   query {
@@ -56,17 +59,17 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "diji-farm-cacao-nib-profile.jpg" }) {
+    file(relativePath: { eq: "diji-farm-cacao-nib/profile.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    other: file(relativePath: { eq: "diji-farm-cacao-nib-udder.jpg" }) {
+    other: file(relativePath: { eq: "diji-farm-cacao-nib/udder.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    bottom: file(relativePath: { eq: "diji-farm-cacao-nib-udder-two.jpg" }) {
+    bottom: file(relativePath: { eq: "diji-farm-cacao-nib/udder-two.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
@@ -74,4 +77,4 @@ export const query = graphql`
   }
 `
 
-export default Ina
+export default Nib

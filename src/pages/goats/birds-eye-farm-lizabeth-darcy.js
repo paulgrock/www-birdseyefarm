@@ -1,24 +1,23 @@
 import React from 'react'
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
-import GoatPage from '../../components/goat-page';
+import GoatPage from '../../components/goat-page'
 
-function Ina({data}) {
-	const {edges} = data.allGoatsJson;
+function Lizzo({ data }) {
+  const { edges } = data.allGoatsJson
   return (
-		<Layout>
-		<SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
-		<GoatPage goats={edges} data={data} title={edges[0].node.name} />
-		</Layout>
+    <Layout>
+      <SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
+      <GoatPage goats={edges} data={data} title={edges[0].node.name} />
+    </Layout>
   )
 }
 
-
 export const query = graphql`
   query {
-		allGoatsJson(filter: {slug: {eq:"birds-eye-farm-lizabeth-darcy"}}) {
+    allGoatsJson(filter: { slug: { eq: "birds-eye-farm-lizabeth-darcy" } }) {
       edges {
         node {
           name
@@ -50,31 +49,23 @@ export const query = graphql`
               link
             }
           }
-					copy
+          copy
         }
       }
     }
-    file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy-profile.jpg" }) {
+    file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy/profile.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    young: file(relativePath: { eq: "birds-eye-farm-lizabeth-darcy-young.jpg" }) {
+    young: file(
+      relativePath: { eq: "birds-eye-farm-lizabeth-darcy/young.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(width: 491, height: 380, layout: CONSTRAINED)
       }
     }
-    # bottom: file(relativePath: { eq: "diji-farm-cacao-nib-bottom.jpg" }) {
-    #   childImageSharp {
-    #     fluid(maxWidth: 380, maxHeight: 380) {
-    #       ...GatsbyImageSharpFluid
-    #     }
-    #     fixed(width: 150, height: 150) {
-    #       ...GatsbyImageSharpFixed
-    #     }
-    #   }
-    # }
-	}
+  }
 `
 
-export default Ina;
+export default Lizzo

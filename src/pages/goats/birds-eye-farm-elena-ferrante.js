@@ -1,24 +1,23 @@
 import React from 'react'
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 
-import GoatPage from '../../components/goat-page';
+import GoatPage from '../../components/goat-page'
 
-function Ina({data}) {
-	const {edges} = data.allGoatsJson;
+function Elena({ data }) {
+  const { edges } = data.allGoatsJson
   return (
-		<Layout>
-		<SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
-		<GoatPage goats={edges} data={data} title={edges[0].node.name} />
-		</Layout>
+    <Layout>
+      <SEO title="Nigerian Dwarf Goats" title={edges[0].node.name} />
+      <GoatPage goats={edges} data={data} title={edges[0].node.name} />
+    </Layout>
   )
 }
 
-
 export const query = graphql`
   query {
-		allGoatsJson(filter: {slug: {eq:"birds-eye-farm-elena-ferrante"}}) {
+    allGoatsJson(filter: { slug: { eq: "birds-eye-farm-elena-ferrante" } }) {
       edges {
         node {
           name
@@ -50,16 +49,18 @@ export const query = graphql`
               link
             }
           }
-					copy
+          copy
         }
       }
     }
-    file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
+    file(relativePath: { eq: "birds-eye-farm-elena-ferrante/profile.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
-    young: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-young.jpg" }) {
+    young: file(
+      relativePath: { eq: "birds-eye-farm-elena-ferrante/young.jpg" }
+    ) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
@@ -84,7 +85,7 @@ export const query = graphql`
     #     }
     #   }
     # }
-	}
+  }
 `
 
-export default Ina;
+export default Elena
