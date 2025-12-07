@@ -5,7 +5,7 @@
 }
 
 .bgi {
-	background: url('../../images/july-harvest.jpg') center center no-repeat;
+	background: url('../../images/home.jpg') center center no-repeat;
 	background-size: cover;
 	filter: brightness(80%);
 	position: absolute;

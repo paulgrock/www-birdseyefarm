@@ -6,12 +6,15 @@ import Section from '../section-container'
 
 import * as styles from './gallery.module.css'
 
-import goats from '../../images/goats.jpg'
-import artichoke from '../../images/artichoke.jpg'
-import chicks from '../../images/chicks.jpg'
-import pumpkin from '../../images/pumpkin.jpg'
-import flowers from '../../images/flowers.jpg'
-import ximena from '../../images/ximena.jpg'
+import bia from '../../images/image-gallery/bia.jpg'
+import garden from '../../images/image-gallery/garden.jpg'
+import bee from '../../images/image-gallery/bee.jpg'
+import flock from '../../images/image-gallery/flock.jpg'
+import goats from '../../images/image-gallery/goats.jpg'
+import wings from '../../images/image-gallery/wings.jpg'
+import cheese from '../../images/image-gallery/cheese.jpg'
+import emma from '../../images/image-gallery/emma.jpg'
+import laila from '../../images/image-gallery/laila.jpg'
 import family from '../../images/family.jpg'
 
 import Info from '../info'
@@ -34,26 +37,29 @@ const Gallery = (props) => {
       </Info>
       <img
         src={goats}
-        alt="Chimi clearing the fence"
+        alt="The goat herd"
         className={styles.galleryItem}
       />
       <img
-        src={artichoke}
-        alt="Some of our fantastic artichokes"
+        src={wings}
+        alt="Paul showing off his wings"
+        className={styles.galleryItem}
+      />
+      <img src={cheese} alt="Bird's Eye Farm cheese" className={styles.galleryItem} />
+      <img src={garden} alt="The garden in all it's glory" className={styles.galleryItem} />
+      <img src={bia} alt="Bia in hand" className={styles.galleryItem} />
+      <img src={emma} alt="Emma in the flower patch " className={styles.galleryItem} />
+       <img src={laila} alt="Laila picking vegetables" className={styles.galleryItem} />
+      <img
+        src={flock}
+        alt="The flock"
         className={styles.galleryItem}
       />
       <img
-        src={chicks}
-        alt="The trio: Aaliyah, Yvette, and Aretha"
+        src={bee}
+        alt="Honey bee on Gilia Tri Color"
         className={styles.galleryItem}
       />
-      <img src={flowers} alt="Some flowers" className={styles.galleryItem} />
-      <img
-        src={pumpkin}
-        alt="Paul showing off a large pumpkin"
-        className={styles.galleryItem}
-      />
-      <img src={ximena} alt="Ximena Chilling" className={styles.galleryItem} />
       <div className={styles.buttonContainer}>
         <Button href="https://instagram.com/birds_eye_farm">View All</Button>
       </div>
