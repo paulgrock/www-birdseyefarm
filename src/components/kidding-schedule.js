@@ -131,14 +131,14 @@ const KiddingScheduleContainer = ({ goats, data }) => (
         </tbody>
       </table>
     </div>
-    {/* <small className={styles.attribution}>
-      Diji Farm CRE Elohim, Diji Farm JRB Typhoon and Diji Farm AH Snow’s Legacy
+    <small className={styles.attribution}>
+      Till-Riv BNS Smooth Edition *B, and Diji Farm DJ Shaboozie *B
       appear courtesy of{' '}
       <a href="https://www.dijifarm.com" target="_blank">
         Diji Farm
       </a>
       .
-    </small>*/}
+    </small>
   </Section>
 )
 
