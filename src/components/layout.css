@@ -654,3 +654,19 @@ h1, h2, h3, h4, h5, h6 {
 .udder-photo + .udder-photo {
 	margin-inline-start: 1em;
 }
+
+.nib-udder-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+.nib-udder-grid img {
+  max-width: 380px;
+  width: 100%;
+}
+@media screen and (min-width: 780px) {
+  .nib-udder-grid {
+    flex-direction: row;
+  }
+}
