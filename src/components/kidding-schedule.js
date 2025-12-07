@@ -29,6 +29,7 @@ const KiddingSchedule = ({
             alt={name}
             style={{ width: '150px', height: '150px' }}
             layout="fixed"
+            objectFit='contain'
           />
         )}
         <figcaption>
@@ -37,24 +38,26 @@ const KiddingSchedule = ({
       </figure>
     </td>
     <td>
-      <figure>
+      {mate?.name ? (
+        <figure>
         <GatsbyImage
           image={mateImg?.childImageSharp?.gatsbyImageData}
           alt={mate.name}
-        />
+          />
         <figcaption>
           <a href={mate.link} target="_blank">
             {mate.name}
           </a>
         </figcaption>
       </figure>
+        ): "TBD"}
     </td>
     <td>
       {kiddingDate === 'TBD' ? kiddingDate : format(kiddingDate, 'MMM d, yyyy')}
       {kiddingDate === 'TBD' && (
         <>
           <br />
-          <small>Likely mid-late May</small>
+          <small>Likely late May</small>
         </>
       )}
     </td>
