@@ -25,14 +25,10 @@ const Gallery = (props) => {
       <Info title="Welcome to our farm">
         <img src={family} alt="Family photo" className={styles.mainPhoto} />
         <p>
-          We live on 14 glorious acres in Yamhill County, a vibrantly rural
-          piece of Oregon’s lush Willamette Valley. Here we grow produce and
-          keep dairy goats, laying hens, guard geese, honeybees and fiber
-          rabbits. Emma is the farmstead’s resident gardener, food processor,
-          hoof pedicurist, amateur poultry nurse and dreamer/planner. Paul heads
-          up buildings and security and also handles hay hauling, compost
-          management, dreams/plans implementation and web development. Laila is
-          in charge of berry picking, radish pulling and spoiling bantam hens.
+          We live on 14 glorious acres in Yamhill County, a vibrantly rural piece of Oregon’s Willamette Valley. Here we grow produce and keep Nigerian Dwarf dairy goats, laying hens, guard geese, honeybees and fiber rabbits.
+          </p>
+        <p>
+            We moved here in 2019, when our goat population outgrew our urban farm in Oakland, CA. Emma is the farmstead’s resident gardener, goat midwife, hoof pedicurist, amateur poultry nurse and dreamer/planner. Paul heads up buildings and security, beekeeping, hay hauling, compost management, dreams/plans implementation and web development. (We also like to say he’s our goats’ other kid, since he drinks so much of their milk.) Laila is already an accomplished goat milker, and a sly detective for eggs hidden in secret nests. She’s also in charge of carrot pulling and spoiling bantam hens.
         </p>
       </Info>
       <img
