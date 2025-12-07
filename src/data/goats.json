@@ -12,7 +12,7 @@
       "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition"
     },
     "notes": ["3rd Freshening", "1st choice doe retained"],
-    "prices": ["Does: $400", "Wethers: $125"],
+    "prices": ["Does: $400", "Bucks: $400","Wethers: $125"],
     "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002074269",
     "sire": {
       "link": "http://dogislandfarm.com/curbstone-valley-tigris/",
@@ -89,7 +89,7 @@
       "<img src='/skeeter-udder.jpg' alt='Skeeter Udder' />"
     ],
     "notes": ["2nd Freshening", "1st choice doe retained"],
-    "prices": ["Does: $400", "Wethers: $125"],
+    "prices": ["Does: $400", "Bucks: $400", "Wethers: $125"],
     "kiddingDate": "2026-04-06",
     "mate": {
       "name": "Till-Riv BNS Smooth Edition*B",
@@ -136,7 +136,7 @@
     ],
     "kiddingDate": "2026-05-02",
     "notes": ["2nd Freshening"],
-    "prices": ["Does: $400", "Wethers: $125"],
+    "prices": ["Does: $400", "Bucks: $400", "Wethers: $125"],
     "mate": {
       "name": "Diji Farm DJ Shaboozie *B",
       "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
