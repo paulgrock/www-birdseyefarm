@@ -30,7 +30,7 @@ const KiddingSchedule = ({
           layout="fixed"
         />
         <figcaption>
-          <Link to={`/goats/${slug}`}>{name}</Link>
+          <Link to={`/goats/${slug}`}>{name.replace('(pending)', '').trim()}</Link>
         </figcaption>
       </figure>
     </td>
