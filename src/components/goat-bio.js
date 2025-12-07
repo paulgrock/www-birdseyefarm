@@ -38,6 +38,7 @@ const GoatBio = ({
           image={getImage(img)}
           alt={name}
           className={styles.photo}
+          objectFit='contain'
         />
       )}
 

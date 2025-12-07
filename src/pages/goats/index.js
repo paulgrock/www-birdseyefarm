@@ -97,7 +97,7 @@ export const query = graphql`
     }
     ina: file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
+        gatsbyImageData(width: 507, height: 380, layout: CONSTRAINED)
       }
     }
     nib: file(relativePath: { eq: "diji-farm-cacao-nib-profile.jpg" }) {
