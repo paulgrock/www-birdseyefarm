@@ -109,7 +109,7 @@ export const query = graphql`
       relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }
     ) {
       childImageSharp {
-        gatsbyImageData(width: 760, height: 760, layout: CONSTRAINED)
+        gatsbyImageData(width: 380, height: 308, layout: CONSTRAINED)
       }
     }
     lizzo: file(

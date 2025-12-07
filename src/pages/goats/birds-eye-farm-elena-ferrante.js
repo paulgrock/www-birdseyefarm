@@ -56,7 +56,7 @@ export const query = graphql`
     }
     file(relativePath: { eq: "birds-eye-farm-elena-ferrante-profile.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
+        gatsbyImageData(width: 380, height: 308, layout: CONSTRAINED)
       }
     }
     bottom: file(relativePath: { eq: "birds-eye-farm-elena-ferrante-udder.jpg" }) {
