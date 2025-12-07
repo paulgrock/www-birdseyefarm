@@ -66,6 +66,11 @@ export const query = graphql`
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
       }
     }
+    young: file(relativePath: { eq: "diji-farm-cacao-nib-other.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
+      }
+    }
     bottom: file(relativePath: { eq: "diji-farm-cacao-nib-udder-two.jpg" }) {
       childImageSharp {
         gatsbyImageData(width: 380, height: 380, layout: CONSTRAINED)
