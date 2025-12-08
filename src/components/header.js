@@ -29,7 +29,7 @@ const Header = ({ siteTitle }) => (
           <Link
             getProps={isPartiallyActive}
             className={styles.navLink}
-            to="/goats#kidding-schedule"
+            to="/kidding-schedule"
           >
             Kidding Schedule
           </Link>
