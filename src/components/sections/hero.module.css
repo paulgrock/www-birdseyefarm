@@ -7,7 +7,7 @@
 .bgi {
 	background: url('../../images/home.jpg') center center no-repeat;
 	background-size: cover;
-	filter: brightness(80%);
+	/* filter: brightness(80%); */
 	position: absolute;
 	top: -10px;
 	right: -10px;
