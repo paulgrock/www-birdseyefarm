@@ -229,7 +229,13 @@
     ],
     "notes": ["1st Freshening"],
     "prices": ["Does: $300", "Wethers: $125"],
-    "kiddingDate": "TBD"
+    "kiddingDate": "2026-05-18",
+    "mate": {
+      "name": "Till-Riv BNS Smooth Edition *B",
+      "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition",
+      "slug": "ed"
+    },
+    "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002414467"
   },
   {
     "name": "Bird's Eye Farm Gianaclis",
