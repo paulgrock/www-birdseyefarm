@@ -648,7 +648,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   justify-content: center;
   gap: 20px;
-  align-items: baseline;
+  align-items: center;
 }
 
 .udder-photo {
