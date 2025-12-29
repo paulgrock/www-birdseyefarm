@@ -71,7 +71,7 @@ export const query = graphql`
     }
     zora: file(relativePath: { eq: "birds-eye-farm-zora-neale.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 412, height: 380, layout: CONSTRAINED)
+        gatsbyImageData(width: 430, height: 380, layout: CONSTRAINED)
       }
     }
     ina: file(relativePath: { eq: "birds-eye-farm-ina-may-profile.jpg" }) {

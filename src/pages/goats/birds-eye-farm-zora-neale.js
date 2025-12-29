@@ -56,7 +56,7 @@ export const query = graphql`
     }
     file(relativePath: { eq: "birds-eye-farm-zora-neale.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 412, height: 380, layout: CONSTRAINED)
+        gatsbyImageData(width: 430, height: 380, layout: CONSTRAINED)
       }
     }
     other: file(relativePath: { eq: "harley-hillside-ginger-zinger-udder-two.jpg" }) {
