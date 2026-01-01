@@ -8,7 +8,7 @@
     "link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
     "name": "Diji Farm JRB Typhoon VGV 85",
     "sire": {
-      "name": "Diji Farm Jackson's Royal Bayliner *B EEE91",
+      "name": "Diji Farm Jackson's Royal Bayliner +*B EEE91",
       "link": "https://www.dijifarm.com/jacksons-royal-bw-bayliner"
     },
     "dam": {
@@ -24,7 +24,7 @@
       "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
     },
     "dam": {
-      "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+      "name": "Harley Hillside Dime Piece 4*M VGVG 84",
       "link": "/goats/harley-hillside-dime-piece"
     }
   },
@@ -37,11 +37,11 @@
   ],
   "kiddingDate": "2026-05-02",
   "notes": ["2nd Freshening"],
-  "prices": ["Does: $400", "Wethers: $125"],
+  "prices": ["Does: $400", "Bucks: $400", "Wethers: $125"],
   "mate": {
     "name": "Diji Farm DJ Shaboozie *B",
     "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
     "slug": "shaboozie"
   },
-  "pedigree": ""
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002350114"
 }
