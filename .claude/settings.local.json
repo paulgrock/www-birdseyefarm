@@ -28,7 +28,16 @@
       "Bash(npx playwright install chromium)",
       "Bash(node:*)",
       "Bash(tr:*)",
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(for file in adga-logo.avif andda-logo.png)",
+      "Bash(do [ ! -f \"src/images/$file\" ])",
+      "Bash(echo:*)",
+      "Bash(for file in birds-eye-farm-masha-and-zora.jpg birds-eye-farm-masha-with-laila.jpg)",
+      "Bash([ ! -f \"src/images/diji-farm-cacao-nib-profile-oldish.jpg\" ])",
+      "Bash([ ! -f \"src/images/birds-eye-farm-ina-may-udder.jpg\" ])",
+      "Bash([ ! -f \"src/images/harley-hillside-ginger-zinger-other.jpg\" ])",
+      "Bash([ ! -f \"src/images/harley-hillside-dime-piece-other.jpg\" ])",
+      "Bash(git checkout:*)"
     ]
   }
 }

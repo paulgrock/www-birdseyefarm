@@ -5,12 +5,28 @@ import SectionContainer from '../../components/SectionContainer.astro';
 import Info from '../../components/Info.astro';
 import GoatBio from '../../components/GoatBio.astro';
 import { getGoatImages } from '../../utils/imageHelpers';
+import * as goatStyles from '../../components/goats.module.css';
 
 const goats = await getCollection('goats');
 
+const goatOrder = [
+  'birds-eye-farm-ina-may',
+  'diji-farm-cacao-nib',
+  'birds-eye-farm-elena-ferrante',
+  'birds-eye-farm-lizabeth-darcy',
+  'birds-eye-farm-masha-gessen',
+  'birds-eye-farm-gianaclis',
+  'birds-eye-farm-gilia-tricolor',
+  'harley-hillside-dime-piece',
+  'birds-eye-farm-zora-neale',
+  'harley-hillside-ginger-zinger',
+];
+
+const sortedGoats = goatOrder.map(slug => goats.find(g => g.id === slug)).filter(Boolean);
+
 // Load all images for all goats
 const goatsWithImages = await Promise.all(
-  goats.map(async (goat) => {
+  sortedGoats.map(async (goat) => {
     const images = await getGoatImages(goat.id);
     return { ...goat, images };
   })
@@ -18,7 +34,7 @@ const goatsWithImages = await Promise.all(
 ---
 
 <Layout title="Nigerian Dwarf Goats">
-  <SectionContainer className="goatList">
+  <SectionContainer className={`${goatStyles.container} ${goatStyles.goatList}`}>
     <Info title="Does">
       <p>
         We keep a small herd of ADGA registered Nigerian Dwarf dairy goats,
