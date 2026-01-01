@@ -1,0 +1,50 @@
+{
+  "name": "Bird's Eye Farm Masha Gessen",
+  "aka": "Masha",
+  "slug": "birds-eye-farm-masha-gessen",
+  "adgaPedigree": "https://geneticstest.adga.org/PedigreePrint.aspx?RegNumber=D002414467",
+  "date": "2024-03-06",
+  "sire": {
+    "link": "https://www.dijifarm.com/copy-of-diji-farm-ah-snows-legacy",
+    "name": "Diji Farm AH Snow's Legacy *B",
+    "sire": {
+      "name": "Diji Farm CRB Austin Healey *B",
+      "link": "https://www.dijifarm.com/diji-farm-crb-austin-healey"
+    },
+    "dam": {
+      "name": "Diji Farm GB Darling Snow 1*M VEEE 91",
+      "link": "https://www.dijifarm.com/diji-farm-gb-darling-snow"
+    }
+  },
+  "dam": {
+    "link": "/goats/birds-eye-farm-zora-neale",
+    "name": "Bird's Eye Farm Zora Neale 1*M",
+    "sire": {
+      "name": "Curbstone Valley Tigris *B",
+      "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
+    },
+    "dam": {
+      "name": "Harley Hillside Ginger Zinger",
+      "link": "/goats/harley-hillside-ginger-zinger"
+    }
+  },
+  "copy": [
+    "Masha blends our Bird's Eye Farm line with the excellent breeding tradition of Diji Farm. Her dam Zora and granddam Zadie (aka Ginger Zinger) are extra friendly, beloved members of our herd. They come from excellent lines and have produced well, but their mammaries are not as robust as our Chimi-Ina or Nib lines.",
+    "Enter the handsome buck Diji Farm AH Snow's Legacy! Larry (as he's known) was bred from two of Diji's finest. His mom Darling Snow was a milkstand star with a spectacular mammary. Carol of Diji Farm said Snow had such a tabletop line you could have set plates on it. And her Linear Appraisal score of VEEE 91 is extraordinary for a Nigie. Larry's dad is Austin Healey, who sired our own Nib, another milkstand star.",
+    "Put that all together and you get lovely, level, long-bodied Masha, who freshens for the first time in 2026. Her conformation is even better than Zora's or Zadie's, and I can't wait to see the udder on this one!"
+  ],
+  "notes": [
+    "1st Freshening"
+  ],
+  "prices": [
+    "Does: $300",
+    "Wethers: $125"
+  ],
+  "kiddingDate": "2026-05-18",
+  "mate": {
+    "name": "Till-Riv BNS Smooth Edition *B",
+    "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition",
+    "slug": "ed"
+  },
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002414467"
+}

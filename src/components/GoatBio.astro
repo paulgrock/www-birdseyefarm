@@ -1,0 +1,169 @@
+---
+import { Image } from 'astro:assets';
+import { format } from 'date-fns';
+import SectionTitle from './SectionTitle.astro';
+import * as styles from './goats.module.css';
+
+interface Parent {
+  name: string;
+  link?: string;
+}
+
+interface GoatParent {
+  name: string;
+  link: string;
+  sire?: Parent;
+  dam?: Parent;
+}
+
+interface Props {
+  profileImage?: ImageMetadata;
+  name: string;
+  slug: string;
+  adgaPedigree: string;
+  date: string;
+  sire: GoatParent;
+  dam: GoatParent;
+  copy?: string[];
+  showCopy?: boolean;
+  withTitle?: boolean;
+  otherImage?: ImageMetadata;
+  bottomImage?: ImageMetadata;
+  youngImage?: ImageMetadata;
+  udderImage?: ImageMetadata;
+  udder2Image?: ImageMetadata;
+}
+
+const {
+  profileImage,
+  name,
+  slug,
+  adgaPedigree,
+  date,
+  sire,
+  dam,
+  copy = [],
+  showCopy = false,
+  withTitle = true,
+  otherImage,
+  bottomImage,
+  youngImage,
+  udderImage,
+  udder2Image
+} = Astro.props;
+
+const birthDate = format(new Date(date), 'M/d/yyyy');
+---
+
+<div class={styles.goat}>
+  {profileImage && (
+    <Image
+      src={profileImage}
+      alt={name}
+      class={styles.photo}
+      width={380}
+      height={380}
+    />
+  )}
+
+  <header class={styles.content}>
+    {withTitle && (
+      <SectionTitle>
+        <a href={`/goats/${slug}`}>{name}</a>
+      </SectionTitle>
+    )}
+    <span>Born {birthDate}</span><br />
+    <a href={adgaPedigree}>ADGA Pedigree</a>
+
+    <ul class={styles.list}>
+      <li class={styles.listItem}>
+        <strong>Sire</strong>: <a href={sire.link}>{sire.name}</a>
+      </li>
+      {sire.sire && (
+        <li class={styles.listItem}>
+          <strong>SS</strong>: {sire.sire.link ? (
+            <a href={sire.sire.link}>{sire.sire.name}</a>
+          ) : sire.sire.name}
+        </li>
+      )}
+      {sire.dam && (
+        <li class={styles.listItem}>
+          <strong>SD</strong>: {sire.dam.link ? (
+            <a href={sire.dam.link}>{sire.dam.name}</a>
+          ) : sire.dam.name}
+        </li>
+      )}
+      <li class={styles.listItem}>
+        <strong>Dam</strong>: <a href={dam.link}>{dam.name}</a>
+      </li>
+      {dam.sire && (
+        <li class={styles.listItem}>
+          <strong>DS</strong>: {dam.sire.link ? (
+            <a href={dam.sire.link}>{dam.sire.name}</a>
+          ) : dam.sire.name}
+        </li>
+      )}
+      {dam.dam && (
+        <li class={styles.listItem}>
+          <strong>DD</strong>: {dam.dam.link ? (
+            <a href={dam.dam.link}>{dam.dam.name}</a>
+          ) : dam.dam.name}
+        </li>
+      )}
+    </ul>
+  </header>
+
+  {showCopy && copy.map((content) => (
+    <p class={styles.bodyContent} set:html={content} />
+  ))}
+
+  {udderImage && (
+    <Image
+      src={udderImage}
+      alt={`${name} Udder`}
+      class={styles.photo}
+      width={380}
+      height={380}
+    />
+  )}
+
+  {udder2Image && (
+    <Image
+      src={udder2Image}
+      alt={`${name} Udder 2`}
+      class={styles.photo}
+      width={380}
+      height={380}
+    />
+  )}
+
+  {otherImage && (
+    <Image
+      src={otherImage}
+      alt={name}
+      class={styles.photo}
+      width={380}
+      height={380}
+    />
+  )}
+
+  {bottomImage && (
+    <Image
+      src={bottomImage}
+      alt={name}
+      class={styles.photo}
+      width={380}
+      height={380}
+    />
+  )}
+
+  {youngImage && (
+    <Image
+      src={youngImage}
+      alt={`${name} Young`}
+      class={styles.photo}
+      width={380}
+      height={380}
+    />
+  )}
+</div>

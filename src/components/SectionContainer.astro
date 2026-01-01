@@ -1,0 +1,15 @@
+---
+import * as styles from './section-container.module.css';
+
+interface Props {
+  className?: string;
+  id?: string;
+  [key: string]: any;
+}
+
+const { className = '', ...rest } = Astro.props;
+---
+
+<section class={`${styles.container} ${className}`} {...rest}>
+  <slot />
+</section>

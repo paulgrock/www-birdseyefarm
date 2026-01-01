@@ -1,0 +1,51 @@
+{
+  "name": "Bird's Eye Farm Gilia Tricolor",
+  "aka": "Gilia",
+  "slug": "birds-eye-farm-gilia-tricolor",
+  "adgaPedigree": "https://genetics.adga.org/PedigreePrint.aspx?RegNumber=D002414495",
+  "date": "2024-08-21",
+  "sire": {
+    "link": "https://www.dijifarm.com/diji-farm-cre-elohim",
+    "name": "Diji Farm CRE Elohim GGV 84",
+    "sire": {
+      "name": "Castle Rock Elika *B",
+      "link": "https://www.sansgenegoats.com/bucks.html"
+    },
+    "dam": {
+      "name": "Diji Farm BL Meriweather 3*M +EEE89",
+      "link": "https://www.dijifarm.com/diji-farm-bl-meriweather"
+    }
+  },
+  "dam": {
+    "link": "/goats/birds-eye-farm-elena-ferrante",
+    "name": "Bird's Eye Farm Elena Ferrante 6*M (pending)",
+    "sire": {
+      "name": "Diji Farm JRB Typhoon *B VGV 85",
+      "link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie"
+    },
+    "dam": {
+      "name": "Bird's Eye Farm Ina May 5*M VGVG 83",
+      "link": "/goats/birds-eye-farm-ina-may"
+    }
+  },
+  "copy": [
+    "Gilia is very Bird's Eye Farm. That's why we named her after the same tri-colored wildflower our farm is named for. (Well, that and her tri-colored chamoisée coat.) She represents the fourth generation of our herd, bred from the most impressive doe of each generation that came before. Her grand-dam and great granddam were our original power milkers, and her dam Elena brings grace and dairyness as well. Gilia is long and has her dam and granddam's well put together front end. (I have alas not yet been able to grab a full body picture that does her justice!)",
+    "Gilia's paternal granddam Diji Farm BL Meriweather 3*M +EEE89 brings to this wonderful mammary mix a strong medial and large teats, two things I want to improve on in this line. Her handsome sire Diji Farm CRE Elohim *B won an ANDDA All-American 3 Year—Under 5 award in 2023.",
+    "May you have a well-supported udder, handful teats and many long lactations, sweet Gilia!"
+  ],
+  "notes": [
+    "1st Freshening",
+    "1st choice doe may be retained"
+  ],
+  "prices": [
+    "Does: $300",
+    "Wethers: $125"
+  ],
+  "kiddingDate": "2026-05-01",
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002414495",
+  "mate": {
+    "name": "Diji Farm DJ Shaboozie *B",
+    "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
+    "slug": "shaboozie"
+  }
+}

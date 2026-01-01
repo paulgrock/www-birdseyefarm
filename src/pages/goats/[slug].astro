@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SectionContainer from '../../components/SectionContainer.astro';
+import GoatBio from '../../components/GoatBio.astro';
+import { getGoatImages } from '../../utils/imageHelpers';
+
+export async function getStaticPaths() {
+  const goats = await getCollection('goats');
+
+  return goats.map((goat) => ({
+    params: { slug: goat.id },
+    props: { goat }
+  }));
+}
+
+const { goat } = Astro.props;
+const images = await getGoatImages(goat.id);
+---
+
+<Layout
+  title={goat.data.name}
+  description={`Information about ${goat.data.name}, a Nigerian Dwarf Goat`}
+>
+  <SectionContainer>
+    <GoatBio
+      profileImage={images.profile}
+      name={goat.data.name}
+      slug={goat.data.slug}
+      adgaPedigree={goat.data.adgaPedigree}
+      date={goat.data.date}
+      sire={goat.data.sire}
+      dam={goat.data.dam}
+      copy={goat.data.copy}
+      showCopy={true}
+      withTitle={false}
+      otherImage={images.other}
+      bottomImage={images.bottom}
+      youngImage={images.young}
+      udderImage={images.udder}
+      udder2Image={images.uddertwo}
+    />
+  </SectionContainer>
+</Layout>

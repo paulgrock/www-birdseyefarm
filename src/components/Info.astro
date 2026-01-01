@@ -1,0 +1,15 @@
+---
+import * as styles from './info.module.css';
+import SectionTitle from './SectionTitle.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class={styles.heading}>
+  <SectionTitle className={styles.title}>{title}</SectionTitle>
+  <slot />
+</div>

@@ -1,0 +1,41 @@
+{
+  "name": "Bird's Eye Farm Lizabeth Darcy",
+  "aka": "Lizzo",
+  "slug": "birds-eye-farm-lizabeth-darcy",
+  "adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002350113",
+  "date": "2023-01-31",
+  "sire": {
+    "link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
+    "name": "Diji Farm JRB Typhoon VGV 85",
+    "sire": {
+      "name": "Diji Farm Jackson's Royal Bayliner *B EEE91",
+      "link": "https://www.dijifarm.com/jacksons-royal-bw-bayliner"
+    },
+    "dam": {
+      "name": "Diji Farm PU Lil Ms D-Vyne 4*M VEEV90",
+      "link": "https://www.dijifarm.com/diji-farm-pu-lil-ms-d-vyne"
+    }
+  },
+  "dam": {
+    "link": "/goats/birds-eye-farm-ina-may",
+    "name": "Bird's Eye Farm Ina May 5*M (pending) VGVG 83",
+    "sire": {
+      "name": "Curbstone Valley Tigris *B",
+      "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
+    },
+    "dam": {
+      "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+      "link": "/goats/harley-hillside-dime-piece"
+    }
+  },
+  "copy": [""],
+  "kiddingDate": "2026-04-04",
+  "notes": ["1st Freshening"],
+  "mate": {
+    "name": "Diji Farm DJ Shaboozie *B",
+    "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
+    "slug": "shaboozie"
+  },
+  "prices": ["Does: $300", "Wethers: $125"],
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002350113"
+}

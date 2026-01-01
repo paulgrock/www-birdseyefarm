@@ -1,0 +1,47 @@
+{
+  "name": "Bird's Eye Farm Elena Ferrante 6*M (pending)",
+  "aka": "Elena",
+  "slug": "birds-eye-farm-elena-ferrante",
+  "adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002350114",
+  "date": "2023-01-31",
+  "sire": {
+    "link": "https://www.dijifarm.com/copy-of-diji-farm-jrb-lil-ms-bootie",
+    "name": "Diji Farm JRB Typhoon VGV 85",
+    "sire": {
+      "name": "Diji Farm Jackson's Royal Bayliner *B EEE91",
+      "link": "https://www.dijifarm.com/jacksons-royal-bw-bayliner"
+    },
+    "dam": {
+      "name": "Diji Farm PU Lil Ms D-Vyne 4*M VEEV90",
+      "link": "https://www.dijifarm.com/diji-farm-pu-lil-ms-d-vyne"
+    }
+  },
+  "dam": {
+    "link": "/goats/birds-eye-farm-ina-may",
+    "name": "Bird's Eye Farm Ina May 5*M (pending) VGVG 83",
+    "sire": {
+      "name": "Curbstone Valley Tigris *B",
+      "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
+    },
+    "dam": {
+      "name": "Harley Hillside Dime Piece 4*M (pending) VGVG 84",
+      "link": "/goats/harley-hillside-dime-piece"
+    }
+  },
+  "copy": [
+    "Elena is gorgeous, sweet and feminine. I'm not sure how this spritely dairy doe emerged from our Chimi/Ina line of deep-bodied power girls! Despite being quite a bit smaller than her dam Ina, Elena gets the job done on the milkstand and in the kidding stall. I love her angularity and front end assembly. Also love that she lets human kids follow her around in the pasture, stopping her for hugs.",
+    "Elena freshened in 2024. Of all our does, she is the only one to kid so easily and quietly that we didn't hear a peep on our turnt-up barn monitor. Having been up the previous night periodically staring at the monitor as she labored in peaceful silence, I awoke to find two clean, fluffy kids on the ground. Now that's the kind of kidding you want! (Grandma Ina also helped: details on Ina's page.)",
+    "Elena milked 776 lbs of milk, 45 lbs of butterfat in her first 305. We didn't keep her on extended lactation for her first freshening since she was younger and smaller than our other does were when we put them on long lactations. Then again, her daughter Gilia decided to keep milking for months after that (yes, we let tween goats nurse if they want to) and Elena stayed in great condition. Seems she can indeed handle the long haul!",
+    "While her production is very good, Elena has thus far been easier to milk by machine than by hand. Her teats were on the smaller side this first lactation, though that should improve. Her medial suspensory ligament is also not as strong as I'd like.",
+    "We were tickled when Elena brought her little chamoisée doeling Gilia into the world and onto the farm. Gilia represents the fourth generation of our herd. And when Elena becomes a grandma in 2026: fifth generation!"
+  ],
+  "kiddingDate": "2026-05-02",
+  "notes": ["2nd Freshening"],
+  "prices": ["Does: $400", "Wethers: $125"],
+  "mate": {
+    "name": "Diji Farm DJ Shaboozie *B",
+    "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
+    "slug": "shaboozie"
+  },
+  "pedigree": ""
+}

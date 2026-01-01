@@ -1,2 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Netlify Forms detection
 [[plugins]]
-package = "@netlify/plugin-gatsby"
+  package = "@netlify/plugin-forms"
