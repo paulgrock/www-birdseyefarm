@@ -17,7 +17,11 @@ export async function getGoatImages(slug: string, imageList?: GoatImage[]) {
     const loadedImages = await Promise.all(
       imageList
         .map(({ filename, alt }) => {
-          const imageKey = `/src/images/${slug}/${filename}`;
+          // If filename starts with /, it's an absolute path from /src/images/
+          // Otherwise, it's relative to the goat's folder
+          const imageKey = filename.startsWith('/')
+            ? `/src/images${filename}`
+            : `/src/images/${slug}/${filename}`;
           return images[imageKey] ? { imageKey, alt } : null;
         })
         .filter((item): item is { imageKey: string; alt: string } => item !== null)
