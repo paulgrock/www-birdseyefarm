@@ -50,6 +50,14 @@
     {
       "filename": "profile.jpg",
       "alt": "Masha profile"
+    },
+    {
+      "filename": "birds-eye-farm-masha-with-laila.jpg",
+      "alt": "Masha with Laila"
+    },
+    {
+      "filename": "birds-eye-farm-masha-and-zora.jpg",
+      "alt": "Masha and Zora"
     }
   ],
   "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002414467"

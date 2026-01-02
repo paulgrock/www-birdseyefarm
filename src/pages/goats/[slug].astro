@@ -20,30 +20,31 @@ export async function getStaticPaths() {
 const { goat } = Astro.props;
 const images = await getGoatImages(goat.id, goat.data.images);
 
+// Load all goat images for inline optimization
+const allGoatImages = import.meta.glob<{ default: ImageMetadata }>('/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}');
+
 // Process copy to replace inline image paths with optimized versions
 let processedCopy = goat.data.copy;
-if (processedCopy && images.length > 0) {
-  processedCopy = await Promise.all(
-    processedCopy.map(async (paragraph: string) => {
-      let processed = paragraph;
-
-      // Replace inline image references with optimized versions for any goat
-      for (const { image, alt } of images) {
-        // Extract filename from image path (handles various Astro image formats)
-        const imageName = alt.toLowerCase().includes('young') ? 'young' :
-                         alt.toLowerCase().includes('udder') ? 'udder' : null;
-
-        if (imageName) {
-          const optimized = await getImage({ src: image, width: 380 });
-          // Replace common inline image patterns
-          processed = processed.replace(new RegExp(`/${goat.id.split('/').pop()}-${imageName}[^"']*\.(jpg|png|webp)`, 'g'), optimized.src);
-          processed = processed.replace(new RegExp(`/nib-${imageName}[^"']*\.(jpg|png|webp)`, 'g'), optimized.src);
-        }
-      }
-
-      return processed;
-    })
+if (processedCopy) {
+  const imageEntries = await Promise.all(
+    Object.entries(allGoatImages)
+      .filter(([path]) => !path.includes('logo') && !path.includes('skeeter'))
+      .map(async ([path, loader]) => {
+        const simplePath = path.replace('/src/images', '');
+        const image = (await loader()).default;
+        const optimized = await getImage({ src: image, width: 380, inferSize: true });
+        return [simplePath, optimized.src] as const;
+      })
   );
+
+  processedCopy = processedCopy.map((paragraph: string) => {
+    let result = paragraph;
+    imageEntries.forEach(([simplePath, optimizedSrc]) => {
+      result = result.replace(`src="${simplePath}"`, `src="${optimizedSrc}"`);
+      result = result.replace(`src='${simplePath}'`, `src='${optimizedSrc}'`);
+    });
+    return result;
+  });
 }
 ---
 
