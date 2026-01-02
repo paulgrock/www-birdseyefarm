@@ -47,5 +47,11 @@
     "name": "Diji Farm DJ Shaboozie *B",
     "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
     "slug": "shaboozie"
-  }
+  },
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Gilia profile"
+    }
+  ]
 }

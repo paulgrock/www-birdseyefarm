@@ -37,5 +37,23 @@
     "Along with her half-sister, Chimi, Zadie makes up our foundational pair of does, and we couldn't have wished for a finer duo to start our herd!"
   ],
   "notes": [],
-  "prices": []
+  "prices": [],
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Zadie profile"
+    },
+    {
+      "filename": "udder.jpg",
+      "alt": "Zadie udder"
+    },
+    {
+      "filename": "udder-two.jpg",
+      "alt": "Zadie udder-two"
+    },
+    {
+      "filename": "other.jpg",
+      "alt": "Zadie other"
+    }
+  ]
 }

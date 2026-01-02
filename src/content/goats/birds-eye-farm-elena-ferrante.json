@@ -43,5 +43,23 @@
     "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
     "slug": "shaboozie"
   },
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Elena profile"
+    },
+    {
+      "filename": "udder.jpg",
+      "alt": "Elena udder"
+    },
+    {
+      "filename": "other.jpg",
+      "alt": "Elena other"
+    },
+    {
+      "filename": "young.jpg",
+      "alt": "Elena young"
+    }
+  ],
   "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002350114"
 }

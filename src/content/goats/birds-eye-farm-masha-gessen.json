@@ -46,5 +46,11 @@
     "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition",
     "slug": "ed"
   },
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Masha profile"
+    }
+  ],
   "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002414467"
 }

@@ -41,7 +41,11 @@ const goatsCollection = defineCollection({
     }).optional(),
     copy: z.array(z.string()).default([]),
     notes: z.array(z.string()).default([]),
-    prices: z.array(z.string()).default([])
+    prices: z.array(z.string()).default([]),
+    images: z.array(z.object({
+      filename: z.string(),
+      alt: z.string()
+    })).optional()
   })
 });
 

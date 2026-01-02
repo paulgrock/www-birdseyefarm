@@ -41,6 +41,16 @@
     "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
     "slug": "shaboozie"
   },
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Lizzo profile"
+    },
+    {
+      "filename": "young.jpg",
+      "alt": "Lizzo young"
+    }
+  ],
   "prices": ["Does: $300", "Wethers: $125"],
   "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002350113"
 }

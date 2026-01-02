@@ -39,5 +39,23 @@
     "3rd Freshening",
     "1st choice doe retained; 1st choice wether CS"
   ],
-  "prices": ["Does: $400", "Wethers: $125"]
+  "prices": ["Does: $400", "Wethers: $125"],
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Chimi profile"
+    },
+    {
+      "filename": "udder.jpg",
+      "alt": "Chimi udder"
+    },
+    {
+      "filename": "udder-two.jpg",
+      "alt": "Chimi udder-two"
+    },
+    {
+      "filename": "other.jpg",
+      "alt": "Chimi other"
+    }
+  ]
 }

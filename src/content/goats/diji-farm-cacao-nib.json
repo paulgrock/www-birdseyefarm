@@ -49,5 +49,11 @@
     "name": "Till-Riv BNS Smooth Edition*B",
     "slug": "ed",
     "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition"
-  }
+  },
+  "images": [
+    { "filename": "profile.jpg", "alt": "Nib profile" },
+    { "filename": "young.jpg", "alt": "Nib young" },
+    { "filename": "udder.jpg", "alt": "Nib udder" },
+    { "filename": "udder-two.jpg", "alt": "Nib udder detail" }
+  ]
 }

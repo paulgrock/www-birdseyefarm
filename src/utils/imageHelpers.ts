@@ -1,47 +1,32 @@
 import type { ImageMetadata } from 'astro';
 
-export async function getGoatImages(slug: string) {
+interface GoatImage {
+  filename: string;
+  alt: string;
+}
+
+export async function getGoatImages(slug: string, imageList?: GoatImage[]) {
   const images = import.meta.glob<{ default: ImageMetadata }>(
     '/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}'
   );
 
-  const goatImages: Record<string, ImageMetadata> = {};
+  const goatImages: Array<{ image: ImageMetadata; alt: string }> = [];
 
-  // Try different possible image names for each type
-  const imageTypes = ['profile', 'other', 'bottom', 'young', 'udder', 'udder-two'];
-
-  for (const type of imageTypes) {
-    // Try different extensions
-    const extensions = ['jpg', 'jpeg', 'png', 'webp', 'avif', 'HEIC'];
-    for (const ext of extensions) {
-      // First try the standard naming (e.g., profile.jpg)
-      let imageKey = `/src/images/${slug}/${type}.${ext}`;
-      if (images[imageKey]) {
-        const key = type.replace('-', '');
-        goatImages[key] = (await images[imageKey]()).default;
-        break;
-      }
-
-      // If profile doesn't exist, try slug name as filename (e.g., harley-hillside-dime-piece.jpg)
-      if (type === 'profile') {
-        imageKey = `/src/images/${slug}/${slug}.${ext}`;
-        if (images[imageKey]) {
-          goatImages.profile = (await images[imageKey]()).default;
-          break;
-        }
-
-        // Also try shortened slug (e.g., zora-neale.jpg from birds-eye-farm-zora-neale)
-        const parts = slug.split('-');
-        if (parts.length > 2) {
-          const shortSlug = parts.slice(-2).join('-');
-          imageKey = `/src/images/${slug}/${shortSlug}.${ext}`;
-          if (images[imageKey]) {
-            goatImages.profile = (await images[imageKey]()).default;
-            break;
-          }
-        }
-      }
-    }
+  if (imageList) {
+    // Use the explicit image list from the JSON
+    const loadedImages = await Promise.all(
+      imageList
+        .map(({ filename, alt }) => {
+          const imageKey = `/src/images/${slug}/${filename}`;
+          return images[imageKey] ? { imageKey, alt } : null;
+        })
+        .filter((item): item is { imageKey: string; alt: string } => item !== null)
+        .map(async ({ imageKey, alt }) => ({
+          image: (await images[imageKey]()).default,
+          alt
+        }))
+    );
+    goatImages.push(...loadedImages);
   }
 
   return goatImages;

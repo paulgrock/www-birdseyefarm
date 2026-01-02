@@ -27,7 +27,7 @@ const sortedGoats = goatOrder.map(slug => goats.find(g => g.id === slug)).filter
 // Load all images for all goats
 const goatsWithImages = await Promise.all(
   sortedGoats.map(async (goat) => {
-    const images = await getGoatImages(goat.id);
+    const images = await getGoatImages(goat.id, goat.data.images);
     return { ...goat, images };
   })
 );
@@ -54,7 +54,7 @@ const goatsWithImages = await Promise.all(
 
     {goatsWithImages.map((goat) => (
       <GoatBio
-        profileImage={goat.images.profile}
+        images={goat.images}
         name={goat.data.name}
         slug={goat.data.slug}
         adgaPedigree={goat.data.adgaPedigree}

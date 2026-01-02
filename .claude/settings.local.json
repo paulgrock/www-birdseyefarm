@@ -37,7 +37,8 @@
       "Bash([ ! -f \"src/images/birds-eye-farm-ina-may-udder.jpg\" ])",
       "Bash([ ! -f \"src/images/harley-hillside-ginger-zinger-other.jpg\" ])",
       "Bash([ ! -f \"src/images/harley-hillside-dime-piece-other.jpg\" ])",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(open http://localhost:4321/goats/birds-eye-farm-ina-may)"
     ]
   }
 }

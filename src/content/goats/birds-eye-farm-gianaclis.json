@@ -48,5 +48,19 @@
     "name": "Till-Riv BNS Smooth Edition *B",
     "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition",
     "slug": "ed"
-  }
+  },
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Giana profile"
+    },
+    {
+      "filename": "other.jpg",
+      "alt": "Giana other"
+    },
+    {
+      "filename": "young.jpg",
+      "alt": "Giana young"
+    }
+  ]
 }
