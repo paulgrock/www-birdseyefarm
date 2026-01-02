@@ -1,0 +1,127 @@
+---
+import SectionContainer from '../SectionContainer.astro';
+import * as styles from './contact.module.css';
+import * as buttonStyles from '../button.module.css';
+---
+
+<SectionContainer id="contact" className={styles.container}>
+  <h3 class={styles.title}>Contact Us</h3>
+
+  <form
+    method="post"
+    class={styles.form}
+    data-netlify="true"
+    name="contact"
+    netlify-honeypot="botField"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+
+    <div hidden>
+      <label>Don't fill this out: <input name="botField" /></label>
+    </div>
+
+    <input
+      placeholder="Name"
+      type="text"
+      name="name"
+      class={styles.input}
+      required
+      aria-label="Name"
+    />
+
+    <input
+      placeholder="Email Address"
+      type="email"
+      name="email"
+      class={styles.input}
+      required
+      aria-label="Email Address"
+    />
+
+    <textarea
+      name="message"
+      class={styles.textarea}
+      placeholder="Adopt a goat!"
+      required
+      aria-label="Message"
+    />
+
+    <button type="submit" class={`${buttonStyles.button} ${styles.button}`}>
+      Contact Us
+    </button>
+  </form>
+
+  <dialog id="success-dialog" class={styles.modal}>
+    <p>Thanks for inquiring about our goats. We'll be in touch shortly!</p>
+    <button type="button" id="close-dialog">Close</button>
+  </dialog>
+</SectionContainer>
+
+<script>
+  const form = document.querySelector('form[name="contact"]') as HTMLFormElement;
+  const dialog = document.getElementById('success-dialog') as HTMLDialogElement;
+  const closeBtn = document.getElementById('close-dialog');
+
+  if (form && dialog && closeBtn) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const body = new URLSearchParams(formData as any).toString();
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body
+        });
+
+        if (response.ok) {
+          dialog.showModal();
+          form.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert(error);
+      }
+    });
+
+    closeBtn.addEventListener('click', () => dialog.close());
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        dialog.close();
+      }
+    });
+  }
+</script>
+
+<style>
+  dialog {
+    border: none;
+    padding: 0;
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  dialog button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #1DB9A6;
+    color: white;
+    font-family: 'Josefin Slab', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  dialog button:hover {
+    opacity: 0.9;
+  }
+</style>

@@ -2,11 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/Hero.astro';
 import Gallery from '../components/sections/Gallery.astro';
-import Contact from '../components/sections/Contact.tsx';
+import Contact from '../components/sections/Contact.astro';
 ---
 
 <Layout>
   <Hero />
   <Gallery />
-  <Contact client:visible />
+  <Contact />
 </Layout>
