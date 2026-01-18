@@ -7,6 +7,6 @@
 	text-align: center;
 	padding: 62px 8.47%;
 }
-.container:has(> [class^="hero"]) {
+.container.heroContainer {
 	background: none;
 }

@@ -5,7 +5,7 @@
 }
 
 .bgi {
-	background: url('../../images/home.jpg') center center no-repeat;
+	background: center center no-repeat;
 	background-size: cover;
 	position: absolute;
 	inset: -10px 0 0;
