@@ -25,7 +25,7 @@
 
 .goatImage {
   width: 150px;
-  height: 150px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -34,4 +34,8 @@
     max-width: 100%;
     overflow-x: scroll;
   }
+}
+
+.tableContainer tbody tr {
+  vertical-align: top;
 }

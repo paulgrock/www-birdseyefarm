@@ -12,6 +12,18 @@ const profileImages = import.meta.glob<{ default: ImageMetadata }>(
   '/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}'
 );
 
+// Define the custom order for kidding schedule
+const kiddingOrder = [
+  'birds-eye-farm-ina-may',
+  'diji-farm-cacao-nib',
+  'birds-eye-farm-elena-ferrante',
+  'birds-eye-farm-gianaclis',
+  'birds-eye-farm-lizabeth-darcy',
+  'birds-eye-farm-gilia-tricolor',
+  'birds-eye-farm-masha-gessen',
+  'birds-eye-farm-vanilla-orchid',
+];
+
 const goatsWithImages = await Promise.all(
   goats.map(async (goat) => {
     let profileImage;
@@ -53,11 +65,29 @@ const goatsWithImages = await Promise.all(
     return { ...goat, profileImage, mateImage };
   })
 );
+
+// Sort goats according to the kidding schedule order
+const sortedGoatsWithImages = goatsWithImages.sort((a, b) => {
+  const indexA = kiddingOrder.indexOf(a.id);
+  const indexB = kiddingOrder.indexOf(b.id);
+
+  // If both are in the kidding order, sort by their position
+  if (indexA !== -1 && indexB !== -1) {
+    return indexA - indexB;
+  }
+
+  // If only one is in the kidding order, put it first
+  if (indexA !== -1) return -1;
+  if (indexB !== -1) return 1;
+
+  // If neither is in the kidding order, maintain original order
+  return 0;
+});
 ---
 
 <Layout
   title='2026 Kidding Schedule'
   description="Bird's Eye Farm 2026 Kidding Schedule"
 >
-  <KiddingSchedule goats={goatsWithImages} />
+  <KiddingSchedule goats={sortedGoatsWithImages} />
 </Layout>
