@@ -23,6 +23,12 @@
   width: 130px;
 }
 
+.goatImage {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 660px) {
   .tableContainer {
     max-width: 100%;

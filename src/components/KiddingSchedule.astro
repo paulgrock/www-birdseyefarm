@@ -60,7 +60,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                     alt={goat.data.name}
                     width={150}
                     height={150}
-                    style="width: 150px; height: 150px; object-fit: contain;"
+                    class={styles.goatImage}
                   />
                 )}
                 <figcaption>
@@ -82,7 +82,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                     />
                   )}
                   <figcaption>
-                    <a href={goat.data.mate.link} target="_blank">
+                    <a href={goat.data.mate.link} target="_blank" rel="noopener noreferrer">
                       {goat.data.mate.name}
                     </a>
                   </figcaption>
@@ -92,7 +92,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
             <td>
               {goat.data.kiddingDate === 'TBD'
                 ? goat.data.kiddingDate
-                : format(new Date(goat.data.kiddingDate), 'MMM d, yyyy')
+                : goat.data.kiddingDate && format(new Date(goat.data.kiddingDate), 'MMM d, yyyy')
               }
               {goat.data.kiddingDate === 'TBD' && (
                 <>
@@ -103,7 +103,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
             </td>
             <td>
               {goat.data.pedigree && (
-                <a href={goat.data.pedigree} target="_blank">
+                <a href={goat.data.pedigree} target="_blank" rel="noopener noreferrer">
                   ADGA Planned Pedigree
                 </a>
               )}
@@ -130,7 +130,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
   <small class={styles.attribution}>
     Till-Riv BNS Smooth Edition *B, and Diji Farm DJ Shaboozie *B
     appear courtesy of{' '}
-    <a href="https://www.dijifarm.com" target="_blank">
+    <a href="https://www.dijifarm.com" target="_blank" rel="noopener noreferrer">
       Diji Farm
     </a>
     .

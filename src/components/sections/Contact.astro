@@ -56,19 +56,30 @@ import * as buttonStyles from '../button.module.css';
     <p>Thanks for inquiring about our goats. We'll be in touch shortly!</p>
     <button type="button" id="close-dialog">Close</button>
   </dialog>
+
+  <dialog id="error-dialog" class={styles.modal}>
+    <p>Sorry, there was an error submitting your message. Please try again or email us directly.</p>
+    <button type="button" id="close-error-dialog">Close</button>
+  </dialog>
 </SectionContainer>
 
 <script>
   const form = document.querySelector('form[name="contact"]') as HTMLFormElement;
-  const dialog = document.getElementById('success-dialog') as HTMLDialogElement;
+  const successDialog = document.getElementById('success-dialog') as HTMLDialogElement;
+  const errorDialog = document.getElementById('error-dialog') as HTMLDialogElement;
   const closeBtn = document.getElementById('close-dialog');
+  const closeErrorBtn = document.getElementById('close-error-dialog');
 
-  if (form && dialog && closeBtn) {
+  if (form && successDialog && errorDialog && closeBtn && closeErrorBtn) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const formData = new FormData(form);
-      const body = new URLSearchParams(formData as any).toString();
+      const params = new URLSearchParams();
+      formData.forEach((value, key) => {
+        params.append(key, value.toString());
+      });
+      const body = params.toString();
 
       try {
         const response = await fetch('/', {
@@ -78,21 +89,28 @@ import * as buttonStyles from '../button.module.css';
         });
 
         if (response.ok) {
-          dialog.showModal();
+          successDialog.showModal();
           form.reset();
         } else {
           throw new Error('Form submission failed');
         }
       } catch (error) {
-        alert(error);
+        errorDialog.showModal();
       }
     });
 
-    closeBtn.addEventListener('click', () => dialog.close());
+    closeBtn.addEventListener('click', () => successDialog.close());
+    closeErrorBtn.addEventListener('click', () => errorDialog.close());
 
-    dialog.addEventListener('click', (e) => {
-      if (e.target === dialog) {
-        dialog.close();
+    successDialog.addEventListener('click', (e) => {
+      if (e.target === successDialog) {
+        successDialog.close();
+      }
+    });
+
+    errorDialog.addEventListener('click', (e) => {
+      if (e.target === errorDialog) {
+        errorDialog.close();
       }
     });
   }

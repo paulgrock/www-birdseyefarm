@@ -20,28 +20,45 @@ export async function getStaticPaths() {
 const { goat } = Astro.props;
 const images = await getGoatImages(goat.id, goat.data.images);
 
-// Load all goat images for inline optimization
-const allGoatImages = import.meta.glob<{ default: ImageMetadata }>('/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}');
-
 // Process copy to replace inline image paths with optimized versions
 let processedCopy = goat.data.copy;
-if (processedCopy) {
+if (processedCopy && processedCopy.length > 0) {
+  // Only load images for this specific goat
+  const goatImages = import.meta.glob<{ default: ImageMetadata }>('/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}');
+
+  // Extract image paths referenced in the copy
+  const referencedPaths = new Set<string>();
+  processedCopy.forEach((paragraph: string) => {
+    const srcMatches = paragraph.match(/src=["']([^"']+)["']/g);
+    if (srcMatches) {
+      srcMatches.forEach((match) => {
+        const path = match.match(/src=["']([^"']+)["']/)?.[1];
+        if (path) referencedPaths.add(path);
+      });
+    }
+  });
+
+  // Only load and optimize images that are actually referenced
   const imageEntries = await Promise.all(
-    Object.entries(allGoatImages)
-      .filter(([path]) => !path.includes('logo') && !path.includes('skeeter'))
-      .map(async ([path, loader]) => {
-        const simplePath = path.replace('/src/images', '');
-        const image = (await loader()).default;
+    Array.from(referencedPaths).map(async (simplePath) => {
+      const fullPath = `/src/images${simplePath}`;
+      if (goatImages[fullPath]) {
+        const image = (await goatImages[fullPath]()).default;
         const optimized = await getImage({ src: image, width: 380, inferSize: true });
         return [simplePath, optimized.src] as const;
-      })
+      }
+      return null;
+    })
   );
 
   processedCopy = processedCopy.map((paragraph: string) => {
     let result = paragraph;
-    imageEntries.forEach(([simplePath, optimizedSrc]) => {
-      result = result.replace(`src="${simplePath}"`, `src="${optimizedSrc}"`);
-      result = result.replace(`src='${simplePath}'`, `src='${optimizedSrc}'`);
+    imageEntries.forEach((entry) => {
+      if (entry) {
+        const [simplePath, optimizedSrc] = entry;
+        result = result.replace(`src="${simplePath}"`, `src="${optimizedSrc}"`);
+        result = result.replace(`src='${simplePath}'`, `src='${optimizedSrc}'`);
+      }
     });
     return result;
   });
