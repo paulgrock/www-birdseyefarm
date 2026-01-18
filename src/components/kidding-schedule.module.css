@@ -1,3 +1,8 @@
+.kiddingScheduleContainer {
+  padding-top: 120px;
+  gap: 2rem;
+}
+
 .attribution {
   font-size: 11px;
   font-style: italic;

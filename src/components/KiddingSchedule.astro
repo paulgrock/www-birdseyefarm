@@ -33,7 +33,7 @@ const { goats } = Astro.props;
 const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
 ---
 
-<SectionContainer id="kidding-schedule">
+<SectionContainer id="kidding-schedule" className={styles.kiddingScheduleContainer}>
   <SectionTitle>2026 Kidding Schedule</SectionTitle>
   <div class={styles.tableContainer}>
     <table>
