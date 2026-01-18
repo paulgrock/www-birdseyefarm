@@ -1,6 +1,4 @@
 ---
-import * as styles from './section-container.module.css';
-
 interface Props {
   className?: string;
   id?: string;
@@ -10,6 +8,18 @@ interface Props {
 const { className = '', ...rest } = Astro.props;
 ---
 
-<section class={`${styles.container} ${className}`} {...rest}>
+<section class={`container ${className}`} {...rest}>
   <slot />
 </section>
+
+<style>
+  .container {
+    background-color: rgba(76, 40, 81, .3);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    text-align: center;
+    padding: 62px 8.47%;
+  }
+</style>

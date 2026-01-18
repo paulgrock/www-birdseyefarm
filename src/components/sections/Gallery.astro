@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import Button from '../Button.astro';
 import SectionContainer from '../SectionContainer.astro';
 import Info from '../Info.astro';
-import * as styles from './gallery.module.css';
 
 import bia from '../../images/image-gallery/bia.jpg';
 import garden from '../../images/image-gallery/garden.jpg';
@@ -17,9 +16,9 @@ import laila from '../../images/image-gallery/laila.jpg';
 import family from '../../images/family.jpg';
 ---
 
-<SectionContainer id="gallery" className={styles.galleryContainer}>
+<SectionContainer id="gallery" className="galleryContainer">
   <Info title="Welcome to our farm">
-    <Image src={family} alt="Family photo" class={styles.mainPhoto} width={300} height={278} />
+    <Image src={family} alt="Family photo" class="mainPhoto" width={300} height={278} />
     <p>
       We live on 14 glorious acres in Yamhill County, a vibrantly rural piece of Oregon's Willamette Valley. Here we grow produce and keep Nigerian Dwarf dairy goats, laying hens, guard geese, honeybees and fiber rabbits.
     </p>
@@ -30,33 +29,59 @@ import family from '../../images/family.jpg';
   <Image
     src={goats}
     alt="The goat herd"
-    class={styles.galleryItem}
+    class="galleryItem"
     width={300}
   />
   <Image
     src={wings}
     alt="Paul showing off his wings"
-    class={styles.galleryItem}
+    class="galleryItem"
     width={300}
   />
-  <Image src={cheese} alt="Bird's Eye Farm cheese" class={styles.galleryItem} widths={[300]} sizes="300px" />
-  <Image src={garden} alt="The garden in all it's glory" class={styles.galleryItem} widths={[300]} sizes="300px" />
-  <Image src={bia} alt="Bia in hand" class={styles.galleryItem} widths={[300]} sizes="300px" />
-  <Image src={emma} alt="Emma in the flower patch " class={styles.galleryItem} widths={[300]} sizes="300px" />
-  <Image src={laila} alt="Laila picking vegetables" class={styles.galleryItem} widths={[300]} sizes="300px" />
+  <Image src={cheese} alt="Bird's Eye Farm cheese" class="galleryItem" widths={[300]} sizes="300px" />
+  <Image src={garden} alt="The garden in all it's glory" class="galleryItem" widths={[300]} sizes="300px" />
+  <Image src={bia} alt="Bia in hand" class="galleryItem" widths={[300]} sizes="300px" />
+  <Image src={emma} alt="Emma in the flower patch " class="galleryItem" widths={[300]} sizes="300px" />
+  <Image src={laila} alt="Laila picking vegetables" class="galleryItem" widths={[300]} sizes="300px" />
   <Image
     src={flock}
     alt="The flock"
-    class={styles.galleryItem}
+    class="galleryItem"
     width={300}
   />
   <Image
     src={bee}
     alt="Honey bee on Gilia Tri Color"
-    class={styles.galleryItem}
+    class="galleryItem"
     width={300}
   />
-  <div class={styles.buttonContainer}>
+  <div class="buttonContainer">
     <Button href="https://instagram.com/birds_eye_farm">View All</Button>
   </div>
 </SectionContainer>
+
+<style>
+  .galleryContainer {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 300px));
+    grid-gap: 28px;
+    background-image: url('../../images/bg.svg');
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .galleryItem {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+
+  .buttonContainer {
+    margin-top: 54px;
+    grid-column: 1 / -1;
+  }
+
+  .mainPhoto {
+    width: 300px;
+  }
+</style>

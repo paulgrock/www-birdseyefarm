@@ -1,5 +1,4 @@
 ---
-import * as styles from './info.module.css';
 import SectionTitle from './SectionTitle.astro';
 
 interface Props {
@@ -9,7 +8,25 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div class={styles.heading}>
-  <SectionTitle className={styles.title}>{title}</SectionTitle>
+<div class="heading">
+  <SectionTitle className="title">{title}</SectionTitle>
   <slot />
 </div>
+
+<style>
+  .heading {
+    grid-column: 1 / -1;
+    color: var(--color-darker-purple);
+    background-color: rgba(255, 255, 255, .3);
+    padding: 0 1em;
+  }
+
+  .heading p {
+    text-align: left;
+    text-indent: 2em;
+  }
+
+  .title {
+    padding: .5rem 0;
+  }
+</style>

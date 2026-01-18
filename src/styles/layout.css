@@ -1,3 +1,16 @@
+:root {
+  /* Color palette */
+  --color-primary: #1DB9A6;
+  --color-dark-purple: #4C2851;
+  --color-darker-purple: #371D3A;
+  --color-darkest-purple: #251128;
+  --color-light: #F9F9F9;
+
+  /* Responsive breakpoints (for media queries) */
+  --breakpoint-mobile: 660px;
+  --breakpoint-desktop: 960px;
+}
+
 html {
   font-family: 'Josefin Slab', sans-serif;
   -ms-text-size-adjust: 100%;
