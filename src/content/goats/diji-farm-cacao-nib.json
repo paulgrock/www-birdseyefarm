@@ -1,0 +1,56 @@
+{
+  "name": "Diji Farm Cacao Nib 5*M (pending)",
+  "aka": "Nib",
+  "slug": "diji-farm-cacao-nib",
+  "adgaPedigree": "https://genetics.adga.org/GoatDetail.aspx?RegNumber=D002280248",
+  "date": "2022-04-14",
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002440989&DamNum=D002280248",
+  "sire": {
+    "link": "https://www.adgagenetics.org/GoatDetail.aspx?RegNumber=D002108754",
+    "name": "Diji Farm CRB Austin Healey *B",
+    "sire": {
+      "name": "Castle Rock Bugatti *B VEE 90",
+      "link": "https://www.adgagenetics.org/GoatDetail.aspx?RegNumber=D001755068"
+    },
+    "dam": {
+      "name": "Diji Farm BL Constellation 2*M VEEE 90",
+      "link": "https://www.dijifarm.com/diji-farm-bl-constellation"
+    }
+  },
+  "dam": {
+    "link": "https://www.dijifarm.com/sans-gene-ep-skeeter",
+    "name": "Sans Gene EP Skeeter 4*M VEVV 87",
+    "sire": {
+      "name": "Castle Rock Elika *B",
+      "link": "https://www.sansgenegoats.com/bucks.html"
+    },
+    "dam": {
+      "name": "Sans Gene V Pearline VGEG 84 3*M",
+      "link": "https://www.dijifarm.com/copy-of-sans-gene-v-pearline"
+    }
+  },
+  "copy": [
+    "We got the chance to bring in a lovely doeling from Diji Farm in 2022 and young Nib matured beautifully. A friendly snuggler from the start, Nib has the most lovely milk stand manners of the whole herd. When our daughter Laila was five years old she learned to milk with wonderful, patient Nib.",
+    "Nib's 2024-2025 first lactation was explosive from the start. She peaked at 5 lbs per day (well over half a gallon), and proceeded to marathon it out. Over a *twenty-month* extended lactation, she milked an epic 1600 lbs! Her 305-day total was 1000 lbs. (Okay, it was technically 998, but come on. 😁)",
+    "<img src='/nib-young.jpg' alt='Nib as a young doe' />",
+    "Diji breeds for great conformation, and Nib's line has excellent mammary systems. Lucky for us, Nib inherited a lovely, capacious udder! Her teats are a bit further to the fore than my hands would ideally prefer, but that's being picky. She has great udder texture and hand milks so easily that everybody wants to be on Nib milking assignment. Her dam Skeeter has nice handful teats and Nib seems destined for similar teat length and diameter as she develops.",
+    "She's also angular and dairy, qualities we've needed to improve on in our herd. Her grand-sires are both *B Castle Rock hotshots, widening our range of top-notch Castle Rock lines.",
+    "<div class='nib-udder-grid'><img src='/nib-udder.jpg' alt='Nib udder' /><img src='/nib-udder-two.jpg' alt='Nib udder' /></div>",
+    "Her first kidding was rough—tangled triplets, the first breech—but that may have been because the kids were a bit too big for dainty Nib. I'm hoping with some prenatal care adjustments she'll have an easier go in 2026. As her midwife I must say the rough birth strengthened our goat-human bond and sure helped build my goat midwifery confidence!",
+    "We retained Nib's lovely daughter Gianaclis to the herd and expect great things from her as well. We couldn't be more proud of our darling Nib!",
+    "<small>Below: Nib's gorgeous dam Skeeter, and Skeeter's spectacular udder. Photos courtesy of Diji Farm</small>",
+    "<img src='/skeeter.jpg' alt='Skeeter' />",
+    "<img src='/skeeter-udder.jpg' alt='Skeeter Udder' />"
+  ],
+  "notes": ["2nd Freshening", "1st choice doe retained"],
+  "prices": ["Does: $400", "Bucks: $400", "Wethers: $125"],
+  "kiddingDate": "2026-04-06",
+  "mate": {
+    "name": "Till-Riv BNS Smooth Edition*B",
+    "slug": "ed",
+    "link": "https://www.dijifarm.com/till-riv-bns-smooth-edition"
+  },
+  "images": [
+    { "filename": "profile.jpg", "alt": "Nib profile" }
+  ]
+}

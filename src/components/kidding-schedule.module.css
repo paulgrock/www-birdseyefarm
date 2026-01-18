@@ -1,3 +1,8 @@
+.kiddingScheduleContainer {
+  padding-top: 120px;
+  gap: 2rem;
+}
+
 .attribution {
   font-size: 11px;
   font-style: italic;
@@ -16,6 +21,12 @@
 
 .dueDateColumn {
   width: 130px;
+}
+
+.goatImage {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 660px) {

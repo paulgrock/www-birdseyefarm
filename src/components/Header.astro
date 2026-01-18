@@ -1,0 +1,55 @@
+---
+import * as styles from './header.module.css';
+
+interface Props {
+  siteTitle: string;
+}
+
+const { siteTitle } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// Helper function to check if link is active
+const isActive = (path: string) => {
+  if (path === '/goats') {
+    return currentPath.startsWith('/goats') && !currentPath.startsWith('/kidding');
+  }
+  if (path === '/kidding-schedule') {
+    return currentPath.startsWith('/kidding-schedule');
+  }
+  return false;
+};
+---
+
+<header class={styles.header}>
+  <h1 class={styles.title}>
+    <a href="/">{siteTitle}</a>
+  </h1>
+  <nav class={styles.nav}>
+    <ul class={styles.list}>
+      <li class={styles.navItem}>
+        <a
+          class={isActive('/goats') ? `${styles.activeNavLink} ${styles.navLink}` : styles.navLink}
+          href="/goats"
+        >
+          Goats
+        </a>
+      </li>
+      <li class={styles.navItem}>
+        <a
+          class={isActive('/kidding-schedule') ? `${styles.activeNavLink} ${styles.navLink}` : styles.navLink}
+          href="/kidding-schedule/"
+        >
+          Kidding Schedule
+        </a>
+      </li>
+      <li class={styles.navItem}>
+        <a
+          class={styles.navLink}
+          href="/#contact"
+        >
+          Contact Us
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

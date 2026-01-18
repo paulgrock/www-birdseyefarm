@@ -1,0 +1,14 @@
+---
+import * as styles from './section-title.module.css';
+
+type Props = {
+  className?: string;
+}
+
+const { className } = Astro.props;
+const classes = className ? `${styles.title} ${className}` : styles.title;
+---
+
+<h3 class={classes}>
+  <slot />
+</h3>

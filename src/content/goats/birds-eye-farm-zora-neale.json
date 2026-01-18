@@ -1,0 +1,62 @@
+{
+  "name": "Bird's Eye Farm Zora Neale 1*M (pending)",
+  "aka": "Zora",
+  "slug": "birds-eye-farm-zora-neale",
+  "date": "2019-05-01",
+  "notes": [
+    "2nd Freshening",
+    "1st choice doe retained; 2nd choice doe LF; 1st choice wether CS"
+  ],
+  "prices": ["Does: $325", "Wethers: $125"],
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002247729&DamNum=D002111884",
+  "adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002111884",
+  "sire": {
+    "link": "http://dogislandfarm.com/curbstone-valley-tigris/",
+    "name": "Curbstone Valley Tigris *B",
+    "sire": {
+      "name": "Curbstone Valley Sheldon *B *S",
+      "link": "https://curbstonevalley.com/nigerian-dwarf-goats/bucks/curbstone-valley-sheldon/"
+    },
+    "dam": {
+      "name": "GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92",
+      "link": "https://curbstonevalley.com/nigerian-dwarf-goats/champion-does/algedi-farm-rb-ocean-flower/"
+    }
+  },
+  "dam": {
+    "name": "Harley Hillside Ginger Zinger",
+    "link": "/goats/harley-hillside-ginger-zinger",
+    "sire": {
+      "name": "Castle Rock Roxstar *B",
+      "link": "https://curbstonevalley.com/nigerian-dwarf-goats/reference-sires/castle-rock-roxstar/"
+    },
+    "dam": {
+      "name": "Harley Hillside iHeart Chai VEVE 89",
+      "link": "https://www.oldwashoe.com/copy-of-harley-hillside-red-sunflow"
+    }
+  },
+  "copy": [
+    "Zora was the first Bird's Eye Farm-born doe that we retained and we're so proud of her.",
+    "Zora is spritely and feminine. Her dam, Ginger Zinger (aka Zadie) is one of our foundational does. Like her dam, Zora is very level with straight front legs and well-angled rear legs. She's incredibly friendly and as a kid was always looking for a human lap in which to snuggle. In a herd with many gold coats, Zora stands out rocking her white-flecked-with-chocolate look. She's not as long-bodied as her aunt Chimi or cousin Ina, but holds her own on the milk stand.",
+    "Her dam Zadie has a gorgeous, capacious udder and bestowed such patient maternal love that Zora was teat-fed until she was well over a year old.",
+    "Zora has great genetics from both sides. Her Castle Rock lineage is rich with milk stars. And her paternal granddam GCH Algedi Farm RB Ocean Flower 6*M *D EEEE 92 is a show ring and milk stand legend.",
+    "Zora freshened in 2022 and milked nearly three pounds per day that summer. She freshens again in 2024 and will be on test to earn her milk star at her second freshening. We hope she may also have a daughter this time!"
+  ],
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Zora profile"
+    },
+    {
+      "filename": "/harley-hillside-ginger-zinger/udder-two.jpg",
+      "alt": "Ginger's udder (Zora's dam)"
+    },
+    {
+      "filename": "other.jpg",
+      "alt": "Zora other"
+    },
+    {
+      "filename": "young.jpg",
+      "alt": "Zora young"
+    }
+  ]
+}

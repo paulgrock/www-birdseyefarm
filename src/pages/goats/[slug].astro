@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SectionContainer from '../../components/SectionContainer.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import GoatBio from '../../components/GoatBio.astro';
+import { getGoatImages } from '../../utils/imageHelpers';
+import * as goatStyles from '../../components/goats.module.css';
+
+export async function getStaticPaths() {
+  const goats = await getCollection('goats');
+
+  return goats.map((goat) => ({
+    params: { slug: goat.id },
+    props: { goat }
+  }));
+}
+
+const { goat } = Astro.props;
+const images = await getGoatImages(goat.id, goat.data.images);
+
+// Process copy to replace inline image paths with optimized versions
+let processedCopy = goat.data.copy;
+if (processedCopy && processedCopy.length > 0) {
+  // Only load images for this specific goat
+  const goatImages = import.meta.glob<{ default: ImageMetadata }>('/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}');
+
+  // Extract image paths referenced in the copy
+  const referencedPaths = new Set<string>();
+  processedCopy.forEach((paragraph: string) => {
+    const srcMatches = paragraph.match(/src=["']([^"']+)["']/g);
+    if (srcMatches) {
+      srcMatches.forEach((match) => {
+        const path = match.match(/src=["']([^"']+)["']/)?.[1];
+        if (path) referencedPaths.add(path);
+      });
+    }
+  });
+
+  // Only load and optimize images that are actually referenced
+  const imageEntries = await Promise.all(
+    Array.from(referencedPaths).map(async (simplePath) => {
+      const fullPath = `/src/images${simplePath}`;
+      if (goatImages[fullPath]) {
+        const image = (await goatImages[fullPath]()).default;
+        const optimized = await getImage({ src: image, width: 380, inferSize: true });
+        return [simplePath, optimized.src] as const;
+      }
+      return null;
+    })
+  );
+
+  processedCopy = processedCopy.map((paragraph: string) => {
+    let result = paragraph;
+    imageEntries.forEach((entry) => {
+      if (entry) {
+        const [simplePath, optimizedSrc] = entry;
+        result = result.replace(`src="${simplePath}"`, `src="${optimizedSrc}"`);
+        result = result.replace(`src='${simplePath}'`, `src='${optimizedSrc}'`);
+      }
+    });
+    return result;
+  });
+}
+---
+
+<Layout
+  title={goat.data.name}
+  description={`Information about ${goat.data.name}, a Nigerian Dwarf Goat`}
+>
+  <SectionContainer className={goatStyles.container}>
+    <SectionTitle>{goat.data.name}</SectionTitle>
+    <GoatBio
+      images={images}
+      name={goat.data.name}
+      slug={goat.data.slug}
+      adgaPedigree={goat.data.adgaPedigree}
+      date={goat.data.date}
+      sire={goat.data.sire}
+      dam={goat.data.dam}
+      copy={processedCopy}
+      showCopy={true}
+      withTitle={false}
+    />
+  </SectionContainer>
+</Layout>

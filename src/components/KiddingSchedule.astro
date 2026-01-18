@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets';
+import { format } from 'date-fns';
+import SectionContainer from './SectionContainer.astro';
+import SectionTitle from './SectionTitle.astro';
+import * as styles from './kidding-schedule.module.css';
+
+interface Props {
+  goats: Array<{
+    id: string;
+    data: {
+      name: string;
+      aka: string;
+      slug: string;
+      kiddingDate?: string;
+      mate?: {
+        name: string;
+        slug: string;
+        link: string;
+      };
+      pedigree?: string;
+      notes?: string[];
+      prices?: string[];
+    };
+    profileImage?: ImageMetadata;
+    mateImage?: ImageMetadata;
+  }>;
+}
+
+const { goats } = Astro.props;
+
+// Filter goats that have kidding dates
+const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
+---
+
+<SectionContainer id="kidding-schedule" className={styles.kiddingScheduleContainer}>
+  <SectionTitle>2026 Kidding Schedule</SectionTitle>
+  <div class={styles.tableContainer}>
+    <table>
+      <thead>
+        <tr>
+          <td class={styles.tableHeading}>Dam</td>
+          <td class={styles.tableHeading}>Sire</td>
+          <td class={`${styles.tableHeading} ${styles.dueDateColumn}`}>
+            Due Date
+          </td>
+          <td class={styles.tableHeading}>ADGA Pedigree</td>
+          <td class={styles.tableHeading}>Notes</td>
+          <td class={styles.tableHeading}>Fee</td>
+        </tr>
+      </thead>
+      <tbody>
+        {kiddingGoats.map((goat) => (
+          <tr>
+            <td>
+              <figure>
+                {goat.profileImage && (
+                  <Image
+                    src={goat.profileImage}
+                    alt={goat.data.name}
+                    width={150}
+                    height={150}
+                    class={styles.goatImage}
+                  />
+                )}
+                <figcaption>
+                  <a href={`/goats/${goat.data.slug}`}>
+                    {goat.data.name.replace('(pending)', '').trim()}
+                  </a>
+                </figcaption>
+              </figure>
+            </td>
+            <td>
+              {goat.data.mate?.name ? (
+                <figure>
+                  {goat.mateImage && (
+                    <Image
+                      src={goat.mateImage}
+                      alt={goat.data.mate.name}
+                      width={150}
+                      height={150}
+                    />
+                  )}
+                  <figcaption>
+                    <a href={goat.data.mate.link} target="_blank" rel="noopener noreferrer">
+                      {goat.data.mate.name}
+                    </a>
+                  </figcaption>
+                </figure>
+              ) : "TBD"}
+            </td>
+            <td>
+              {goat.data.kiddingDate === 'TBD'
+                ? goat.data.kiddingDate
+                : goat.data.kiddingDate && format(new Date(goat.data.kiddingDate), 'MMM d, yyyy')
+              }
+              {goat.data.kiddingDate === 'TBD' && (
+                <>
+                  <br />
+                  <small>Likely late May</small>
+                </>
+              )}
+            </td>
+            <td>
+              {goat.data.pedigree && (
+                <a href={goat.data.pedigree} target="_blank" rel="noopener noreferrer">
+                  ADGA Planned Pedigree
+                </a>
+              )}
+            </td>
+            <td>
+              {goat.data.notes && goat.data.notes.length > 0 && (
+                goat.data.notes.map((note) => (
+                  <p class={styles.note}>{note}</p>
+                ))
+              )}
+            </td>
+            <td>
+              {goat.data.prices && goat.data.prices.length > 0 && (
+                goat.data.prices.map((price) => (
+                  <p class={styles.note}>{price}</p>
+                ))
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <small class={styles.attribution}>
+    Till-Riv BNS Smooth Edition *B, and Diji Farm DJ Shaboozie *B
+    appear courtesy of{' '}
+    <a href="https://www.dijifarm.com" target="_blank" rel="noopener noreferrer">
+      Diji Farm
+    </a>
+    .
+  </small>
+</SectionContainer>
