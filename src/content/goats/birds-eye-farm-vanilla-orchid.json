@@ -1,0 +1,54 @@
+{
+  "name": "Bird's Eye Farm Vanilla Orchid",
+  "aka": "Nilla",
+  "slug": "birds-eye-farm-vanilla-orchid",
+  "adgaPedigree": "https://adgagenetics.org/GoatDetail.aspx?RegNumber=D002472831",
+  "date": "2024-05-21",
+  "sire": {
+    "link": "https://www.dijifarm.com/diji-farm-cre-elohim",
+    "name": "Diji Farm CRE Elohim *B GGV 84",
+    "sire": {
+      "name": "Castle Rock Elika *B",
+      "link": "https://www.sansgenegoats.com/bucks.html"
+    },
+    "dam": {
+      "name": "Diji Farm BL Meriweather 3*M +EEE89",
+      "link": "https://www.dijifarm.com/diji-farm-bl-meriweather"
+    }
+  },
+  "dam": {
+    "link": "/goats/birds-eye-farm-ina-may",
+    "name": "Bird's Eye Farm Ina May 5*M VGVG 83",
+    "sire": {
+      "name": "Curbstone Valley Tigris *B",
+      "link": "http://dogislandfarm.com/curbstone-valley-tigris/"
+    },
+    "dam": {
+      "name": "Harley Hillside Dime Piece 4*M VGVG 84",
+      "link": "/goats/harley-hillside-dime-piece"
+    }
+  },
+  "copy": [
+    "Her handsome sire Diji Farm CRE Elohim won an ANDDA All-American 3 Year—Under 5 award in 2023."
+  ],
+  "notes": [
+    "1st Freshening"
+  ],
+  "prices": [
+    "Does: $300",
+    "Wethers: $125"
+  ],
+  "kiddingDate": "2026-05-25",
+  "pedigree": "https://genetics.adga.org/PlannedPedigreePrint.aspx?SireNum=D002429425&DamNum=D002472831",
+  "mate": {
+    "name": "Diji Farm DJ Shaboozie *B",
+    "link": "https://www.dijifarm.com/diji-farm-dj-shaboozie",
+    "slug": "shaboozie"
+  },
+  "images": [
+    {
+      "filename": "profile.jpg",
+      "alt": "Vanilla Orchid profile"
+    }
+  ]
+}
