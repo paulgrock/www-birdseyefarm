@@ -5,7 +5,6 @@ import SectionContainer from '../../components/SectionContainer.astro';
 import Info from '../../components/Info.astro';
 import GoatBio from '../../components/GoatBio.astro';
 import { getGoatImages } from '../../utils/imageHelpers';
-import * as goatStyles from '../../components/goats.module.css';
 
 const goats = await getCollection('goats');
 
@@ -35,7 +34,7 @@ const goatsWithImages = await Promise.all(
 ---
 
 <Layout title="Nigerian Dwarf Goats">
-  <SectionContainer className={`${goatStyles.container} ${goatStyles.goatList}`}>
+  <SectionContainer className="container goatList">
     <Info title="Does">
       <p>
         We keep a small herd of ADGA registered Nigerian Dwarf dairy goats,
@@ -68,3 +67,22 @@ const goatsWithImages = await Promise.all(
     ))}
   </SectionContainer>
 </Layout>
+
+<style>
+  .container {
+    background-image: url('../../images/goats-bg.jpg');
+    padding-top: 120px;
+    gap: 2.5rem;
+  }
+
+  .goatList :global(.goat) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 960px) {
+    .goatList :global(.goat) {
+      flex-direction: row;
+    }
+  }
+</style>

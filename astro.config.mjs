@@ -6,11 +6,6 @@ export default defineConfig({
   site: 'https://birdseyefarm.com',
   output: 'static',
   vite: {
-    css: {
-      modules: {
-        localsConvention: 'camelCase'
-      }
-    },
     assetsInclude: ['**/*.HEIC']
   }
 });

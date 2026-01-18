@@ -1,6 +1,4 @@
 ---
-import * as styles from './header.module.css';
-
 interface Props {
   siteTitle: string;
 }
@@ -20,31 +18,31 @@ const isActive = (path: string) => {
 };
 ---
 
-<header class={styles.header}>
-  <h1 class={styles.title}>
+<header class="header">
+  <h1 class="title">
     <a href="/">{siteTitle}</a>
   </h1>
-  <nav class={styles.nav}>
-    <ul class={styles.list}>
-      <li class={styles.navItem}>
+  <nav class="nav">
+    <ul class="list">
+      <li class="navItem">
         <a
-          class={isActive('/goats') ? `${styles.activeNavLink} ${styles.navLink}` : styles.navLink}
+          class={isActive('/goats') ? 'activeNavLink navLink' : 'navLink'}
           href="/goats"
         >
           Goats
         </a>
       </li>
-      <li class={styles.navItem}>
+      <li class="navItem">
         <a
-          class={isActive('/kidding-schedule') ? `${styles.activeNavLink} ${styles.navLink}` : styles.navLink}
+          class={isActive('/kidding-schedule') ? 'activeNavLink navLink' : 'navLink'}
           href="/kidding-schedule/"
         >
           Kidding Schedule
         </a>
       </li>
-      <li class={styles.navItem}>
+      <li class="navItem">
         <a
-          class={styles.navLink}
+          class="navLink"
           href="/#contact"
         >
           Contact Us
@@ -53,3 +51,79 @@ const isActive = (path: string) => {
     </ul>
   </nav>
 </header>
+
+<style>
+  .header {
+    position: absolute;
+    left: 8.47%;
+    right: 8.47%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 24px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 5;
+  }
+
+  .title {
+    margin: 0;
+    font-weight: bold;
+    font-family: 'amatic sc';
+    font-size: 45px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  @media screen and (max-width: 660px) {
+    .header {
+      display: block;
+    }
+    .title {
+      text-align: center;
+      margin-block-end: 12px;
+    }
+  }
+
+  .title a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav {
+    flex-grow: 1;
+    max-width: 568px;
+  }
+
+  .list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+  }
+
+  .navItem {
+    margin-bottom: 0;
+    margin-left: 10px;
+  }
+
+  .navLink {
+    color: white;
+    font-size: 20px;
+    line-height: 1.2;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .activeNavLink::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    right: 0;
+    bottom: -8px;
+    left: 0;
+    background: white;
+    border-radius: 2.5px 2.5px 0px 0px;
+  }
+</style>

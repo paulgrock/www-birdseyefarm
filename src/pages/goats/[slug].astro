@@ -6,7 +6,6 @@ import SectionContainer from '../../components/SectionContainer.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import GoatBio from '../../components/GoatBio.astro';
 import { getGoatImages } from '../../utils/imageHelpers';
-import * as goatStyles from '../../components/goats.module.css';
 
 export async function getStaticPaths() {
   const goats = await getCollection('goats');
@@ -69,7 +68,7 @@ if (processedCopy && processedCopy.length > 0) {
   title={goat.data.name}
   description={`Information about ${goat.data.name}, a Nigerian Dwarf Goat`}
 >
-  <SectionContainer className={goatStyles.container}>
+  <SectionContainer className="container">
     <SectionTitle>{goat.data.name}</SectionTitle>
     <GoatBio
       images={images}
@@ -85,3 +84,11 @@ if (processedCopy && processedCopy.length > 0) {
     />
   </SectionContainer>
 </Layout>
+
+<style>
+  .container {
+    background-image: url('../../images/goats-bg.jpg');
+    padding-top: 120px;
+    gap: 2.5rem;
+  }
+</style>

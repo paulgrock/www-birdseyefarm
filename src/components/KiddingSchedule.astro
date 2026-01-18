@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import { format } from 'date-fns';
 import SectionContainer from './SectionContainer.astro';
 import SectionTitle from './SectionTitle.astro';
-import * as styles from './kidding-schedule.module.css';
 
 interface Props {
   goats: Array<{
@@ -33,20 +32,20 @@ const { goats } = Astro.props;
 const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
 ---
 
-<SectionContainer id="kidding-schedule" className={styles.kiddingScheduleContainer}>
+<SectionContainer id="kidding-schedule" className="kiddingScheduleContainer">
   <SectionTitle>2026 Kidding Schedule</SectionTitle>
-  <div class={styles.tableContainer}>
+  <div class="tableContainer">
     <table>
       <thead>
         <tr>
-          <td class={styles.tableHeading}>Dam</td>
-          <td class={styles.tableHeading}>Sire</td>
-          <td class={`${styles.tableHeading} ${styles.dueDateColumn}`}>
+          <td class="tableHeading">Dam</td>
+          <td class="tableHeading">Sire</td>
+          <td class="tableHeading dueDateColumn">
             Due Date
           </td>
-          <td class={styles.tableHeading}>ADGA Pedigree</td>
-          <td class={styles.tableHeading}>Notes</td>
-          <td class={styles.tableHeading}>Fee</td>
+          <td class="tableHeading">ADGA Pedigree</td>
+          <td class="tableHeading">Notes</td>
+          <td class="tableHeading">Fee</td>
         </tr>
       </thead>
       <tbody>
@@ -60,7 +59,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                     alt={goat.data.name}
                     width={150}
                     height={150}
-                    class={styles.goatImage}
+                    class="goatImage"
                   />
                 )}
                 <figcaption>
@@ -79,7 +78,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                       alt={goat.data.mate.name}
                       width={150}
                       height={150}
-                      class={styles.goatImage}
+                      class="goatImage"
                     />
                   )}
                   <figcaption>
@@ -112,14 +111,14 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
             <td>
               {goat.data.notes && goat.data.notes.length > 0 && (
                 goat.data.notes.map((note) => (
-                  <p class={styles.note}>{note}</p>
+                  <p class="note">{note}</p>
                 ))
               )}
             </td>
             <td>
               {goat.data.prices && goat.data.prices.length > 0 && (
                 goat.data.prices.map((price) => (
-                  <p class={styles.note}>{price}</p>
+                  <p class="note">{price}</p>
                 ))
               )}
             </td>
@@ -128,7 +127,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
       </tbody>
     </table>
   </div>
-  <small class={styles.attribution}>
+  <small class="attribution">
     Till-Riv BNS Smooth Edition *B, and Diji Farm DJ Shaboozie *B
     appear courtesy of{' '}
     <a href="https://www.dijifarm.com" target="_blank" rel="noopener noreferrer">
@@ -137,3 +136,47 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
     .
   </small>
 </SectionContainer>
+
+<style>
+  .kiddingScheduleContainer {
+    padding-top: 120px;
+    gap: 2rem;
+  }
+
+  .attribution {
+    font-size: 11px;
+    font-style: italic;
+    display: block;
+    text-align: left;
+  }
+
+  .tableHeading {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .note {
+    margin-bottom: 0.5em;
+  }
+
+  .dueDateColumn {
+    width: 130px;
+  }
+
+  .goatImage {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 660px) {
+    .tableContainer {
+      max-width: 100%;
+      overflow-x: scroll;
+    }
+  }
+
+  .tableContainer tbody tr {
+    vertical-align: top;
+  }
+</style>
