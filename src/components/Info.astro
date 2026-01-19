@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <div class="heading">
-  <SectionTitle className="title">{title}</SectionTitle>
+  <SectionTitle className="sectionTitle">{title}</SectionTitle>
   <slot />
 </div>
 
@@ -26,7 +26,8 @@ const { title } = Astro.props;
     text-indent: 2em;
   }
 
-  .title {
+  :global(.sectionTitle) {
     padding: .5rem 0;
+    text-align: center;
   }
 </style>
