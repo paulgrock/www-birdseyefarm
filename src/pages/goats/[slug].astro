@@ -5,20 +5,25 @@ import SectionTitle from '../../components/SectionTitle.astro';
 import GoatBio from '../../components/GoatBio.astro';
 import { sanityClient } from '../../lib/sanity';
 import { allGoatsQuery } from '../../lib/queries';
+import type { Goat } from '../../types/sanity';
 
 export async function getStaticPaths() {
-  const goats = await sanityClient.fetch(allGoatsQuery);
+  const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery);
 
-  return goats.map((goat: any) => ({
+  return goats.map((goat) => ({
     params: { slug: goat.slug },
     props: { goat }
   }));
 }
 
+interface Props {
+  goat: Goat;
+}
+
 const { goat } = Astro.props;
 
 // Transform Sanity images to match expected format
-const images = goat.images?.map((img: any) => ({
+const images = goat.images?.map((img) => ({
   src: img.asset.url,
   alt: img.alt || goat.name,
 })) || [];

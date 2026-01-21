@@ -6,9 +6,10 @@ import GoatBio from '../../components/GoatBio.astro';
 import { sanityClient } from '../../lib/sanity';
 import { allGoatsQuery, goatsPageQuery } from '../../lib/queries';
 import { portableTextToHtml } from '../../lib/portableText';
+import type { Goat, GoatsPage } from '../../types/sanity';
 
-const goats = await sanityClient.fetch(allGoatsQuery);
-const goatsPage = await sanityClient.fetch(goatsPageQuery);
+const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery);
+const goatsPage = await sanityClient.fetch<GoatsPage>(goatsPageQuery);
 
 const goatOrder = [
   'birds-eye-farm-ina-may',
@@ -25,12 +26,12 @@ const goatOrder = [
 ];
 
 const sortedGoats = goatOrder
-  .map(slug => goats.find(g => g.slug === slug))
-  .filter(Boolean);
+  .map(slug => goats.find((g) => g.slug === slug))
+  .filter((goat): goat is Goat => goat !== undefined);
 
 // Transform Sanity images to match expected format
 const goatsWithImages = sortedGoats.map((goat) => {
-  const images = goat.images?.map(img => ({
+  const images = goat.images?.map((img) => ({
     src: img.asset.url,
     alt: img.alt || goat.name,
   })) || [];

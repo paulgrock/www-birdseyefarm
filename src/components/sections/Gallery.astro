@@ -6,6 +6,7 @@ import Info from '../Info.astro';
 import { sanityClient } from '../../lib/sanity';
 import { homePageQuery } from '../../lib/queries';
 import { portableTextToHtml } from '../../lib/portableText';
+import type { HomePage } from '../../types/sanity';
 
 import bia from '../../images/image-gallery/bia.jpg';
 import garden from '../../images/image-gallery/garden.jpg';
@@ -18,7 +19,7 @@ import emma from '../../images/image-gallery/emma.jpg';
 import laila from '../../images/image-gallery/laila.jpg';
 import family from '../../images/family.jpg';
 
-const homePage = await sanityClient.fetch(homePageQuery);
+const homePage = await sanityClient.fetch<HomePage>(homePageQuery);
 ---
 
 <SectionContainer id="gallery" className="galleryContainer">
