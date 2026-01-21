@@ -61,7 +61,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
             <td>
               <figure>
                 {goat.profileImage && (
-                  typeof goat.profileImage === 'object' && 'src' in goat.profileImage ? (
+                  typeof goat.profileImage === 'object' && 'src' in goat.profileImage && goat.profileImage.src ? (
                     <img
                       src={`${goat.profileImage.src}?w=150&auto=format`}
                       srcset={`${goat.profileImage.src}?w=150&auto=format 1x, ${goat.profileImage.src}?w=300&auto=format 2x`}
@@ -71,7 +71,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                       class="goatImage"
                       loading="lazy"
                     />
-                  ) : (
+                  ) : typeof goat.profileImage === 'object' && 'width' in goat.profileImage ? (
                     <Image
                       src={goat.profileImage}
                       alt={goat.data.name}
@@ -79,7 +79,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                       height={150}
                       class="goatImage"
                     />
-                  )
+                  ) : null
                 )}
                 <figcaption>
                   <a href={`/goats/${goat.data.slug}`}>
@@ -92,7 +92,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
               {goat.data.mate?.name ? (
                 <figure>
                   {goat.mateImage && (
-                    typeof goat.mateImage === 'object' && 'src' in goat.mateImage ? (
+                    typeof goat.mateImage === 'object' && 'src' in goat.mateImage && goat.mateImage.src ? (
                       <img
                         src={`${goat.mateImage.src}?w=150&auto=format`}
                         srcset={`${goat.mateImage.src}?w=150&auto=format 1x, ${goat.mateImage.src}?w=300&auto=format 2x`}
@@ -102,7 +102,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                         class="goatImage"
                         loading="lazy"
                       />
-                    ) : (
+                    ) : typeof goat.mateImage === 'object' && 'width' in goat.mateImage ? (
                       <Image
                         src={goat.mateImage}
                         alt={goat.data.mate.name}
@@ -110,7 +110,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
                         height={150}
                         class="goatImage"
                       />
-                    )
+                    ) : null
                   )}
                   <figcaption>
                     <a href={goat.data.mate.link} target="_blank" rel="noopener noreferrer">
