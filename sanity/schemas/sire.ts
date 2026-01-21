@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 
 export default defineType({
   name: 'sire',
-  title: 'Sire (External Breeding Goat)',
+  title: 'Sires',
   type: 'document',
   fields: [
     defineField({
