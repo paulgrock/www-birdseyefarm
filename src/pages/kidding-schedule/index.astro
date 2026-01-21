@@ -59,7 +59,7 @@ const goatsWithImages = await Promise.all(
     // Load mate image if exists
     let mateImage;
     if (goat.data.mate?.slug) {
-      mateImage = await getMateImage(goat.data.mate.slug);
+      mateImage = (await getMateImage(goat.data.mate.slug)) || undefined;
     }
 
     return { ...goat, profileImage, mateImage };
