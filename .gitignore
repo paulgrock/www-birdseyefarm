@@ -58,6 +58,9 @@ typings/
 dist/
 .astro/
 
+# sanity runtime files
+.sanity/
+
 # Mac files
 .DS_Store
 

@@ -3,6 +3,10 @@ import { Image } from 'astro:assets';
 import Button from '../Button.astro';
 import SectionContainer from '../SectionContainer.astro';
 import Info from '../Info.astro';
+import { sanityClient } from '../../lib/sanity';
+import { homePageQuery } from '../../lib/queries';
+import { portableTextToHtml } from '../../lib/portableText';
+import type { HomePage } from '../../types/sanity';
 
 import bia from '../../images/image-gallery/bia.jpg';
 import garden from '../../images/image-gallery/garden.jpg';
@@ -14,46 +18,47 @@ import cheese from '../../images/image-gallery/cheese.jpg';
 import emma from '../../images/image-gallery/emma.jpg';
 import laila from '../../images/image-gallery/laila.jpg';
 import family from '../../images/family.jpg';
+
+const homePage = await sanityClient.fetch<HomePage>(homePageQuery);
 ---
 
 <SectionContainer id="gallery" className="galleryContainer">
-  <Info title="Welcome to our farm">
-    <Image src={family} alt="Family photo" class="mainPhoto" width={300} height={278} />
-    <p>
-      We live on 14 glorious acres in Yamhill County, a vibrantly rural piece of Oregon's Willamette Valley. Here we grow produce and keep Nigerian Dwarf dairy goats, laying hens, guard geese, honeybees and fiber rabbits.
-    </p>
-    <p>
-      We moved here in 2019, when our goat population outgrew our urban farm in Oakland, CA. Emma is the farmstead's resident gardener, goat midwife, hoof pedicurist, amateur poultry nurse and dreamer/planner. Paul heads up buildings and security, beekeeping, hay hauling, compost management, dreams/plans implementation and web development. (We also like to say he's our goats' other kid, since he drinks so much of their milk.) Laila is already an accomplished goat milker, and a sly detective for eggs hidden in secret nests. She's also in charge of carrot pulling and spoiling bantam hens.
-    </p>
+  <Info title={homePage?.welcomeTitle || 'Welcome to our farm'}>
+    <Image src={family} alt="Family photo" class="mainPhoto" widths={[300, 600]} sizes="(max-width: 300px) 100vw, 300px" />
+    <Fragment set:html={portableTextToHtml(homePage?.welcomeText || [])} />
   </Info>
   <Image
     src={goats}
     alt="The goat herd"
     class="galleryItem"
-    width={300}
+    widths={[300, 600]}
+    sizes="(max-width: 300px) 100vw, 300px"
   />
   <Image
     src={wings}
     alt="Paul showing off his wings"
     class="galleryItem"
-    width={300}
+    widths={[300, 600]}
+    sizes="(max-width: 300px) 100vw, 300px"
   />
-  <Image src={cheese} alt="Bird's Eye Farm cheese" class="galleryItem" widths={[300]} sizes="300px" />
-  <Image src={garden} alt="The garden in all it's glory" class="galleryItem" widths={[300]} sizes="300px" />
-  <Image src={bia} alt="Bia in hand" class="galleryItem" widths={[300]} sizes="300px" />
-  <Image src={emma} alt="Emma in the flower patch " class="galleryItem" widths={[300]} sizes="300px" />
-  <Image src={laila} alt="Laila picking vegetables" class="galleryItem" widths={[300]} sizes="300px" />
+  <Image src={cheese} alt="Bird's Eye Farm cheese" class="galleryItem" widths={[300, 600]} sizes="(max-width: 300px) 100vw, 300px" />
+  <Image src={garden} alt="The garden in all it's glory" class="galleryItem" widths={[300, 600]} sizes="(max-width: 300px) 100vw, 300px" />
+  <Image src={bia} alt="Bia in hand" class="galleryItem" widths={[300, 600]} sizes="(max-width: 300px) 100vw, 300px" />
+  <Image src={emma} alt="Emma in the flower patch " class="galleryItem" widths={[300, 600]} sizes="(max-width: 300px) 100vw, 300px" />
+  <Image src={laila} alt="Laila picking vegetables" class="galleryItem" widths={[300, 600]} sizes="(max-width: 300px) 100vw, 300px" />
   <Image
     src={flock}
     alt="The flock"
     class="galleryItem"
-    width={300}
+    widths={[300, 600]}
+    sizes="(max-width: 300px) 100vw, 300px"
   />
   <Image
     src={bee}
     alt="Honey bee on Gilia Tri Color"
     class="galleryItem"
-    width={300}
+    widths={[300, 600]}
+    sizes="(max-width: 300px) 100vw, 300px"
   />
   <div class="buttonContainer">
     <Button href="https://instagram.com/birds_eye_farm">View All</Button>

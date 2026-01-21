@@ -1,87 +1,40 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import KiddingSchedule from '../../components/KiddingSchedule.astro';
-import { getMateImage } from '../../utils/imageHelpers';
+import { sanityClient } from '../../lib/sanity';
+import { kiddingScheduleQuery } from '../../lib/queries';
+import type { Goat } from '../../types/sanity';
 
-const goats = await getCollection('goats');
+const goats = await sanityClient.fetch<Goat[]>(kiddingScheduleQuery);
 
-// Load profile images
-const profileImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/images/**/*.{jpg,jpeg,png,webp,avif,HEIC}'
-);
+// Transform Sanity data to match component expectations
+const sortedGoatsWithImages = goats.map((goat) => {
+  const profileImage = goat.images?.[0] ? {
+    src: goat.images[0].asset.url,
+    alt: goat.images[0].alt || goat.name
+  } : undefined;
 
-// Define the custom order for kidding schedule
-const kiddingOrder = [
-  'birds-eye-farm-ina-may',
-  'diji-farm-cacao-nib',
-  'birds-eye-farm-elena-ferrante',
-  'birds-eye-farm-gianaclis',
-  'birds-eye-farm-lizabeth-darcy',
-  'birds-eye-farm-gilia-tricolor',
-  'birds-eye-farm-masha-gessen',
-  'birds-eye-farm-vanilla-orchid',
-];
+  const mateImage = goat.mateSire?.image ? {
+    src: goat.mateSire.image.asset.url,
+    alt: goat.mateSire.image.alt || goat.mateSire.name
+  } : undefined;
 
-const goatsWithImages = await Promise.all(
-  goats.map(async (goat) => {
-    let profileImage;
-    const extensions = ['jpg', 'jpeg', 'png', 'webp', 'avif', 'HEIC'];
-
-    for (const ext of extensions) {
-      // First try the standard naming (e.g., profile.jpg)
-      let imageKey = `/src/images/${goat.id}/profile.${ext}`;
-      if (profileImages[imageKey]) {
-        profileImage = (await profileImages[imageKey]()).default;
-        break;
-      }
-
-      // If profile doesn't exist, try slug name as filename (e.g., harley-hillside-dime-piece.jpg)
-      imageKey = `/src/images/${goat.id}/${goat.id}.${ext}`;
-      if (profileImages[imageKey]) {
-        profileImage = (await profileImages[imageKey]()).default;
-        break;
-      }
-
-      // Also try shortened slug (e.g., zora-neale.jpg from birds-eye-farm-zora-neale)
-      const parts = goat.id.split('-');
-      if (parts.length > 2) {
-        const shortSlug = parts.slice(-2).join('-');
-        imageKey = `/src/images/${goat.id}/${shortSlug}.${ext}`;
-        if (profileImages[imageKey]) {
-          profileImage = (await profileImages[imageKey]()).default;
-          break;
-        }
-      }
-    }
-
-    // Load mate image if exists
-    let mateImage;
-    if (goat.data.mate?.slug) {
-      mateImage = await getMateImage(goat.data.mate.slug);
-    }
-
-    return { ...goat, profileImage, mateImage };
-  })
-);
-
-// Sort goats according to the kidding schedule order
-const sortedGoatsWithImages = goatsWithImages.sort((a, b) => {
-  const indexA = kiddingOrder.indexOf(a.id);
-  const indexB = kiddingOrder.indexOf(b.id);
-
-  // If both are in the kidding order, sort by their position
-  if (indexA !== -1 && indexB !== -1) {
-    return indexA - indexB;
-  }
-
-  // If only one is in the kidding order, put it first
-  if (indexA !== -1) return -1;
-  if (indexB !== -1) return 1;
-
-  // If neither is in the kidding order, maintain original order
-  return 0;
+  return {
+    id: goat.slug,
+    data: {
+      name: goat.name,
+      aka: goat.aka,
+      slug: goat.slug,
+      kiddingDate: goat.kiddingDate,
+      mate: goat.mate,
+      notes: goat.notes,
+      prices: goat.prices,
+      adgaPedigree: goat.adgaPedigree,
+      pedigree: goat.pedigree
+    },
+    profileImage,
+    mateImage
+  };
 });
 ---
 
