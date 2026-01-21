@@ -11,26 +11,8 @@ import type { Goat, GoatsPage } from '../../types/sanity';
 const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery);
 const goatsPage = await sanityClient.fetch<GoatsPage>(goatsPageQuery);
 
-const goatOrder = [
-  'birds-eye-farm-ina-may',
-  'diji-farm-cacao-nib',
-  'birds-eye-farm-elena-ferrante',
-  'birds-eye-farm-lizabeth-darcy',
-  'birds-eye-farm-masha-gessen',
-  'birds-eye-farm-gianaclis',
-  'birds-eye-farm-gilia-tricolor',
-  'birds-eye-farm-vanilla-orchid',
-  'birds-eye-farm-zora-neale',
-  'harley-hillside-ginger-zinger',
-  'harley-hillside-dime-piece',
-];
-
-const sortedGoats = goatOrder
-  .map(slug => goats.find((g) => g.slug === slug))
-  .filter((goat): goat is Goat => goat !== undefined);
-
 // Transform Sanity images to match expected format
-const goatsWithImages = sortedGoats.map((goat) => {
+const goatsWithImages = goats.map((goat) => {
   const images = goat.images?.map((img) => ({
     src: img.asset.url,
     alt: img.alt || goat.name,

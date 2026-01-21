@@ -23,6 +23,13 @@ export interface Mate {
   link: string;
 }
 
+export interface Sire {
+  name: string;
+  slug: string;
+  link: string;
+  image: SanityImage;
+}
+
 export interface Goat {
   _id: string;
   name: string;
@@ -39,6 +46,9 @@ export interface Goat {
   notes?: string[];
   prices?: string[];
   images?: SanityImage[];
+  displayOrder?: number;
+  kiddingScheduleOrder?: number;
+  mateSire?: Sire;
 }
 
 export interface GoatsPage {

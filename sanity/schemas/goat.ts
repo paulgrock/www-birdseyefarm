@@ -28,6 +28,20 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'displayOrder',
+      title: 'Display Order (Main Page)',
+      type: 'number',
+      description: 'Order for displaying goats on the main goats page (lower numbers appear first)',
+      validation: (Rule) => Rule.integer().min(0),
+    }),
+    defineField({
+      name: 'kiddingScheduleOrder',
+      title: 'Kidding Schedule Order',
+      type: 'number',
+      description: 'Order for displaying goats on the kidding schedule page (lower numbers appear first)',
+      validation: (Rule) => Rule.integer().min(0),
+    }),
+    defineField({
       name: 'date',
       title: 'Birth Date',
       type: 'date',
