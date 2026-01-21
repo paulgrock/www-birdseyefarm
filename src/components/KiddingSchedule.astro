@@ -61,7 +61,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
             <td>
               <figure>
                 {goat.profileImage && (
-                  typeof goat.profileImage === 'object' && 'src' in goat.profileImage && goat.profileImage.src ? (
+                  typeof goat.profileImage === 'object' && 'src' in goat.profileImage && goat.profileImage.src && 'alt' in goat.profileImage ? (
                     <img
                       src={`${goat.profileImage.src}?w=150&auto=format`}
                       srcset={`${goat.profileImage.src}?w=150&auto=format 1x, ${goat.profileImage.src}?w=300&auto=format 2x`}
@@ -92,7 +92,7 @@ const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
               {goat.data.mate?.name ? (
                 <figure>
                   {goat.mateImage && (
-                    typeof goat.mateImage === 'object' && 'src' in goat.mateImage && goat.mateImage.src ? (
+                    typeof goat.mateImage === 'object' && 'src' in goat.mateImage && goat.mateImage.src && 'alt' in goat.mateImage ? (
                       <img
                         src={`${goat.mateImage.src}?w=150&auto=format`}
                         srcset={`${goat.mateImage.src}?w=150&auto=format 1x, ${goat.mateImage.src}?w=300&auto=format 2x`}
