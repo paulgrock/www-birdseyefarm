@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "sync": "node scripts/sync-from-sanity.ts",
     "format": "prettier --write \"src/**/*.{js,ts,astro,tsx}\""
   },
   "dependencies": {
