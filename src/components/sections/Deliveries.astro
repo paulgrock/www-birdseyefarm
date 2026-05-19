@@ -44,7 +44,7 @@ import Button from '../Button.astro';
         <input
           type="checkbox"
           name="deliveryOptions"
-          value="Honey, seasonal fruit & veggies, etc."
+          value="Honey, seasonal fruit &amp; veggies, etc."
         />
         <span>Honey, seasonal fruit &amp; veggies, etc.</span>
       </label>
@@ -81,13 +81,17 @@ import Button from '../Button.astro';
   </form>
 
   <dialog id="success-dialog" class="modal">
-    <p>Thanks for your interest! We'll be in touch shortly about deliveries.</p>
-    <Button id="close-dialog">Close</Button>
+    <div class="modal-content">
+      <p>Thanks for your interest! We'll be in touch shortly about deliveries.</p>
+      <Button id="close-dialog">Close</Button>
+    </div>
   </dialog>
 
   <dialog id="error-dialog" class="modal">
-    <p>Sorry, there was an error submitting your request. Please try again or email us directly.</p>
-    <Button id="close-error-dialog">Close</Button>
+    <div class="modal-content">
+      <p>Sorry, there was an error submitting your request. Please try again or email us directly.</p>
+      <Button id="close-error-dialog">Close</Button>
+    </div>
   </dialog>
 </SectionContainer>
 
@@ -223,24 +227,13 @@ import Button from '../Button.astro';
 
   .modal {
     margin: auto;
-    background-color: white;
-    padding: 50px;
-  }
-
-  .overlay {
-    display: grid;
-    z-index: 10000;
-    position: fixed;
-    background-color: rgba(0, 0, 0, .75);
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-  }
-
-  dialog {
     border: none;
     padding: 0;
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 50px;
   }
 
   dialog::backdrop {

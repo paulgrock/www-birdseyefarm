@@ -54,21 +54,11 @@ This runs `astro check && astro build`, which:
 
 There's currently 1 type error in `src/pages/kidding-schedule/index.astro` (line 92) related to the `mateImage` property type. This is a pre-existing issue unrelated to the Sanity migration.
 
-### Temporary Fix (Skip Type Check)
+### Fix
 
-If you need to deploy immediately, you can temporarily skip the type check by updating `package.json`:
+Fix the type error directly — do **not** remove `astro check` from the build command. Dropping the type check to "deploy immediately" masks this and any future type errors and tends to get left in place.
 
-```json
-"scripts": {
-  "build": "astro build"
-}
-```
-
-Then change it back to `"astro check && astro build"` after fixing the type error.
-
-### Permanent Fix
-
-Fix the type error in the kidding schedule component by updating the prop type to allow `null`:
+Update the prop type in the kidding schedule component to allow `null`:
 
 ```typescript
 mateImage?: ImageMetadata | null | undefined

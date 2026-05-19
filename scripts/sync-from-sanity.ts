@@ -6,6 +6,11 @@ import { fileURLToPath } from 'url';
 
 config();
 
+if (!process.env.SANITY_API_TOKEN) {
+  console.error('Error: SANITY_API_TOKEN env var is required (set it in .env or the environment).');
+  process.exit(1);
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -197,8 +202,8 @@ async function syncFromSanity(): Promise<void> {
     const localData: LocalGoat = {
       name: goat.name ?? '',
       aka: goat.aka ?? '',
-      slug: slug,
-      adgaPedigree: goat.adgaPedigree,
+      slug,
+      adgaPedigree: goat.adgaPedigree ?? '',
       date: goat.date ?? '',
       sire: normalizeParent(goat.sire),
       dam: normalizeParent(goat.dam),
@@ -219,28 +224,28 @@ async function syncFromSanity(): Promise<void> {
       localData.images = existingImages;
       console.log(`  Preserved ${existingImages.length} existing local image(s)`);
     } else if (goat.images && goat.images.length > 0) {
-      // Download images from Sanity
+      // Download images from Sanity (in parallel; order preserved by index)
       const goatImagesDir = join(IMAGES_DIR, slug);
-      const downloadedImages: LocalImage[] = [];
+      const results = await Promise.all(
+        goat.images.map(async (img, i): Promise<LocalImage | null> => {
+          const ext = getExtensionFromUrl(img.asset.url);
+          const filename = i === 0 ? `profile${ext}` : `image-${i}${ext}`;
+          const destPath = join(goatImagesDir, filename);
 
-      for (let i = 0; i < goat.images.length; i++) {
-        const img = goat.images[i];
-        const ext = getExtensionFromUrl(img.asset.url);
-        const filename = i === 0 ? `profile${ext}` : `image-${i}${ext}`;
-        const destPath = join(goatImagesDir, filename);
-
-        try {
-          console.log(`  Downloading: ${filename}`);
-          await downloadImage(img.asset.url, destPath);
-          downloadedImages.push({
-            filename: filename,
-            alt: img.alt || `${goat.name} photo`,
-          });
-        } catch (error) {
-          const message = error instanceof Error ? error.message : String(error);
-          console.error(`  Failed to download image: ${message}`);
-        }
-      }
+          try {
+            console.log(`  Downloading: ${filename}`);
+            await downloadImage(img.asset.url, destPath);
+            return { filename, alt: img.alt || `${goat.name} photo` };
+          } catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            console.error(`  Failed to download image: ${message}`);
+            return null;
+          }
+        })
+      );
+      const downloadedImages = results.filter(
+        (img): img is LocalImage => img !== null
+      );
 
       if (downloadedImages.length > 0) {
         localData.images = downloadedImages;
