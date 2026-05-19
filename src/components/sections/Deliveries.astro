@@ -1,10 +1,12 @@
 ---
 import SectionContainer from '../SectionContainer.astro';
+import SectionTitle from '../SectionTitle.astro';
 import Button from '../Button.astro';
 ---
 
 <SectionContainer id="deliveries" className="container">
-  <h3 class="title">Let us know which delivery options interest you.</h3>
+  <SectionTitle className="sectionTitle">Deliveries</SectionTitle>
+  <h3 class="title">Let us know which delivery options interest you</h3>
 
   <form
     method="post"
@@ -44,9 +46,27 @@ import Button from '../Button.astro';
         <input
           type="checkbox"
           name="deliveryOptions"
-          value="Honey, seasonal fruit &amp; veggies, etc."
+          value="Honey"
         />
-        <span>Honey, seasonal fruit &amp; veggies, etc.</span>
+        <span>Honey</span>
+      </label>
+
+      <label class="checkbox">
+        <input
+          type="checkbox"
+          name="deliveryOptions"
+          value="Seasonal fruit &amp; veggies"
+        />
+        <span>Seasonal fruit &amp; veggies</span>
+      </label>
+
+      <label class="checkbox">
+        <input
+          type="checkbox"
+          name="deliveryOptions"
+          value="Other"
+        />
+        <span>Other</span>
       </label>
     </fieldset>
 
@@ -71,8 +91,8 @@ import Button from '../Button.astro';
     <textarea
       name="message"
       class="textarea"
-      placeholder="anything else?"
-      aria-label="Anything else?"
+      placeholder="Anything Else?"
+      aria-label="Anything Else?"
     />
 
     <Button type="submit">
@@ -159,6 +179,11 @@ import Button from '../Button.astro';
     min-height: auto;
     padding-top: 120px;
     background-image: url('../../images/bg.svg');
+  }
+
+  .container :global(.sectionTitle) {
+    color: white;
+    grid-column: 1 / -1;
   }
 
   .title {
