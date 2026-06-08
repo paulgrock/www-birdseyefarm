@@ -1,167 +1,183 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-import { format } from 'date-fns';
-import SectionContainer from './SectionContainer.astro';
-import SectionTitle from './SectionTitle.astro';
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import { format } from 'date-fns'
+import SectionContainer from './SectionContainer.astro'
+import SectionTitle from './SectionTitle.astro'
 
 interface GoatImage {
-  image?: ImageMetadata; // For local images
-  src?: string; // For Sanity CDN URLs
-  alt: string;
+  image?: ImageMetadata // For local images
+  src?: string // For Sanity CDN URLs
+  alt: string
 }
 
 interface Props {
   goats: Array<{
-    id: string;
+    id: string
     data: {
-      name: string;
-      aka: string;
-      slug: string;
-      kiddingDate?: string;
+      name: string
+      aka: string
+      slug: string
+      kiddingDate?: string
       mate?: {
-        name: string;
-        slug: string;
-        link: string;
-      };
-      pedigree?: string;
-      notes?: string[];
-      prices?: string[];
-    };
-    profileImage?: GoatImage | ImageMetadata;
-    mateImage?: GoatImage | ImageMetadata;
-  }>;
+        name: string
+        slug: string
+        link: string
+      }
+      pedigree?: string
+      notes?: string[]
+      prices?: string[]
+    }
+    profileImage?: GoatImage | ImageMetadata
+    mateImage?: GoatImage | ImageMetadata
+  }>
 }
 
-const { goats } = Astro.props;
+const { goats } = Astro.props
 
 // Filter goats that have kidding dates
-const kiddingGoats = goats.filter(goat => goat.data.kiddingDate);
+const kiddingGoats = goats.filter((goat) => goat.data.kiddingDate)
 ---
 
 <SectionContainer id="kidding-schedule" className="kiddingScheduleContainer">
-  <SectionTitle className='sectionTitle'>2026 Kidding Schedule</SectionTitle>
+  <SectionTitle className="sectionTitle">2026 Kidding Schedule</SectionTitle>
   <div class="tableContainer">
     <table>
       <thead>
         <tr>
           <td class="tableHeading">Dam</td>
           <td class="tableHeading">Sire</td>
-          <td class="tableHeading dueDateColumn">
-            Due Date
-          </td>
+          <td class="tableHeading dueDateColumn"> Due Date </td>
           <td class="tableHeading">ADGA Pedigree</td>
           <td class="tableHeading">Notes</td>
           <td class="tableHeading">Fee</td>
         </tr>
       </thead>
       <tbody>
-        {kiddingGoats.map((goat) => (
-          <tr>
-            <td>
-              <figure>
-                {goat.profileImage && (
-                  typeof goat.profileImage === 'object' && 'src' in goat.profileImage && goat.profileImage.src && 'alt' in goat.profileImage ? (
-                    <img
-                      src={`${goat.profileImage.src}?w=150&auto=format`}
-                      srcset={`${goat.profileImage.src}?w=150&auto=format 1x, ${goat.profileImage.src}?w=300&auto=format 2x`}
-                      alt={goat.profileImage.alt}
-                      width="150"
-                      height="150"
-                      class="goatImage"
-                      loading="lazy"
-                    />
-                  ) : typeof goat.profileImage === 'object' && 'width' in goat.profileImage ? (
-                    <Image
-                      src={goat.profileImage}
-                      alt={goat.data.name}
-                      width={150}
-                      height={150}
-                      class="goatImage"
-                    />
-                  ) : null
-                )}
-                <figcaption>
-                  <a href={`/goats/${goat.data.slug}`}>
-                    {goat.data.name.replace('(pending)', '').trim()}
-                  </a>
-                </figcaption>
-              </figure>
-            </td>
-            <td>
-              {goat.data.mate?.name ? (
+        {
+          kiddingGoats.map((goat) => (
+            <tr>
+              <td>
                 <figure>
-                  {goat.mateImage && (
-                    typeof goat.mateImage === 'object' && 'src' in goat.mateImage && goat.mateImage.src && 'alt' in goat.mateImage ? (
+                  {goat.profileImage &&
+                    (typeof goat.profileImage === 'object' &&
+                    'src' in goat.profileImage &&
+                    goat.profileImage.src &&
+                    'alt' in goat.profileImage ? (
                       <img
-                        src={`${goat.mateImage.src}?w=150&auto=format`}
-                        srcset={`${goat.mateImage.src}?w=150&auto=format 1x, ${goat.mateImage.src}?w=300&auto=format 2x`}
-                        alt={goat.mateImage.alt}
+                        src={`${goat.profileImage.src}?w=150&auto=format`}
+                        srcset={`${goat.profileImage.src}?w=150&auto=format 1x, ${goat.profileImage.src}?w=300&auto=format 2x`}
+                        alt={goat.profileImage.alt}
                         width="150"
                         height="150"
                         class="goatImage"
                         loading="lazy"
                       />
-                    ) : typeof goat.mateImage === 'object' && 'width' in goat.mateImage ? (
+                    ) : typeof goat.profileImage === 'object' &&
+                      'width' in goat.profileImage ? (
                       <Image
-                        src={goat.mateImage}
-                        alt={goat.data.mate.name}
+                        src={goat.profileImage}
+                        alt={goat.data.name}
                         width={150}
                         height={150}
                         class="goatImage"
                       />
-                    ) : null
-                  )}
+                    ) : null)}
                   <figcaption>
-                    <a href={goat.data.mate.link} target="_blank" rel="noopener noreferrer">
-                      {goat.data.mate.name}
+                    <a href={`/goats/${goat.data.slug}`}>
+                      {goat.data.name.replace('(pending)', '').trim()}
                     </a>
                   </figcaption>
                 </figure>
-              ) : "TBD"}
-            </td>
-            <td>
-              {goat.data.kiddingDate === 'TBD'
-                ? goat.data.kiddingDate
-                : goat.data.kiddingDate && format(new Date(goat.data.kiddingDate), 'MMM d, yyyy')
-              }
-              {goat.data.kiddingDate === 'TBD' && (
-                <>
-                  <br />
-                  <small>Likely late May</small>
-                </>
-              )}
-            </td>
-            <td>
-              {goat.data.pedigree && (
-                <a href={goat.data.pedigree} target="_blank" rel="noopener noreferrer">
-                  ADGA Planned Pedigree
-                </a>
-              )}
-            </td>
-            <td>
-              {goat.data.notes && goat.data.notes.length > 0 && (
-                goat.data.notes.map((note) => (
-                  <p class="note">{note}</p>
-                ))
-              )}
-            </td>
-            <td>
-              {goat.data.prices && goat.data.prices.length > 0 && (
-                goat.data.prices.map((price) => (
-                  <p class="note">{price}</p>
-                ))
-              )}
-            </td>
-          </tr>
-        ))}
+              </td>
+              <td>
+                {goat.data.mate?.name ? (
+                  <figure>
+                    {goat.mateImage &&
+                      (typeof goat.mateImage === 'object' &&
+                      'src' in goat.mateImage &&
+                      goat.mateImage.src &&
+                      'alt' in goat.mateImage ? (
+                        <img
+                          src={`${goat.mateImage.src}?w=150&auto=format`}
+                          srcset={`${goat.mateImage.src}?w=150&auto=format 1x, ${goat.mateImage.src}?w=300&auto=format 2x`}
+                          alt={goat.mateImage.alt}
+                          width="150"
+                          height="150"
+                          class="goatImage"
+                          loading="lazy"
+                        />
+                      ) : typeof goat.mateImage === 'object' &&
+                        'width' in goat.mateImage ? (
+                        <Image
+                          src={goat.mateImage}
+                          alt={goat.data.mate.name}
+                          width={150}
+                          height={150}
+                          class="goatImage"
+                        />
+                      ) : null)}
+                    <figcaption>
+                      <a
+                        href={goat.data.mate.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {goat.data.mate.name}
+                      </a>
+                    </figcaption>
+                  </figure>
+                ) : (
+                  'TBD'
+                )}
+              </td>
+              <td>
+                {goat.data.kiddingDate === 'TBD'
+                  ? goat.data.kiddingDate
+                  : goat.data.kiddingDate &&
+                    format(new Date(goat.data.kiddingDate), 'MMM d, yyyy')}
+                {goat.data.kiddingDate === 'TBD' && (
+                  <>
+                    <br />
+                    <small>Likely late May</small>
+                  </>
+                )}
+              </td>
+              <td>
+                {goat.data.pedigree && (
+                  <a
+                    href={goat.data.pedigree}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    ADGA Planned Pedigree
+                  </a>
+                )}
+              </td>
+              <td>
+                {goat.data.notes &&
+                  goat.data.notes.length > 0 &&
+                  goat.data.notes.map((note) => <p class="note">{note}</p>)}
+              </td>
+              <td>
+                {goat.data.prices &&
+                  goat.data.prices.length > 0 &&
+                  goat.data.prices.map((price) => <p class="note">{price}</p>)}
+              </td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   </div>
   <small class="attribution">
-    Till-Riv BNS Smooth Edition *B, and Diji Farm DJ Shaboozie *B
-    appear courtesy of{' '}
-    <a href="https://www.dijifarm.com" target="_blank" rel="noopener noreferrer">
+    Till-Riv BNS Smooth Edition *B, and Diji Farm DJ Shaboozie *B appear
+    courtesy of{' '}
+    <a
+      href="https://www.dijifarm.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       Diji Farm
     </a>
     .

@@ -1,23 +1,27 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import KiddingSchedule from '../../components/KiddingSchedule.astro';
-import { sanityClient } from '../../lib/sanity';
-import { kiddingScheduleQuery } from '../../lib/queries';
-import type { Goat } from '../../types/sanity';
+import Layout from '../../layouts/Layout.astro'
+import KiddingSchedule from '../../components/KiddingSchedule.astro'
+import { sanityClient } from '../../lib/sanity'
+import { kiddingScheduleQuery } from '../../lib/queries'
+import type { Goat } from '../../types/sanity'
 
-const goats = await sanityClient.fetch<Goat[]>(kiddingScheduleQuery);
+const goats = await sanityClient.fetch<Goat[]>(kiddingScheduleQuery)
 
 // Transform Sanity data to match component expectations
 const sortedGoatsWithImages = goats.map((goat) => {
-  const profileImage = goat.images?.[0] ? {
-    src: goat.images[0].asset.url,
-    alt: goat.images[0].alt || goat.name
-  } : undefined;
+  const profileImage = goat.images?.[0]
+    ? {
+        src: goat.images[0].asset.url,
+        alt: goat.images[0].alt || goat.name,
+      }
+    : undefined
 
-  const mateImage = goat.mateSire?.image ? {
-    src: goat.mateSire.image.asset.url,
-    alt: goat.mateSire.image.alt || goat.mateSire.name
-  } : undefined;
+  const mateImage = goat.mateSire?.image
+    ? {
+        src: goat.mateSire.image.asset.url,
+        alt: goat.mateSire.image.alt || goat.mateSire.name,
+      }
+    : undefined
 
   return {
     id: goat.slug,
@@ -30,16 +34,16 @@ const sortedGoatsWithImages = goats.map((goat) => {
       notes: goat.notes,
       prices: goat.prices,
       adgaPedigree: goat.adgaPedigree,
-      pedigree: goat.pedigree
+      pedigree: goat.pedigree,
     },
     profileImage,
-    mateImage
-  };
-});
+    mateImage,
+  }
+})
 ---
 
 <Layout
-  title='2026 Kidding Schedule'
+  title="2026 Kidding Schedule"
   description="Bird's Eye Farm 2026 Kidding Schedule"
 >
   <KiddingSchedule goats={sortedGoatsWithImages} />

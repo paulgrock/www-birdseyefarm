@@ -1,35 +1,36 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import SectionContainer from '../../components/SectionContainer.astro';
-import SectionTitle from '../../components/SectionTitle.astro';
-import GoatBio from '../../components/GoatBio.astro';
-import { sanityClient } from '../../lib/sanity';
-import { allGoatsQuery } from '../../lib/queries';
-import type { Goat } from '../../types/sanity';
+import Layout from '../../layouts/Layout.astro'
+import SectionContainer from '../../components/SectionContainer.astro'
+import SectionTitle from '../../components/SectionTitle.astro'
+import GoatBio from '../../components/GoatBio.astro'
+import { sanityClient } from '../../lib/sanity'
+import { allGoatsQuery } from '../../lib/queries'
+import type { Goat } from '../../types/sanity'
 
 export async function getStaticPaths() {
-  const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery);
+  const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery)
 
   return goats.map((goat) => ({
     params: { slug: goat.slug },
-    props: { goat }
-  }));
+    props: { goat },
+  }))
 }
 
 interface Props {
-  goat: Goat;
+  goat: Goat
 }
 
-const { goat } = Astro.props;
+const { goat } = Astro.props
 
 // Transform Sanity images to match expected format
-const images = goat.images?.map((img) => ({
-  src: img.asset.url,
-  alt: img.alt || goat.name,
-})) || [];
+const images =
+  goat.images?.map((img) => ({
+    src: img.asset.url,
+    alt: img.alt || goat.name,
+  })) || []
 
 // For Sanity, copy comes as plain text array - no image processing needed
-const processedCopy = goat.copy || [];
+const processedCopy = goat.copy || []
 ---
 
 <Layout

@@ -1,22 +1,22 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import Header from '../components/Header.astro';
-import '../styles/layout.css';
+import { ViewTransitions } from 'astro:transitions'
+import Header from '../components/Header.astro'
+import '../styles/layout.css'
 
 interface Props {
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }
 
 const {
   title = "Bird's Eye Farm",
-  description = "Farmstead lifestyle. Nigerian Dwarf goats, chickens, bees and Angora rabbits in Yamhill County, Oregon."
-} = Astro.props;
+  description = 'Farmstead lifestyle. Nigerian Dwarf goats, chickens, bees and Angora rabbits in Yamhill County, Oregon.',
+} = Astro.props
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear()
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -36,7 +36,10 @@ const currentYear = new Date().getFullYear();
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Amatic+SC:wght@400;700&family=Josefin+Slab:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Amatic+SC:wght@400;700&family=Josefin+Slab:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <ViewTransitions />
     <title>{title}</title>
@@ -47,9 +50,17 @@ const currentYear = new Date().getFullYear();
       <main class="main-content">
         <slot />
         <footer class="footer">
-          <img src="/andda-logo.png" alt="ANDDA member" style="height: 50px; margin-right: 10px;" />
+          <img
+            src="/andda-logo.png"
+            alt="ANDDA member"
+            style="height: 50px; margin-right: 10px;"
+          />
           © {currentYear} Bird's Eye Farm | Carlton, OR
-          <img src="/adga-logo.avif" alt="ADGA member" style="height: 50px; margin-left: 10px;" />
+          <img
+            src="/adga-logo.avif"
+            alt="ADGA member"
+            style="height: 50px; margin-left: 10px;"
+          />
         </footer>
       </main>
     </div>

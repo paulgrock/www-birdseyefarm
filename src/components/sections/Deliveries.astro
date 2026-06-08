@@ -1,7 +1,7 @@
 ---
-import SectionContainer from '../SectionContainer.astro';
-import SectionTitle from '../SectionTitle.astro';
-import Button from '../Button.astro';
+import SectionContainer from '../SectionContainer.astro'
+import SectionTitle from '../SectionTitle.astro'
+import Button from '../Button.astro'
 ---
 
 <SectionContainer id="deliveries" className="container">
@@ -43,11 +43,7 @@ import Button from '../Button.astro';
       </label>
 
       <label class="checkbox">
-        <input
-          type="checkbox"
-          name="deliveryOptions"
-          value="Honey"
-        />
+        <input type="checkbox" name="deliveryOptions" value="Honey" />
         <span>Honey</span>
       </label>
 
@@ -55,17 +51,13 @@ import Button from '../Button.astro';
         <input
           type="checkbox"
           name="deliveryOptions"
-          value="Seasonal fruit &amp; veggies"
+          value="Seasonal fruit & veggies"
         />
         <span>Seasonal fruit &amp; veggies</span>
       </label>
 
       <label class="checkbox">
-        <input
-          type="checkbox"
-          name="deliveryOptions"
-          value="Other"
-        />
+        <input type="checkbox" name="deliveryOptions" value="Other" />
         <span>Other</span>
       </label>
     </fieldset>
@@ -92,79 +84,87 @@ import Button from '../Button.astro';
       name="message"
       class="textarea"
       placeholder="Anything else?"
-      aria-label="Anything else?"
-    />
+      aria-label="Anything else?"></textarea>
 
-    <Button type="submit">
-      Send
-    </Button>
+    <Button type="submit"> Send </Button>
   </form>
 
   <dialog id="success-dialog" class="modal">
     <div class="modal-content">
-      <p>Thanks for your interest! We'll be in touch shortly about deliveries.</p>
+      <p>
+        Thanks for your interest! We'll be in touch shortly about deliveries.
+      </p>
       <Button id="close-dialog">Close</Button>
     </div>
   </dialog>
 
   <dialog id="error-dialog" class="modal">
     <div class="modal-content">
-      <p>Sorry, there was an error submitting your request. Please try again or email us directly.</p>
+      <p>
+        Sorry, there was an error submitting your request. Please try again or
+        email us directly.
+      </p>
       <Button id="close-error-dialog">Close</Button>
     </div>
   </dialog>
 </SectionContainer>
 
 <script>
-  const form = document.querySelector('form[name="deliveries"]') as HTMLFormElement;
-  const successDialog = document.getElementById('success-dialog') as HTMLDialogElement;
-  const errorDialog = document.getElementById('error-dialog') as HTMLDialogElement;
-  const closeBtn = document.getElementById('close-dialog');
-  const closeErrorBtn = document.getElementById('close-error-dialog');
+  const form = document.querySelector(
+    'form[name="deliveries"]'
+  ) as HTMLFormElement
+  const successDialog = document.getElementById(
+    'success-dialog'
+  ) as HTMLDialogElement
+  const errorDialog = document.getElementById(
+    'error-dialog'
+  ) as HTMLDialogElement
+  const closeBtn = document.getElementById('close-dialog')
+  const closeErrorBtn = document.getElementById('close-error-dialog')
 
   if (form && successDialog && errorDialog && closeBtn && closeErrorBtn) {
     form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+      e.preventDefault()
 
-      const formData = new FormData(form);
-      const params = new URLSearchParams();
+      const formData = new FormData(form)
+      const params = new URLSearchParams()
       formData.forEach((value, key) => {
-        params.append(key, value.toString());
-      });
-      const body = params.toString();
+        params.append(key, value.toString())
+      })
+      const body = params.toString()
 
       try {
         const response = await fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body
-        });
+          body: body,
+        })
 
         if (response.ok) {
-          successDialog.showModal();
-          form.reset();
+          successDialog.showModal()
+          form.reset()
         } else {
-          throw new Error('Form submission failed');
+          throw new Error('Form submission failed')
         }
       } catch (error) {
-        errorDialog.showModal();
+        errorDialog.showModal()
       }
-    });
+    })
 
-    closeBtn.addEventListener('click', () => successDialog.close());
-    closeErrorBtn.addEventListener('click', () => errorDialog.close());
+    closeBtn.addEventListener('click', () => successDialog.close())
+    closeErrorBtn.addEventListener('click', () => errorDialog.close())
 
     successDialog.addEventListener('click', (e) => {
       if (e.target === successDialog) {
-        successDialog.close();
+        successDialog.close()
       }
-    });
+    })
 
     errorDialog.addEventListener('click', (e) => {
       if (e.target === errorDialog) {
-        errorDialog.close();
+        errorDialog.close()
       }
-    });
+    })
   }
 </script>
 

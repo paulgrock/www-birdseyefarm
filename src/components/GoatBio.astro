@@ -1,38 +1,38 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-import { format } from 'date-fns';
-import SectionTitle from './SectionTitle.astro';
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import { format } from 'date-fns'
+import SectionTitle from './SectionTitle.astro'
 
 interface Parent {
-  name: string;
-  link?: string;
+  name: string
+  link?: string
 }
 
 interface GoatParent {
-  name: string;
-  link: string;
-  sire?: Parent;
-  dam?: Parent;
+  name: string
+  link: string
+  sire?: Parent
+  dam?: Parent
 }
 
 interface GoatImage {
-  image?: ImageMetadata;
-  src?: string; // For Sanity CDN URLs
-  alt: string;
+  image?: ImageMetadata
+  src?: string // For Sanity CDN URLs
+  alt: string
 }
 
 interface Props {
-  images?: GoatImage[];
-  name: string;
-  slug: string;
-  adgaPedigree: string;
-  date: string;
-  sire: GoatParent;
-  dam: GoatParent;
-  copy?: string[];
-  showCopy?: boolean;
-  withTitle?: boolean;
+  images?: GoatImage[]
+  name: string
+  slug: string
+  adgaPedigree: string
+  date: string
+  sire: GoatParent
+  dam: GoatParent
+  copy?: string[]
+  showCopy?: boolean
+  withTitle?: boolean
 }
 
 const {
@@ -45,43 +45,46 @@ const {
   dam,
   copy = [],
   showCopy = false,
-  withTitle = true
-} = Astro.props;
+  withTitle = true,
+} = Astro.props
 
-const birthDate = format(new Date(date), 'M/d/yyyy');
+const birthDate = format(new Date(date), 'M/d/yyyy')
 
 // First image is the profile image
-const profileImage = images[0];
-const additionalImages = images.slice(1);
+const profileImage = images[0]
+const additionalImages = images.slice(1)
 ---
 
 <div class="goat">
-  {profileImage && (
-    profileImage.src ? (
-      <img
-        src={`${profileImage.src}?w=380&auto=format`}
-        srcset={`${profileImage.src}?w=380&auto=format 1x, ${profileImage.src}?w=760&auto=format 2x`}
-        alt={profileImage.alt}
-        class="photo"
-        width="380"
-        loading="lazy"
-      />
-    ) : profileImage.image ? (
-      <Image
-        src={profileImage.image}
-        alt={profileImage.alt}
-        class="photo"
-        width={380}
-      />
-    ) : null
-  )}
+  {
+    profileImage &&
+      (profileImage.src ? (
+        <img
+          src={`${profileImage.src}?w=380&auto=format`}
+          srcset={`${profileImage.src}?w=380&auto=format 1x, ${profileImage.src}?w=760&auto=format 2x`}
+          alt={profileImage.alt}
+          class="photo"
+          width="380"
+          loading="lazy"
+        />
+      ) : profileImage.image ? (
+        <Image
+          src={profileImage.image}
+          alt={profileImage.alt}
+          class="photo"
+          width={380}
+        />
+      ) : null)
+  }
 
   <header class="content">
-    {withTitle && (
-      <SectionTitle>
-        <a href={`/goats/${slug}`}>{name}</a>
-      </SectionTitle>
-    )}
+    {
+      withTitle && (
+        <SectionTitle>
+          <a href={`/goats/${slug}`}>{name}</a>
+        </SectionTitle>
+      )
+    }
     <span>Born {birthDate}</span><br />
     <a href={adgaPedigree}>ADGA Pedigree</a>
 
@@ -89,65 +92,84 @@ const additionalImages = images.slice(1);
       <li class="listItem">
         <strong>Sire</strong>: <a href={sire.link}>{sire.name}</a>
       </li>
-      {sire.sire && (
-        <li class="listItem">
-          <strong>SS</strong>: {sire.sire.link ? (
-            <a href={sire.sire.link}>{sire.sire.name}</a>
-          ) : sire.sire.name}
-        </li>
-      )}
-      {sire.dam && (
-        <li class="listItem">
-          <strong>SD</strong>: {sire.dam.link ? (
-            <a href={sire.dam.link}>{sire.dam.name}</a>
-          ) : sire.dam.name}
-        </li>
-      )}
+      {
+        sire.sire && (
+          <li class="listItem">
+            <strong>SS</strong>:{' '}
+            {sire.sire.link ? (
+              <a href={sire.sire.link}>{sire.sire.name}</a>
+            ) : (
+              sire.sire.name
+            )}
+          </li>
+        )
+      }
+      {
+        sire.dam && (
+          <li class="listItem">
+            <strong>SD</strong>:{' '}
+            {sire.dam.link ? (
+              <a href={sire.dam.link}>{sire.dam.name}</a>
+            ) : (
+              sire.dam.name
+            )}
+          </li>
+        )
+      }
       <li class="listItem">
         <strong>Dam</strong>: <a href={dam.link}>{dam.name}</a>
       </li>
-      {dam.sire && (
-        <li class="listItem">
-          <strong>DS</strong>: {dam.sire.link ? (
-            <a href={dam.sire.link}>{dam.sire.name}</a>
-          ) : dam.sire.name}
-        </li>
-      )}
-      {dam.dam && (
-        <li class="listItem">
-          <strong>DD</strong>: {dam.dam.link ? (
-            <a href={dam.dam.link}>{dam.dam.name}</a>
-          ) : dam.dam.name}
-        </li>
-      )}
+      {
+        dam.sire && (
+          <li class="listItem">
+            <strong>DS</strong>:{' '}
+            {dam.sire.link ? (
+              <a href={dam.sire.link}>{dam.sire.name}</a>
+            ) : (
+              dam.sire.name
+            )}
+          </li>
+        )
+      }
+      {
+        dam.dam && (
+          <li class="listItem">
+            <strong>DD</strong>:{' '}
+            {dam.dam.link ? (
+              <a href={dam.dam.link}>{dam.dam.name}</a>
+            ) : (
+              dam.dam.name
+            )}
+          </li>
+        )
+      }
     </ul>
   </header>
 
-  {showCopy && copy.map((content) => (
-    <p class="bodyContent" set:html={content} />
-  ))}
+  {
+    showCopy &&
+      copy.map((content) => <p class="bodyContent" set:html={content} />)
+  }
   <!-- Note: set:html is used here for content from trusted CMS sources only.
        Content is pre-processed in getStaticPaths and should never include user input. -->
 
-  {showCopy && additionalImages.map(({ image, src, alt }) => (
-    src ? (
-      <img
-        src={`${src}?w=380&auto=format`}
-        srcset={`${src}?w=380&auto=format 1x, ${src}?w=760&auto=format 2x`}
-        alt={alt}
-        class="photo"
-        width="380"
-        loading="lazy"
-      />
-    ) : image ? (
-      <Image
-        src={image}
-        alt={alt}
-        class="photo"
-        width={380}
-      />
-    ) : null
-  ))}
+  {
+    showCopy &&
+      additionalImages.map(({ image, src, alt }) =>
+        src ? (
+          <img
+            src={`${src}?w=380&auto=format`}
+            srcset={`${src}?w=380&auto=format 1x, ${src}?w=760&auto=format 2x`}
+            alt={alt}
+            class="photo"
+            width="380"
+            loading="lazy"
+          />
+        ) : image ? (
+          <Image src={image} alt={alt} class="photo" width={380} />
+        ) : null
+      )
+  }
 </div>
 
 <style>

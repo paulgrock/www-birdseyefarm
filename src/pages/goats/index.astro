@@ -1,22 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import SectionContainer from '../../components/SectionContainer.astro';
-import Info from '../../components/Info.astro';
-import GoatBio from '../../components/GoatBio.astro';
-import { sanityClient } from '../../lib/sanity';
-import { allGoatsQuery, goatsPageQuery } from '../../lib/queries';
-import { portableTextToHtml } from '../../lib/portableText';
-import type { Goat, GoatsPage } from '../../types/sanity';
+import Layout from '../../layouts/Layout.astro'
+import SectionContainer from '../../components/SectionContainer.astro'
+import Info from '../../components/Info.astro'
+import GoatBio from '../../components/GoatBio.astro'
+import { sanityClient } from '../../lib/sanity'
+import { allGoatsQuery, goatsPageQuery } from '../../lib/queries'
+import { portableTextToHtml } from '../../lib/portableText'
+import type { Goat, GoatsPage } from '../../types/sanity'
 
-const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery);
-const goatsPage = await sanityClient.fetch<GoatsPage>(goatsPageQuery);
+const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery)
+const goatsPage = await sanityClient.fetch<GoatsPage>(goatsPageQuery)
 
 // Transform Sanity images to match expected format
 const goatsWithImages = goats.map((goat) => {
-  const images = goat.images?.map((img) => ({
-    src: img.asset.url,
-    alt: img.alt || goat.name,
-  })) || [];
+  const images =
+    goat.images?.map((img) => ({
+      src: img.asset.url,
+      alt: img.alt || goat.name,
+    })) || []
 
   return {
     ...goat,
@@ -28,9 +29,9 @@ const goatsWithImages = goats.map((goat) => {
       date: goat.date,
       sire: goat.sire,
       dam: goat.dam,
-    }
-  };
-});
+    },
+  }
+})
 ---
 
 <Layout title="Nigerian Dwarf Goats">
@@ -39,19 +40,21 @@ const goatsWithImages = goats.map((goat) => {
       <Fragment set:html={portableTextToHtml(goatsPage?.introText || [])} />
     </Info>
 
-    {goatsWithImages.map((goat) => (
-      <GoatBio
-        images={goat.images}
-        name={goat.data.name}
-        slug={goat.data.slug}
-        adgaPedigree={goat.data.adgaPedigree}
-        date={goat.data.date}
-        sire={goat.data.sire}
-        dam={goat.data.dam}
-        withTitle={true}
-        showCopy={false}
-      />
-    ))}
+    {
+      goatsWithImages.map((goat) => (
+        <GoatBio
+          images={goat.images}
+          name={goat.data.name}
+          slug={goat.data.slug}
+          adgaPedigree={goat.data.adgaPedigree}
+          date={goat.data.date}
+          sire={goat.data.sire}
+          dam={goat.data.dam}
+          withTitle={true}
+          showCopy={false}
+        />
+      ))
+    }
   </SectionContainer>
 </Layout>
 

@@ -1,25 +1,27 @@
 ---
 interface Props {
-  className?: string;
-  href?: string;
-  type?: 'button' | 'submit' | 'reset';
-  [key: string]: any;
+  className?: string
+  href?: string
+  type?: 'button' | 'submit' | 'reset'
+  [key: string]: any
 }
 
-const { className, href, type = 'button', ...passThroughProps } = Astro.props;
-const classes = className ? `button ${className}` : 'button';
-const Element = href ? 'a' : 'button';
+const { className, href, type = 'button', ...passThroughProps } = Astro.props
+const classes = className ? `button ${className}` : 'button'
+const Element = href ? 'a' : 'button'
 ---
 
-{Element === 'a' ? (
-  <a class={classes} href={href} {...passThroughProps}>
-    <slot />
-  </a>
-) : (
-  <button class={classes} type={type} {...passThroughProps}>
-    <slot />
-  </button>
-)}
+{
+  Element === 'a' ? (
+    <a class={classes} href={href} {...passThroughProps}>
+      <slot />
+    </a>
+  ) : (
+    <button class={classes} type={type} {...passThroughProps}>
+      <slot />
+    </button>
+  )
+}
 
 <style>
   .button {
