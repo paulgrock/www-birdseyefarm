@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from 'astro:content'
 
 const goatsCollection = defineCollection({
   type: 'data',
@@ -13,42 +13,56 @@ const goatsCollection = defineCollection({
     sire: z.object({
       name: z.string(),
       link: z.string(),
-      sire: z.object({
-        name: z.string(),
-        link: z.string().optional()
-      }).optional(),
-      dam: z.object({
-        name: z.string(),
-        link: z.string().optional()
-      }).optional()
+      sire: z
+        .object({
+          name: z.string(),
+          link: z.string().optional(),
+        })
+        .optional(),
+      dam: z
+        .object({
+          name: z.string(),
+          link: z.string().optional(),
+        })
+        .optional(),
     }),
     dam: z.object({
       name: z.string(),
       link: z.string(),
-      sire: z.object({
-        name: z.string(),
-        link: z.string().optional()
-      }).optional(),
-      dam: z.object({
-        name: z.string(),
-        link: z.string().optional()
-      }).optional()
+      sire: z
+        .object({
+          name: z.string(),
+          link: z.string().optional(),
+        })
+        .optional(),
+      dam: z
+        .object({
+          name: z.string(),
+          link: z.string().optional(),
+        })
+        .optional(),
     }),
-    mate: z.object({
-      name: z.string(),
-      slug: z.string(),
-      link: z.string()
-    }).optional(),
+    mate: z
+      .object({
+        name: z.string(),
+        slug: z.string(),
+        link: z.string(),
+      })
+      .optional(),
     copy: z.array(z.string()).default([]),
     notes: z.array(z.string()).default([]),
     prices: z.array(z.string()).default([]),
-    images: z.array(z.object({
-      filename: z.string(),
-      alt: z.string()
-    })).optional()
-  })
-});
+    images: z
+      .array(
+        z.object({
+          filename: z.string(),
+          alt: z.string(),
+        })
+      )
+      .optional(),
+  }),
+})
 
 export const collections = {
-  goats: goatsCollection
-};
+  goats: goatsCollection,
+}

@@ -1,11 +1,11 @@
 ---
 interface Props {
-  className?: string;
-  id?: string;
-  [key: string]: any;
+  className?: string
+  id?: string
+  [key: string]: any
 }
 
-const { className = '', ...rest } = Astro.props;
+const { className = '', ...rest } = Astro.props
 ---
 
 <section class={`container ${className}`} {...rest}>
@@ -14,7 +14,7 @@ const { className = '', ...rest } = Astro.props;
 
 <style>
   .container {
-    background-color: rgba(76, 40, 81, .3);
+    background-color: rgba(76, 40, 81, 0.3);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -1,13 +1,19 @@
 ---
-import { Image } from 'astro:assets';
-import SectionContainer from '../SectionContainer.astro';
-import logo from '../../images/logo-large.png';
-import homeBackground from '../../images/home.jpg';
+import { Image } from 'astro:assets'
+import SectionContainer from '../SectionContainer.astro'
+import logo from '../../images/logo-large.png'
+import homeBackground from '../../images/home.jpg'
 ---
 
 <SectionContainer className="heroContainer">
   <div class="bgi" style={`background-image: url(${homeBackground.src})`}></div>
-  <Image src={logo} alt="Bird's Eye Farm" class="logo" widths={[400, 800]} sizes="(max-width: 400px) 100vw, 400px" />
+  <Image
+    src={logo}
+    alt="Bird's Eye Farm"
+    class="logo"
+    widths={[400, 800]}
+    sizes="(max-width: 400px) 100vw, 400px"
+  />
 </SectionContainer>
 
 <style>

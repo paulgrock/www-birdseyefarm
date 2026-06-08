@@ -21,7 +21,7 @@ export const allGoatsQuery = `*[_type == "goat"] | order(displayOrder asc) {
     },
     alt
   }
-}`;
+}`
 
 export const goatBySlugQuery = `*[_type == "goat" && slug.current == $slug][0] {
   _id,
@@ -45,7 +45,7 @@ export const goatBySlugQuery = `*[_type == "goat" && slug.current == $slug][0] {
     },
     alt
   }
-}`;
+}`
 
 export const homePageQuery = `*[_type == "homePage"][0] {
   _id,
@@ -79,13 +79,13 @@ export const homePageQuery = `*[_type == "homePage"][0] {
   },
   instagramUrl,
   contactHeading
-}`;
+}`
 
 export const goatsPageQuery = `*[_type == "goatsPage"][0] {
   _id,
   title,
   introText
-}`;
+}`
 
 export const kiddingScheduleQuery = `*[_type == "goat" && defined(kiddingDate)] | order(kiddingScheduleOrder asc) {
   _id,
@@ -119,4 +119,4 @@ export const kiddingScheduleQuery = `*[_type == "goat" && defined(kiddingDate)] 
       alt
     }
   }
-}`;
+}`

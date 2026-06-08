@@ -1,10 +1,10 @@
 ---
 type Props = {
-  className?: string;
+  className?: string
 }
 
-const { className } = Astro.props;
-const classes = className ? `title ${className}` : 'title';
+const { className } = Astro.props
+const classes = className ? `title ${className}` : 'title'
 ---
 
 <h3 class={classes}>
@@ -23,7 +23,7 @@ const classes = className ? `title ${className}` : 'title';
   }
 
   .sectionTitle {
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     text-align: center;
   }
 </style>
