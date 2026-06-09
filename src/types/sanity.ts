@@ -57,6 +57,11 @@ export interface GoatsPage {
   introText?: PortableTextBlock[]
 }
 
+export interface DeliveriesPage {
+  _id: string
+  options?: string[]
+}
+
 export interface HomePage {
   _id: string
   heroLogo?: SanityImage

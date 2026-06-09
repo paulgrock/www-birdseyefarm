@@ -87,6 +87,11 @@ export const goatsPageQuery = `*[_type == "goatsPage"][0] {
   introText
 }`
 
+export const deliveriesPageQuery = `*[_type == "deliveriesPage"][0] {
+  _id,
+  options
+}`
+
 export const kiddingScheduleQuery = `*[_type == "goat" && defined(kiddingDate)] | order(kiddingScheduleOrder asc) {
   _id,
   name,

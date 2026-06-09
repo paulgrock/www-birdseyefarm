@@ -2,6 +2,14 @@
 import SectionContainer from '../SectionContainer.astro'
 import SectionTitle from '../SectionTitle.astro'
 import Button from '../Button.astro'
+import { sanityClient } from '../../lib/sanity'
+import { deliveriesPageQuery } from '../../lib/queries'
+import type { DeliveriesPage } from '../../types/sanity'
+
+const deliveriesPage = await sanityClient.fetch<DeliveriesPage | null>(
+  deliveriesPageQuery
+)
+const options = deliveriesPage?.options ?? []
 ---
 
 <SectionContainer id="deliveries" className="container">
@@ -24,42 +32,14 @@ import Button from '../Button.astro'
     <fieldset class="options">
       <legend class="sr-only">Delivery options</legend>
 
-      <label class="checkbox">
-        <input
-          type="checkbox"
-          name="deliveryOptions"
-          value="Dozen-A-Week 🍳 Subscription ($24/month)"
-        />
-        <span>Dozen-A-Week 🍳 Subscription ($24/month)</span>
-      </label>
-
-      <label class="checkbox">
-        <input
-          type="checkbox"
-          name="deliveryOptions"
-          value="Now-and-Then Eggs ($8/doz)"
-        />
-        <span>Now-and-Then Eggs ($8/doz)</span>
-      </label>
-
-      <label class="checkbox">
-        <input type="checkbox" name="deliveryOptions" value="Honey" />
-        <span>Honey</span>
-      </label>
-
-      <label class="checkbox">
-        <input
-          type="checkbox"
-          name="deliveryOptions"
-          value="Seasonal fruit & veggies"
-        />
-        <span>Seasonal fruit &amp; veggies</span>
-      </label>
-
-      <label class="checkbox">
-        <input type="checkbox" name="deliveryOptions" value="Other" />
-        <span>Other</span>
-      </label>
+      {
+        options.map((option) => (
+          <label class="checkbox">
+            <input type="checkbox" name="deliveryOptions" value={option} />
+            <span>{option}</span>
+          </label>
+        ))
+      }
     </fieldset>
 
     <input
