@@ -13,8 +13,10 @@ const options = deliveriesPage?.options ?? []
 ---
 
 <SectionContainer id="deliveries" className="container">
-  <SectionTitle className="sectionTitle">Deliveries</SectionTitle>
-  <h3 class="title">Let us know which delivery options interest you</h3>
+  <header>
+    <SectionTitle>Deliveries</SectionTitle>
+    <p>Select items for your order here. Pay by venmo or cash.</p>
+  </header>
 
   <form
     method="post"
@@ -161,12 +163,7 @@ const options = deliveriesPage?.options ?? []
     background-image: url('../../images/bg.svg');
   }
 
-  .container :global(.sectionTitle) {
-    color: white;
-    grid-column: 1 / -1;
-  }
-
-  .title {
+  header {
     color: white;
     grid-column: 1 / -1;
     text-align: center;
