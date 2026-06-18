@@ -15,6 +15,8 @@ namespace DragonHunter
         public Text weaponText;
 
         private PlayerHealth _player;
+        private int _lastLives = -1;
+        private Element _lastWeapon = (Element)(-1);
 
         private void Start()
         {
@@ -45,10 +47,20 @@ namespace DragonHunter
         {
             if (_player == null) Bind();
 
+            // Only touch the UI when a value actually changes — avoids per-frame
+            // string allocation and needless canvas rebuilds.
             var gm = GameManager.EnsureExists();
-            if (livesText != null) livesText.text = "x" + gm.Lives;
-            if (weaponText != null) weaponText.text = ElementUtil.DisplayName(gm.SelectedWeapon);
-            if (weaponText != null) weaponText.color = ElementUtil.ColorOf(gm.SelectedWeapon);
+            if (livesText != null && gm.Lives != _lastLives)
+            {
+                _lastLives = gm.Lives;
+                livesText.text = "x" + _lastLives;
+            }
+            if (weaponText != null && gm.SelectedWeapon != _lastWeapon)
+            {
+                _lastWeapon = gm.SelectedWeapon;
+                weaponText.text = ElementUtil.DisplayName(_lastWeapon);
+                weaponText.color = ElementUtil.ColorOf(_lastWeapon);
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ namespace DragonHunter
 
         private Rigidbody2D _rb;
         private float _age;
+        private static int _groundLayer = -1;
 
         public void Launch(Vector2 direction, Faction ownerFaction, Element shotElement,
                            float shotDamage, float shotSpeed, float gravity = 0f)
@@ -81,7 +82,8 @@ namespace DragonHunter
             }
 
             // Hit terrain (anything solid on the Ground layer).
-            if (destroyOnTerrain && other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (_groundLayer < 0) _groundLayer = LayerMask.NameToLayer("Ground");
+            if (destroyOnTerrain && other.gameObject.layer == _groundLayer)
             {
                 Destroy(gameObject);
             }

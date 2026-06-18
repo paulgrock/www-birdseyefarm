@@ -155,8 +155,12 @@ namespace DragonHunter
                 Die();
         }
 
+        // Stay handlers too, so a player standing inside the dragon keeps taking
+        // damage (gated by the player's own invincibility frames) rather than being
+        // hit only on the frame they first overlap.
         private void OnCollisionEnter2D(Collision2D collision) => TryContactDamage(collision.collider);
         private void OnTriggerEnter2D(Collider2D other) => TryContactDamage(other);
+        private void OnTriggerStay2D(Collider2D other) => TryContactDamage(other);
 
         private void TryContactDamage(Collider2D other)
         {
@@ -172,8 +176,6 @@ namespace DragonHunter
             IsActive = false;
             StopAllCoroutines();
             if (healthBar != null) healthBar.gameObject.SetActive(false);
-
-            GameManager.EnsureExists().OnDragonDefeated(element);
             StartCoroutine(DeathThenReturn());
         }
 
@@ -188,6 +190,11 @@ namespace DragonHunter
                 transform.localScale = Vector3.Lerp(start, Vector3.zero, t / 1.2f);
                 yield return null;
             }
+
+            // Record the kill only once the death sequence completes. If the player
+            // had died simultaneously and reloaded the stage, this coroutine is gone
+            // and the dragon is correctly NOT marked defeated.
+            GameManager.EnsureExists().OnDragonDefeated(element);
             GameManager.EnsureExists().ReturnToHub();
         }
     }

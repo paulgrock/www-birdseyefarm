@@ -77,6 +77,7 @@ namespace DragonHunter
         }
 
         private void OnCollisionEnter2D(Collision2D collision) => TryHit(collision.collider);
+        private void OnCollisionStay2D(Collision2D collision) => TryHit(collision.collider);
         private void OnTriggerEnter2D(Collider2D other) => TryHit(other);
 
         private void TryHit(Collider2D other)

@@ -86,6 +86,17 @@ namespace DragonHunter
             HealthChanged?.Invoke(Current, maxHealth);
         }
 
+        /// <summary>Lethal damage that ignores invincibility frames — used by the
+        /// bottomless-pit kill zone so a player who falls in while briefly invincible
+        /// (e.g. knocked off a ledge) still dies instead of falling forever.</summary>
+        public void Kill()
+        {
+            if (_dead) return;
+            Current = 0f;
+            HealthChanged?.Invoke(Current, maxHealth);
+            Die();
+        }
+
         private void Die()
         {
             _dead = true;

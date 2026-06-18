@@ -24,7 +24,6 @@ namespace DragonHunter
         private float _cooldown;
         private float _chargeTimer;
         private bool _charging;
-        private SpriteRenderer _chargeFx;
 
         private static bool FirePressed => Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
         private static bool FireDown => Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
@@ -82,8 +81,12 @@ namespace DragonHunter
             if (projectilePrefab == null) return;
 
             Element element = GameManager.EnsureExists().SelectedWeapon;
-            Vector3 spawnPos = muzzle != null ? muzzle.position : transform.position;
             float facing = _controller != null ? _controller.Facing : 1;
+
+            // Mirror the muzzle to the side the player faces (the muzzle child sits on
+            // the right by default), so leftward shots don't spawn behind the player.
+            Vector3 local = muzzle != null ? muzzle.localPosition : new Vector3(0.6f, 0.2f, 0f);
+            Vector3 spawnPos = transform.position + new Vector3(facing * Mathf.Abs(local.x), local.y, 0f);
 
             GameObject go = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
             var proj = go.GetComponent<Projectile>();

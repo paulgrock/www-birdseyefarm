@@ -25,7 +25,8 @@ namespace DragonHunter
         {
             var player = other.GetComponentInParent<PlayerHealth>();
             if (player == null) return;
-            player.TakeDamage(instantKill ? 9999f : damage, Element.Neutral, transform.position);
+            if (instantKill) player.Kill();                     // bypasses i-frames
+            else player.TakeDamage(damage, Element.Neutral, transform.position);
         }
     }
 }
