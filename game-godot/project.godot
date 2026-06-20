@@ -1,0 +1,36 @@
+; Engine configuration file.
+; Dragon Hunter — Godot 4 port.
+
+config_version=5
+
+[application]
+
+config/name="Dragon Hunter (Godot)"
+run/main_scene="res://scenes/title.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scripts/core/game_manager.gd"
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="player_shot"
+2d_physics/layer_5="enemy_shot"
+2d_physics/layer_6="hazard"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
