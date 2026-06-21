@@ -15,6 +15,9 @@ var _boss_root: Control
 var _boss_fill: ColorRect
 var _boss_label: Label
 
+var _last_lives := -1
+var _last_weapon := -1
+
 func _ready() -> void:
     var root := Control.new()
     root.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -45,10 +48,15 @@ func _process(_delta: float) -> void:
         if p.max_health > 0.0:
             _health_fill.size.x = HEALTH_W * (p.health / p.max_health)
 
-    _lives.text = "Lives  x%d" % GameManager.lives
-    _weapon.text = "Weapon:  " + Elements.display_name(GameManager.selected_weapon)
-    _weapon.add_theme_color_override("font_color",
-        Elements.color_of(GameManager.selected_weapon))
+    # Only touch the labels when a value changes (avoids per-frame string
+    # allocation and theme-override churn).
+    if GameManager.lives != _last_lives:
+        _last_lives = GameManager.lives
+        _lives.text = "Lives  x%d" % _last_lives
+    if GameManager.selected_weapon != _last_weapon:
+        _last_weapon = GameManager.selected_weapon
+        _weapon.text = "Weapon:  " + Elements.display_name(_last_weapon)
+        _weapon.add_theme_color_override("font_color", Elements.color_of(_last_weapon))
 
 # --- Boss bar (called by DragonBoss) -----------------------------------------
 

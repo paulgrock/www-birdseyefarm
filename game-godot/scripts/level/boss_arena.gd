@@ -23,7 +23,7 @@ func _ready() -> void:
     if seal_wall:
         _set_seal(false)
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(body: Node2D) -> void:
     if _triggered or not body.is_in_group("player"):
         return
     _triggered = true

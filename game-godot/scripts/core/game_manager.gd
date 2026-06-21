@@ -90,7 +90,8 @@ func lose_life() -> bool:
 func reset_run() -> void:
     lives = STARTING_LIVES
     _defeated.clear()
-    _weapons = [Elements.E.NEUTRAL]
+    _weapons.clear()
+    _weapons.append(Elements.E.NEUTRAL)
     selected_weapon = Elements.E.NEUTRAL
     current_stage = Elements.E.NEUTRAL
 
