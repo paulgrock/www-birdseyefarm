@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity';
+import { defineType, defineField, defineArrayMember } from 'sanity'
 
 export default defineType({
   name: 'goat',
@@ -18,6 +18,20 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'goatType',
+      title: 'Type',
+      type: 'string',
+      initialValue: 'doe',
+      options: {
+        list: [
+          { title: 'Doe', value: 'doe' },
+          { title: 'Buck', value: 'buck' },
+          { title: 'Reference', value: 'reference' },
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -31,14 +45,16 @@ export default defineType({
       name: 'displayOrder',
       title: 'Display Order (Main Page)',
       type: 'number',
-      description: 'Order for displaying goats on the main goats page (lower numbers appear first)',
+      description:
+        'Order for displaying goats on the main goats page (lower numbers appear first)',
       validation: (Rule) => Rule.integer().min(0),
     }),
     defineField({
       name: 'kiddingScheduleOrder',
       title: 'Kidding Schedule Order',
       type: 'number',
-      description: 'Order for displaying goats on the kidding schedule page (lower numbers appear first)',
+      description:
+        'Order for displaying goats on the kidding schedule page (lower numbers appear first)',
       validation: (Rule) => Rule.integer().min(0),
     }),
     defineField({
@@ -68,7 +84,12 @@ export default defineType({
       title: 'Sire',
       type: 'object',
       fields: [
-        { name: 'name', type: 'string', title: 'Name', validation: (Rule) => Rule.required() },
+        {
+          name: 'name',
+          type: 'string',
+          title: 'Name',
+          validation: (Rule) => Rule.required(),
+        },
         { name: 'link', type: 'url', title: 'Link' },
         {
           name: 'sire',
@@ -96,7 +117,12 @@ export default defineType({
       title: 'Dam',
       type: 'object',
       fields: [
-        { name: 'name', type: 'string', title: 'Name', validation: (Rule) => Rule.required() },
+        {
+          name: 'name',
+          type: 'string',
+          title: 'Name',
+          validation: (Rule) => Rule.required(),
+        },
         { name: 'link', type: 'url', title: 'Link' },
         {
           name: 'sire',
@@ -173,4 +199,4 @@ export default defineType({
       media: 'images.0',
     },
   },
-});
+})
