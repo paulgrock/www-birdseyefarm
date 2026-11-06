@@ -4,18 +4,24 @@ import SectionTitle from '../SectionTitle.astro'
 import Button from '../Button.astro'
 import { sanityClient } from '../../lib/sanity'
 import { deliveriesPageQuery } from '../../lib/queries'
+import { formatPrice, getDeliveryItems } from '../../lib/deliveries'
 import type { DeliveriesPage } from '../../types/sanity'
 
 const deliveriesPage = await sanityClient.fetch<DeliveriesPage | null>(
   deliveriesPageQuery
 )
-const options = deliveriesPage?.options ?? []
+const items = getDeliveryItems(deliveriesPage)
+const venmoUsername =
+  deliveriesPage?.venmoUsername?.trim().replace(/^@/, '') ?? ''
+const paymentNote =
+  deliveriesPage?.paymentNote ??
+  'Select items for your order here. Pay by Venmo or cash.'
 ---
 
 <SectionContainer id="deliveries" className="container">
   <header>
     <SectionTitle>Deliveries</SectionTitle>
-    <p>Select items for your order here. Pay by Venmo or cash.</p>
+    <p>{paymentNote}</p>
   </header>
 
   <form
@@ -24,25 +30,78 @@ const options = deliveriesPage?.options ?? []
     data-netlify="true"
     name="deliveries"
     netlify-honeypot="botField"
+    data-venmo={venmoUsername}
   >
     <input type="hidden" name="form-name" value="deliveries" />
+    <input type="hidden" name="order" value="" />
+    <input type="hidden" name="total" value="" />
 
     <div hidden>
       <label>Don't fill this out: <input name="botField" /></label>
     </div>
 
-    <fieldset class="options">
-      <legend class="sr-only">Delivery options</legend>
+    <fieldset class="items">
+      <legend class="sr-only">Delivery items</legend>
 
       {
-        options.map((option) => (
-          <label class="checkbox">
-            <input type="checkbox" name="deliveryOptions" value={option} />
-            <span>{option}</span>
-          </label>
+        items.map((item, index) => (
+          <div class="item">
+            <label class="item-info" for={`qty-${index}`}>
+              <span class="item-name">{item.name}</span>
+              <span class="item-price">
+                {typeof item.price === 'number'
+                  ? `${formatPrice(item.price)}${item.unit ? ` / ${item.unit}` : ''}`
+                  : 'Price varies'}
+              </span>
+              {item.description && (
+                <span class="item-description">{item.description}</span>
+              )}
+            </label>
+            <div class="stepper">
+              <button
+                type="button"
+                class="step"
+                data-step="-1"
+                aria-label={`Fewer ${item.name}`}
+              >
+                −
+              </button>
+              <input
+                id={`qty-${index}`}
+                class="qty"
+                type="number"
+                inputmode="numeric"
+                min="0"
+                step="1"
+                value="0"
+                data-name={item.name}
+                data-price={typeof item.price === 'number' ? item.price : ''}
+                data-unit={item.unit ?? ''}
+              />
+              <button
+                type="button"
+                class="step"
+                data-step="1"
+                aria-label={`More ${item.name}`}
+              >
+                +
+              </button>
+            </div>
+          </div>
         ))
       }
     </fieldset>
+
+    <p class="total" aria-live="polite">
+      Total: <strong id="order-total">$0</strong>
+      <span id="varies-note" class="varies-note" hidden>
+        + items priced at delivery
+      </span>
+    </p>
+
+    <p id="items-error" class="items-error" role="alert" hidden>
+      Please choose at least one item.
+    </p>
 
     <input
       placeholder="Email Address"
@@ -74,6 +133,9 @@ const options = deliveriesPage?.options ?? []
   <dialog id="success-dialog" class="modal">
     <div class="modal-content">
       <p>Thank you! Your order has been received.</p>
+      <p id="success-total" hidden></p>
+      <div class="pay-options" id="pay-options"></div>
+      <p class="cash-note">You can also pay cash on delivery.</p>
       <Button id="close-dialog">Close</Button>
     </div>
   </dialog>
@@ -90,6 +152,27 @@ const options = deliveriesPage?.options ?? []
 </SectionContainer>
 
 <script>
+  type CartLine = {
+    name: string
+    qty: number
+    price: number | null
+    unit: string
+  }
+
+  type Cart = {
+    lines: CartLine[]
+    total: number
+    hasUnpricedItems: boolean
+  }
+
+  type PaymentOption = {
+    label: string
+    href: string
+  }
+
+  const formatMoney = (amount: number) =>
+    Number.isInteger(amount) ? `$${amount}` : `$${amount.toFixed(2)}`
+
   const form = document.querySelector(
     'form[name="deliveries"]'
   ) as HTMLFormElement
@@ -101,10 +184,143 @@ const options = deliveriesPage?.options ?? []
   ) as HTMLDialogElement
   const closeBtn = document.getElementById('close-dialog')
   const closeErrorBtn = document.getElementById('close-error-dialog')
+  const totalEl = document.getElementById('order-total')
+  const variesNote = document.getElementById('varies-note')
+  const itemsError = document.getElementById('items-error')
+  const successTotal = document.getElementById('success-total')
+  const payOptionsEl = document.getElementById('pay-options')
+
+  const qtyInputs = () =>
+    Array.from(form.querySelectorAll<HTMLInputElement>('input.qty'))
+
+  function readCart(): Cart {
+    const lines: CartLine[] = qtyInputs()
+      .map((input) => {
+        const qty = Math.max(0, Math.floor(Number(input.value) || 0))
+        const price = input.dataset.price ? Number(input.dataset.price) : null
+        return {
+          name: input.dataset.name ?? '',
+          qty,
+          price,
+          unit: input.dataset.unit ?? '',
+        }
+      })
+      .filter((line) => line.qty > 0)
+
+    const total =
+      Math.round(
+        lines.reduce((sum, line) => sum + (line.price ?? 0) * line.qty, 0) * 100
+      ) / 100
+
+    return {
+      lines,
+      total,
+      hasUnpricedItems: lines.some((line) => line.price === null),
+    }
+  }
+
+  function describeOrder(cart: Cart): string {
+    return cart.lines
+      .map((line) =>
+        line.price === null
+          ? `${line.qty} × ${line.name} (price varies)`
+          : `${line.qty} × ${line.name} @ ${formatMoney(line.price)}${
+              line.unit ? `/${line.unit}` : ''
+            } = ${formatMoney(line.price * line.qty)}`
+      )
+      .join('; ')
+  }
+
+  function shortNote(cart: Cart): string {
+    const items = cart.lines
+      .map((line) => `${line.qty} ${line.name}`)
+      .join(', ')
+    return `Bird's Eye Farm delivery: ${items}`
+  }
+
+  // Add more payment methods (e.g. Stripe) here; the dialog renders this list.
+  function paymentOptions(cart: Cart): PaymentOption[] {
+    const options: PaymentOption[] = []
+    const venmo = form.dataset.venmo
+    if (venmo && cart.total > 0) {
+      const params = new URLSearchParams({
+        txn: 'pay',
+        amount: cart.total.toFixed(2),
+        note: shortNote(cart),
+      })
+      options.push({
+        label: `Pay ${formatMoney(cart.total)} with Venmo`,
+        href: `https://venmo.com/${encodeURIComponent(venmo)}?${params
+          .toString()
+          .replace(/\+/g, '%20')}`,
+      })
+    }
+    return options
+  }
+
+  function updateTotal() {
+    const cart = readCart()
+    if (totalEl) totalEl.textContent = formatMoney(cart.total)
+    if (variesNote) variesNote.hidden = !cart.hasUnpricedItems
+    if (itemsError && cart.lines.length > 0) itemsError.hidden = true
+  }
+
+  function renderSuccess(cart: Cart) {
+    if (successTotal) {
+      successTotal.hidden = cart.total <= 0
+      successTotal.textContent = `Your total is ${formatMoney(cart.total)}${
+        cart.hasUnpricedItems ? ' plus items priced at delivery' : ''
+      }.`
+    }
+    if (payOptionsEl) {
+      payOptionsEl.replaceChildren(
+        ...paymentOptions(cart).map((option) => {
+          const link = document.createElement('a')
+          link.className = 'button pay-button'
+          link.href = option.href
+          link.target = '_blank'
+          link.rel = 'noopener'
+          link.textContent = option.label
+          return link
+        })
+      )
+    }
+  }
 
   if (form && successDialog && errorDialog && closeBtn && closeErrorBtn) {
+    form.addEventListener('click', (e) => {
+      const button = (e.target as HTMLElement).closest<HTMLButtonElement>(
+        'button.step'
+      )
+      if (!button) return
+      const input =
+        button.parentElement?.querySelector<HTMLInputElement>('input.qty')
+      if (!input) return
+      const next = (Number(input.value) || 0) + Number(button.dataset.step)
+      input.value = String(Math.max(0, next))
+      updateTotal()
+    })
+
+    form.addEventListener('input', (e) => {
+      if ((e.target as HTMLElement).classList.contains('qty')) updateTotal()
+    })
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
+
+      const cart = readCart()
+      if (cart.lines.length === 0) {
+        if (itemsError) itemsError.hidden = false
+        itemsError?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        return
+      }
+
+      const orderInput = form.elements.namedItem('order') as HTMLInputElement
+      const totalInput = form.elements.namedItem('total') as HTMLInputElement
+      orderInput.value = describeOrder(cart)
+      totalInput.value = `${formatMoney(cart.total)}${
+        cart.hasUnpricedItems ? ' + items priced at delivery' : ''
+      }`
 
       const formData = new FormData(form)
       const params = new URLSearchParams()
@@ -121,8 +337,10 @@ const options = deliveriesPage?.options ?? []
         })
 
         if (response.ok) {
+          renderSuccess(cart)
           successDialog.showModal()
           form.reset()
+          updateTotal()
         } else {
           throw new Error('Form submission failed')
         }
@@ -173,27 +391,87 @@ const options = deliveriesPage?.options ?? []
     max-width: 400px;
   }
 
-  .options {
+  .items {
     border: none;
     padding: 0;
     margin: 0;
   }
 
-  .checkbox {
+  .item {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     color: white;
+  }
+
+  .item + .item {
+    margin-top: 20px;
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .item-price,
+  .item-description {
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+
+  .stepper {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step {
+    width: 36px;
+    height: 36px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
     cursor: pointer;
   }
 
-  .checkbox + .checkbox {
-    margin-top: 16px;
+  .step:hover {
+    background: rgba(255, 255, 255, 0.15);
   }
 
-  .checkbox input {
-    margin-top: 4px;
-    flex-shrink: 0;
+  .qty {
+    width: 48px;
+    height: 36px;
+    border: none;
+    text-align: center;
+    color: var(--color-darker-purple);
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  .qty::-webkit-outer-spin-button,
+  .qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .total {
+    color: white;
+    margin-top: 32px;
+    font-size: 1.2em;
+  }
+
+  .varies-note {
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.8;
+  }
+
+  .items-error {
+    color: #ffd2d2;
   }
 
   .sr-only {
@@ -219,7 +497,8 @@ const options = deliveriesPage?.options ?? []
     color: var(--color-darker-purple);
   }
 
-  .options + .input,
+  .total + .input,
+  .items-error + .input,
   .input + .input,
   .textarea {
     margin-top: 43px;
@@ -229,11 +508,33 @@ const options = deliveriesPage?.options ?? []
     margin: auto;
     border: none;
     padding: 0;
+    max-width: calc(100vw - 32px);
   }
 
   .modal-content {
     background-color: white;
     padding: 50px;
+  }
+
+  .modal-content :global(.pay-button) {
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 12px;
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    text-transform: uppercase;
+    font-family: 'Josefin Slab', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 2.08px;
+    color: var(--color-light);
+    padding: 17px 34px;
+    text-decoration: none;
+  }
+
+  .cash-note {
+    font-size: 0.9em;
   }
 
   dialog::backdrop {

@@ -89,6 +89,15 @@ export const goatsPageQuery = `*[_type == "goatsPage"][0] {
 
 export const deliveriesPageQuery = `*[_type == "deliveriesPage"][0] {
   _id,
+  "items": items[available != false]{
+    _key,
+    name,
+    price,
+    unit,
+    description
+  },
+  venmoUsername,
+  paymentNote,
   options
 }`
 

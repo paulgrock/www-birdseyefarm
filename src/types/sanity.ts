@@ -57,8 +57,21 @@ export interface GoatsPage {
   introText?: PortableTextBlock[]
 }
 
+export interface DeliveryItem {
+  _key: string
+  name: string
+  /** Null/undefined when the price varies (not added to the total). */
+  price?: number | null
+  unit?: string
+  description?: string
+}
+
 export interface DeliveriesPage {
   _id: string
+  items?: DeliveryItem[] | null
+  venmoUsername?: string
+  paymentNote?: string
+  /** @deprecated Legacy text-only options; used only when `items` is empty. */
   options?: string[]
 }
 

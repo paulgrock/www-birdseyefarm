@@ -27,6 +27,22 @@ You can now edit the text content on the following pages through Sanity Studio:
 3. Edit the "Welcome Title" and "Welcome Text" fields
 4. Click "Publish" to save changes
 
+## 3. Deliveries Page (/deliveries)
+
+**Editable in Sanity Studio:**
+- Delivery Items: name, price, unit, optional description, and an "Available" switch
+- Venmo Username: the account that receives payments (without the @)
+- Payment Note: the line under the page title
+
+**How customers order:**
+Customers pick quantities and see a running total. When they submit, the order email lists each item with its price plus the total. Customers then see a "Pay $X with Venmo" button that opens Venmo with the amount and an order note already filled in. Cash is still an option.
+
+**Tips:**
+- To hide an item for a week, turn off "Available". Deleting it isn't necessary.
+- Leave the price blank for things that vary (like seasonal produce). Customers can still request them, but they aren't added to the total.
+- Subscriptions such as "Dozen-A-Week" are charged one month at a time (unit "month").
+- Leave Venmo Username blank to hide the Venmo button.
+
 ## Technical Details
 
 ### New Files Created:
