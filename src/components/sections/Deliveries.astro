@@ -255,18 +255,22 @@ const paymentNote =
     return `Bird's Eye Farm delivery: ${items}`
   }
 
-  // Venmo payment link with the amount and order note prefilled.
+  // Venmo's web payment page with the recipient, amount and note prefilled.
+  // Works in any browser (customers sign in on the web if they don't have
+  // the app). The older venmo.com/<user>?txn=pay links try to open the app
+  // and fail in Safari when it isn't installed.
   // To add another method (e.g. Stripe), add a button with its own
   // data-method and handle it in the submit listener below.
   function venmoUrl(cart: Cart): string {
     const params = new URLSearchParams({
       txn: 'pay',
+      recipients: form.dataset.venmo ?? '',
       amount: cart.total.toFixed(2),
       note: shortNote(cart),
     })
-    return `https://venmo.com/${encodeURIComponent(
-      form.dataset.venmo ?? ''
-    )}?${params.toString().replace(/\+/g, '%20')}`
+    return `https://account.venmo.com/pay?${params
+      .toString()
+      .replace(/\+/g, '%20')}`
   }
 
   function updateTotal() {
