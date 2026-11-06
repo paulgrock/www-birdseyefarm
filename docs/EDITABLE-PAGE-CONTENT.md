@@ -35,7 +35,7 @@ You can now edit the text content on the following pages through Sanity Studio:
 - Payment Note: the line under the page title
 
 **How customers order:**
-Customers pick quantities and see a running total. When they submit, the order email lists each item with its price plus the total. Customers then see a "Pay $X with Venmo" button that opens Venmo with the amount and an order note already filled in. Cash is still an option.
+Customers pick quantities and see a running total, then choose **Pay $X with Venmo** or **Pay cash on delivery**. Either button sends the order; the order email lists each item, the total, and the payment method. The Venmo button then opens Venmo with the amount and an order note already filled in.
 
 **Tips:**
 - To hide an item for a week, turn off "Available". Deleting it isn't necessary.

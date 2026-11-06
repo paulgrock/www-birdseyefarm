@@ -35,6 +35,7 @@ const paymentNote =
     <input type="hidden" name="form-name" value="deliveries" />
     <input type="hidden" name="order" value="" />
     <input type="hidden" name="total" value="" />
+    <input type="hidden" name="paymentMethod" value="" />
 
     <div hidden>
       <label>Don't fill this out: <input name="botField" /></label>
@@ -127,15 +128,31 @@ const paymentNote =
       placeholder="Anything else?"
       aria-label="Anything else?"></textarea>
 
-    <Button type="submit">Send</Button>
+    <div class="pay-buttons">
+      {
+        venmoUsername && (
+          <Button
+            type="submit"
+            id="venmo-submit"
+            className="venmo-button"
+            data-method="venmo"
+            disabled
+          >
+            Pay with Venmo
+          </Button>
+        )
+      }
+      <Button type="submit" className="cash-button" data-method="cash">
+        Pay cash on delivery
+      </Button>
+    </div>
   </form>
 
   <dialog id="success-dialog" class="modal">
     <div class="modal-content">
       <p>Thank you! Your order has been received.</p>
-      <p id="success-total" hidden></p>
-      <div class="pay-options" id="pay-options"></div>
-      <p class="cash-note">You can also pay cash on delivery.</p>
+      <p id="success-message"></p>
+      <a id="venmo-link" class="venmo-link" hidden>Open Venmo</a>
       <Button id="close-dialog">Close</Button>
     </div>
   </dialog>
@@ -165,10 +182,7 @@ const paymentNote =
     hasUnpricedItems: boolean
   }
 
-  type PaymentOption = {
-    label: string
-    href: string
-  }
+  type PaymentMethod = 'venmo' | 'cash'
 
   const formatMoney = (amount: number) =>
     Number.isInteger(amount) ? `$${amount}` : `$${amount.toFixed(2)}`
@@ -187,8 +201,11 @@ const paymentNote =
   const totalEl = document.getElementById('order-total')
   const variesNote = document.getElementById('varies-note')
   const itemsError = document.getElementById('items-error')
-  const successTotal = document.getElementById('success-total')
-  const payOptionsEl = document.getElementById('pay-options')
+  const successMessage = document.getElementById('success-message')
+  const venmoLink = document.getElementById('venmo-link') as HTMLAnchorElement
+  const venmoButton = document.getElementById(
+    'venmo-submit'
+  ) as HTMLButtonElement | null
 
   const qtyInputs = () =>
     Array.from(form.querySelectorAll<HTMLInputElement>('input.qty'))
@@ -238,24 +255,18 @@ const paymentNote =
     return `Bird's Eye Farm delivery: ${items}`
   }
 
-  // Add more payment methods (e.g. Stripe) here; the dialog renders this list.
-  function paymentOptions(cart: Cart): PaymentOption[] {
-    const options: PaymentOption[] = []
-    const venmo = form.dataset.venmo
-    if (venmo && cart.total > 0) {
-      const params = new URLSearchParams({
-        txn: 'pay',
-        amount: cart.total.toFixed(2),
-        note: shortNote(cart),
-      })
-      options.push({
-        label: `Pay ${formatMoney(cart.total)} with Venmo`,
-        href: `https://venmo.com/${encodeURIComponent(venmo)}?${params
-          .toString()
-          .replace(/\+/g, '%20')}`,
-      })
-    }
-    return options
+  // Venmo payment link with the amount and order note prefilled.
+  // To add another method (e.g. Stripe), add a button with its own
+  // data-method and handle it in the submit listener below.
+  function venmoUrl(cart: Cart): string {
+    const params = new URLSearchParams({
+      txn: 'pay',
+      amount: cart.total.toFixed(2),
+      note: shortNote(cart),
+    })
+    return `https://venmo.com/${encodeURIComponent(
+      form.dataset.venmo ?? ''
+    )}?${params.toString().replace(/\+/g, '%20')}`
   }
 
   function updateTotal() {
@@ -263,28 +274,34 @@ const paymentNote =
     if (totalEl) totalEl.textContent = formatMoney(cart.total)
     if (variesNote) variesNote.hidden = !cart.hasUnpricedItems
     if (itemsError && cart.lines.length > 0) itemsError.hidden = true
+    if (venmoButton) {
+      venmoButton.disabled = cart.total <= 0
+      venmoButton.textContent =
+        cart.total > 0
+          ? `Pay ${formatMoney(cart.total)} with Venmo`
+          : 'Pay with Venmo'
+    }
   }
 
-  function renderSuccess(cart: Cart) {
-    if (successTotal) {
-      successTotal.hidden = cart.total <= 0
-      successTotal.textContent = `Your total is ${formatMoney(cart.total)}${
-        cart.hasUnpricedItems ? ' plus items priced at delivery' : ''
-      }.`
+  function renderSuccess(cart: Cart, method: PaymentMethod) {
+    const extra = cart.hasUnpricedItems ? ' plus items priced at delivery' : ''
+    if (method === 'venmo') {
+      const url = venmoUrl(cart)
+      venmoLink.href = url
+      venmoLink.hidden = false
+      if (successMessage)
+        successMessage.textContent = `Opening Venmo to pay ${formatMoney(
+          cart.total
+        )}${extra}. If it doesn't open, tap the link below.`
+      return url
     }
-    if (payOptionsEl) {
-      payOptionsEl.replaceChildren(
-        ...paymentOptions(cart).map((option) => {
-          const link = document.createElement('a')
-          link.className = 'button pay-button'
-          link.href = option.href
-          link.target = '_blank'
-          link.rel = 'noopener'
-          link.textContent = option.label
-          return link
-        })
-      )
-    }
+    venmoLink.hidden = true
+    if (successMessage)
+      successMessage.textContent =
+        cart.total > 0
+          ? `Your total is ${formatMoney(cart.total)}${extra}. Please have cash ready at delivery.`
+          : 'We will let you know the total at delivery.'
+    return null
   }
 
   if (form && successDialog && errorDialog && closeBtn && closeErrorBtn) {
@@ -308,6 +325,10 @@ const paymentNote =
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
 
+      const submitter = (e as SubmitEvent).submitter as HTMLElement | null
+      const method: PaymentMethod =
+        submitter?.dataset.method === 'venmo' ? 'venmo' : 'cash'
+
       const cart = readCart()
       if (cart.lines.length === 0) {
         if (itemsError) itemsError.hidden = false
@@ -321,6 +342,10 @@ const paymentNote =
       totalInput.value = `${formatMoney(cart.total)}${
         cart.hasUnpricedItems ? ' + items priced at delivery' : ''
       }`
+      const methodInput = form.elements.namedItem(
+        'paymentMethod'
+      ) as HTMLInputElement
+      methodInput.value = method === 'venmo' ? 'Venmo' : 'Cash on delivery'
 
       const formData = new FormData(form)
       const params = new URLSearchParams()
@@ -337,10 +362,11 @@ const paymentNote =
         })
 
         if (response.ok) {
-          renderSuccess(cart)
+          const payUrl = renderSuccess(cart, method)
           successDialog.showModal()
           form.reset()
           updateTotal()
+          if (payUrl) window.location.href = payUrl
         } else {
           throw new Error('Form submission failed')
         }
@@ -369,6 +395,29 @@ const paymentNote =
 <style>
   .form :global(.button) {
     margin-top: 28px;
+  }
+
+  .pay-buttons :global(.button + .button) {
+    margin-top: 12px;
+  }
+
+  .pay-buttons :global(.venmo-button) {
+    background: #008cff;
+    border-color: #008cff;
+    cursor: pointer;
+  }
+
+  .pay-buttons :global(.venmo-button:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pay-buttons :global(.cash-button) {
+    cursor: pointer;
+  }
+
+  .pay-buttons :global(.button:not(:disabled):hover) {
+    opacity: 0.9;
   }
 
   .container {
@@ -464,7 +513,7 @@ const paymentNote =
     font-size: 1.2em;
   }
 
-  .varies-note {
+  .varies-note:not([hidden]) {
     display: block;
     font-size: 0.75em;
     opacity: 0.8;
@@ -516,25 +565,11 @@ const paymentNote =
     padding: 50px;
   }
 
-  .modal-content :global(.pay-button) {
+  .venmo-link:not([hidden]) {
     display: block;
-    box-sizing: border-box;
-    text-align: center;
-    margin-bottom: 12px;
-    background: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    text-transform: uppercase;
-    font-family: 'Josefin Slab', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: 2.08px;
-    color: var(--color-light);
-    padding: 17px 34px;
-    text-decoration: none;
-  }
-
-  .cash-note {
-    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: var(--color-dark-purple);
+    font-weight: bold;
   }
 
   dialog::backdrop {
