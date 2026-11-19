@@ -101,6 +101,17 @@ export const deliveriesPageQuery = `*[_type == "deliveriesPage"][0] {
   options
 }`
 
+export const milkerTrainingPageQuery = `*[_type == "milkerTrainingPage"][0] {
+  _id,
+  intro,
+  "slots": slots[available != false && defined(start)]{
+    _key,
+    start,
+    lengthHours,
+    note
+  }
+}`
+
 export const kiddingScheduleQuery = `*[_type == "goat" && defined(kiddingDate)] | order(kiddingScheduleOrder asc) {
   _id,
   name,

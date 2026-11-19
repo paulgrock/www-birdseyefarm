@@ -1,0 +1,413 @@
+---
+import SectionContainer from '../SectionContainer.astro'
+import SectionTitle from '../SectionTitle.astro'
+import Button from '../Button.astro'
+import { sanityClient } from '../../lib/sanity'
+import { milkerTrainingPageQuery } from '../../lib/queries'
+import { formatSlot, upcomingSlots } from '../../lib/milkerTraining'
+import type { MilkerTrainingPage } from '../../types/sanity'
+
+const page = await sanityClient.fetch<MilkerTrainingPage | null>(
+  milkerTrainingPageQuery
+)
+const slots = upcomingSlots(page?.slots)
+const intro =
+  page?.intro ?? "Pick every time that works for you and we'll confirm one."
+const NONE_LABEL = 'None of these work for me'
+---
+
+<SectionContainer id="milker-training" className="container">
+  <header>
+    <SectionTitle>Milker Training</SectionTitle>
+    <p>{intro}</p>
+  </header>
+
+  <p id="no-slots" class="no-slots" hidden={slots.length > 0}>
+    No training times right now, check back soon or
+    <a href="/#contact">contact us</a>.
+  </p>
+
+  {
+    /* Always rendered, even with no slots, so Netlify detects the form at deploy. */
+  }
+  <form
+    method="post"
+    class="form"
+    data-netlify="true"
+    name="milker-training"
+    netlify-honeypot="botField"
+    hidden={slots.length === 0}
+  >
+    <input type="hidden" name="form-name" value="milker-training" />
+    <input type="hidden" name="times" value="" />
+
+    <div hidden>
+      <label>Don't fill this out: <input name="botField" /></label>
+    </div>
+
+    <fieldset class="slots">
+      <legend class="legend">Times that work for you</legend>
+
+      {
+        slots.map((slot) => (
+          <label class="slot" data-start={slot.start}>
+            <input
+              type="checkbox"
+              class="slot-check"
+              data-label={`${formatSlot(slot)}${slot.note ? ` — ${slot.note}` : ''}`}
+            />
+            <span class="slot-text">
+              <span class="slot-time">{formatSlot(slot)}</span>
+              {slot.note && <span class="slot-note">{slot.note}</span>}
+            </span>
+          </label>
+        ))
+      }
+
+      <label class="slot slot-none">
+        <input
+          type="checkbox"
+          class="slot-check"
+          id="none-check"
+          data-label={NONE_LABEL}
+        />
+        <span class="slot-text">
+          <span class="slot-time">{NONE_LABEL}</span>
+        </span>
+      </label>
+    </fieldset>
+
+    <p id="slots-error" class="slots-error" role="alert" hidden>
+      Please choose at least one time.
+    </p>
+
+    <input
+      placeholder="Name"
+      type="text"
+      name="name"
+      class="input"
+      autocomplete="name"
+      required
+      aria-label="Name"
+    />
+
+    <input
+      placeholder="Email Address"
+      type="email"
+      name="email"
+      class="input"
+      autocomplete="email"
+      required
+      aria-label="Email Address"
+    />
+
+    <textarea
+      name="notes"
+      class="textarea"
+      rows="4"
+      placeholder="Anything we should know? Experience, goats, questions…"
+      data-placeholder-default="Anything we should know? Experience, goats, questions…"
+      data-placeholder-none="What days or times would work?"
+      aria-label="Notes"></textarea>
+
+    <Button type="submit" className="submit-button">Send my times</Button>
+  </form>
+
+  <dialog id="training-success-dialog" class="modal">
+    <div class="modal-content">
+      <p>Thank you! We got your times and will be in touch to confirm one.</p>
+      <Button id="training-close-dialog">Close</Button>
+    </div>
+  </dialog>
+
+  <dialog id="training-error-dialog" class="modal">
+    <div class="modal-content">
+      <p>
+        Sorry, there was an error submitting your request. Please try again or
+        email us directly.
+      </p>
+      <Button id="training-close-error-dialog">Close</Button>
+    </div>
+  </dialog>
+</SectionContainer>
+
+<script>
+  function setUp() {
+    const form = document.querySelector<HTMLFormElement>(
+      'form[name="milker-training"]'
+    )
+    const noSlots = document.getElementById('no-slots')
+    const successDialog = document.getElementById(
+      'training-success-dialog'
+    ) as HTMLDialogElement | null
+    const errorDialog = document.getElementById(
+      'training-error-dialog'
+    ) as HTMLDialogElement | null
+    const slotsError = document.getElementById('slots-error')
+    const noneCheck = document.getElementById(
+      'none-check'
+    ) as HTMLInputElement | null
+    if (!form || form.dataset.ready || !successDialog || !errorDialog) return
+    form.dataset.ready = 'true'
+
+    const notes = form.elements.namedItem('notes') as HTMLTextAreaElement
+    const timesInput = form.elements.namedItem('times') as HTMLInputElement
+    const checks = () =>
+      Array.from(form.querySelectorAll<HTMLInputElement>('input.slot-check'))
+    const slotChecks = () => checks().filter((check) => check !== noneCheck)
+
+    // The page is static, so drop times that have passed since the last build.
+    function hidePastSlots() {
+      const now = Date.now()
+      let upcoming = 0
+      form!
+        .querySelectorAll<HTMLLabelElement>('label.slot[data-start]')
+        .forEach((label) => {
+          const past = new Date(label.dataset.start ?? '').getTime() <= now
+          label.hidden = past
+          if (past) {
+            const check = label.querySelector('input')
+            if (check) check.checked = false
+          } else {
+            upcoming += 1
+          }
+        })
+      form!.hidden = upcoming === 0
+      if (noSlots) noSlots.hidden = upcoming > 0
+    }
+
+    function updateNotesPlaceholder() {
+      notes.placeholder =
+        (noneCheck?.checked
+          ? notes.dataset.placeholderNone
+          : notes.dataset.placeholderDefault) ?? ''
+    }
+
+    function chosenLabels(): string[] {
+      return checks()
+        .filter((check) => check.checked && !check.closest('label')?.hidden)
+        .map((check) => check.dataset.label ?? '')
+    }
+
+    hidePastSlots()
+
+    form.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement
+      if (!target.classList.contains('slot-check')) return
+      // "None of these work" and specific times can't both be picked.
+      if (target === noneCheck && target.checked) {
+        slotChecks().forEach((check) => (check.checked = false))
+      } else if (target !== noneCheck && target.checked && noneCheck) {
+        noneCheck.checked = false
+      }
+      updateNotesPlaceholder()
+      if (slotsError && chosenLabels().length > 0) slotsError.hidden = true
+    })
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      hidePastSlots()
+      if (form.hidden) return
+
+      const chosen = chosenLabels()
+      if (chosen.length === 0) {
+        if (slotsError) slotsError.hidden = false
+        slotsError?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        return
+      }
+      timesInput.value = chosen.join('\n')
+
+      const params = new URLSearchParams()
+      new FormData(form).forEach((value, key) => {
+        params.append(key, value.toString())
+      })
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString(),
+        })
+        if (!response.ok) throw new Error('Form submission failed')
+        successDialog.showModal()
+        form.reset()
+        updateNotesPlaceholder()
+      } catch {
+        errorDialog.showModal()
+      }
+    })
+
+    for (const [dialog, closeId] of [
+      [successDialog, 'training-close-dialog'],
+      [errorDialog, 'training-close-error-dialog'],
+    ] as const) {
+      document
+        .getElementById(closeId)
+        ?.addEventListener('click', () => dialog.close())
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close()
+      })
+    }
+  }
+
+  // Runs on first load and after view-transition navigations.
+  document.addEventListener('astro:page-load', setUp)
+</script>
+
+<style>
+  .container {
+    background-color: var(--color-dark-purple);
+    background-image: url('../../images/bg.svg');
+    min-height: auto;
+    padding-top: 120px;
+  }
+
+  header {
+    color: white;
+    text-align: center;
+  }
+
+  .no-slots {
+    color: white;
+    text-align: center;
+  }
+
+  .no-slots a {
+    color: white;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 400px;
+    justify-self: center;
+  }
+
+  .form[hidden] {
+    display: none;
+  }
+
+  .form :global(.submit-button) {
+    margin-top: 28px;
+    cursor: pointer;
+  }
+
+  .form :global(.submit-button:hover) {
+    opacity: 0.9;
+  }
+
+  .slots {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .legend {
+    color: white;
+    padding: 0;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+  }
+
+  .slot {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    cursor: pointer;
+  }
+
+  .slot[hidden] {
+    display: none;
+  }
+
+  .slot + .slot {
+    margin-top: 10px;
+  }
+
+  .slot:has(input:checked) {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .slot:has(input:focus-visible) {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  .slot-none {
+    margin-top: 20px;
+  }
+
+  .slot-check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    accent-color: var(--color-primary);
+  }
+
+  .slot-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .slot-note {
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+
+  .slots-error {
+    color: #ffd2d2;
+  }
+
+  .input,
+  .textarea {
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 10px;
+    color: var(--color-darker-purple);
+    font: inherit;
+  }
+
+  .slots-error + .input,
+  .input + .input,
+  .textarea {
+    margin-top: 32px;
+  }
+
+  .modal {
+    margin: auto;
+    border: none;
+    padding: 0;
+    max-width: calc(100vw - 32px);
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 32px;
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  dialog :global(.button) {
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  @media (min-width: 600px) {
+    .modal-content {
+      padding: 50px;
+    }
+  }
+</style>

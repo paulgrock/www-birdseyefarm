@@ -75,6 +75,20 @@ export interface DeliveriesPage {
   options?: string[]
 }
 
+export interface MilkerTrainingSlot {
+  _key: string
+  /** ISO datetime (UTC). */
+  start: string
+  lengthHours?: number | null
+  note?: string | null
+}
+
+export interface MilkerTrainingPage {
+  _id: string
+  intro?: string
+  slots?: MilkerTrainingSlot[] | null
+}
+
 export interface HomePage {
   _id: string
   heroLogo?: SanityImage
