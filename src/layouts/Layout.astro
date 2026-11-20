@@ -6,10 +6,13 @@ import '../styles/layout.css'
 interface Props {
   title?: string
   description?: string
+  /** Keep the page out of search results (for unlisted pages). */
+  noindex?: boolean
 }
 
 const {
   title = "Bird's Eye Farm",
+  noindex = false,
   description = 'Farmstead lifestyle. Nigerian Dwarf goats, chickens, bees and Angora rabbits in Yamhill County, Oregon.',
 } = Astro.props
 
@@ -22,6 +25,7 @@ const currentYear = new Date().getFullYear()
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO Meta Tags -->

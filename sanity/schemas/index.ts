@@ -3,5 +3,6 @@ import homePage from './homePage';
 import goatsPage from './goatsPage';
 import deliveriesPage from './deliveriesPage';
 import sire from './sire';
+import milkerTrainingPage from './milkerTrainingPage';
 
-export const schemas = [goat, sire, homePage, goatsPage, deliveriesPage];
+export const schemas = [goat, sire, homePage, goatsPage, deliveriesPage, milkerTrainingPage];
