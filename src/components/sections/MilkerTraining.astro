@@ -45,9 +45,7 @@ const NONE_LABEL = 'None of these work for me'
       <label>Don't fill this out: <input name="botField" /></label>
     </div>
 
-    <fieldset class="slots">
-      <legend class="legend">Times that work for you</legend>
-
+    <fieldset class="slots" aria-label="Training times">
       {
         slots.map((slot) => (
           <label class="slot" data-start={slot.start}>
@@ -105,8 +103,8 @@ const NONE_LABEL = 'None of these work for me'
       name="notes"
       class="textarea"
       rows="4"
-      placeholder="Anything we should know? Experience, goats, questions…"
-      data-placeholder-default="Anything we should know? Experience, goats, questions…"
+      placeholder="Any questions or anything else we should know? Availability info? Your goat experience?"
+      data-placeholder-default="Any questions or anything else we should know? Availability info? Your goat experience?"
       data-placeholder-none="What days or times would work?"
       aria-label="Notes"></textarea>
 
@@ -115,7 +113,7 @@ const NONE_LABEL = 'None of these work for me'
 
   <dialog id="training-success-dialog" class="modal">
     <div class="modal-content">
-      <p>Thank you! We got your times and will be in touch to confirm one.</p>
+      <p>Thanks for taking our survey!</p>
       <Button id="training-close-dialog">Close</Button>
     </div>
   </dialog>
@@ -215,7 +213,7 @@ const NONE_LABEL = 'None of these work for me'
         slotsError?.scrollIntoView({ behavior: 'smooth', block: 'center' })
         return
       }
-      timesInput.value = chosen.join('\n')
+      timesInput.value = chosen.join('; ')
 
       const params = new URLSearchParams()
       new FormData(form).forEach((value, key) => {
@@ -300,13 +298,6 @@ const NONE_LABEL = 'None of these work for me'
     padding: 0;
     margin: 0;
     min-width: 0;
-  }
-
-  .legend {
-    color: white;
-    padding: 0;
-    margin-bottom: 16px;
-    font-size: 1.1em;
   }
 
   .slot {
