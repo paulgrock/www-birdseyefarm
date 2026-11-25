@@ -4,11 +4,11 @@ import SectionContainer from '../../components/SectionContainer.astro'
 import Info from '../../components/Info.astro'
 import GoatBio from '../../components/GoatBio.astro'
 import { sanityClient } from '../../lib/sanity'
-import { allGoatsQuery, goatsPageQuery } from '../../lib/queries'
+import { doeGoatsQuery, goatsPageQuery } from '../../lib/queries'
 import { portableTextToHtml } from '../../lib/portableText'
 import type { Goat, GoatsPage } from '../../types/sanity'
 
-const goats = await sanityClient.fetch<Goat[]>(allGoatsQuery)
+const goats = await sanityClient.fetch<Goat[]>(doeGoatsQuery)
 const goatsPage = await sanityClient.fetch<GoatsPage>(goatsPageQuery)
 
 // Transform Sanity images to match expected format

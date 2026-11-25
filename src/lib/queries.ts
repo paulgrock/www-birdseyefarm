@@ -23,6 +23,31 @@ export const allGoatsQuery = `*[_type == "goat"] | order(displayOrder asc) {
   }
 }`
 
+export const doeGoatsQuery = `*[_type == "goat" && goatType == "doe"] | order(displayOrder asc) {
+  _id,
+  name,
+  aka,
+  "slug": slug.current,
+  date,
+  adgaPedigree,
+  pedigree,
+  kiddingDate,
+  sire,
+  dam,
+  mate,
+  copy,
+  notes,
+  prices,
+  displayOrder,
+  images[] {
+    asset->{
+      _id,
+      url
+    },
+    alt
+  }
+}`
+
 export const goatBySlugQuery = `*[_type == "goat" && slug.current == $slug][0] {
   _id,
   name,
