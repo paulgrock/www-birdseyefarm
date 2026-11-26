@@ -40,6 +40,8 @@ const goatsWithImages = goats.map((goat) => {
       <Fragment set:html={portableTextToHtml(goatsPage?.introText || [])} />
     </Info>
 
+    {goatsWithImages.length === 0 && <p>No goats to show right now.</p>}
+
     {
       goatsWithImages.map((goat) => (
         <GoatBio
