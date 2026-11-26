@@ -30,6 +30,10 @@ export const allGoatsQuery = `*[_type == "goat"] | order(displayOrder asc) {${go
 // Goats with no goatType predate the field, whose default is "doe".
 export const doeGoatsQuery = `*[_type == "goat" && (goatType == "doe" || !defined(goatType))] | order(displayOrder asc) {${goatFields}}`
 
+export const buckGoatsQuery = `*[_type == "goat" && goatType == "buck"] | order(displayOrder asc) {${goatFields}}`
+
+export const referenceGoatsQuery = `*[_type == "goat" && goatType == "reference"] | order(displayOrder asc) {${goatFields}}`
+
 export const goatBySlugQuery = `*[_type == "goat" && slug.current == $slug][0] {${goatFields}}`
 
 export const homePageQuery = `*[_type == "homePage"][0] {

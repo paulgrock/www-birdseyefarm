@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import SectionContainer from '../../components/SectionContainer.astro'
+import Info from '../../components/Info.astro'
+import GoatBio from '../../components/GoatBio.astro'
+import { sanityClient } from '../../lib/sanity'
+import { referenceGoatsQuery } from '../../lib/queries'
+import type { Goat } from '../../types/sanity'
+
+const goats = await sanityClient.fetch<Goat[]>(referenceGoatsQuery)
+
+// Transform Sanity images to match expected format
+const goatsWithImages = goats.map((goat) => {
+  const images =
+    goat.images?.map((img) => ({
+      src: img.asset.url,
+      alt: img.alt || goat.name,
+    })) || []
+
+  return {
+    ...goat,
+    images,
+    data: {
+      name: goat.name,
+      slug: goat.slug,
+      adgaPedigree: goat.adgaPedigree,
+      date: goat.date,
+      sire: goat.sire,
+      dam: goat.dam,
+    },
+  }
+})
+---
+
+<Layout title="Nigerian Dwarf Reference Goats">
+  <SectionContainer className="container goatList">
+    <Info title="Reference Goats" />
+
+    {goatsWithImages.length === 0 && <p>No goats to show right now.</p>}
+
+    {
+      goatsWithImages.map((goat) => (
+        <GoatBio
+          images={goat.images}
+          name={goat.data.name}
+          slug={goat.data.slug}
+          adgaPedigree={goat.data.adgaPedigree}
+          date={goat.data.date}
+          sire={goat.data.sire}
+          dam={goat.data.dam}
+          withTitle={true}
+          showCopy={false}
+        />
+      ))
+    }
+  </SectionContainer>
+</Layout>
+
+<style>
+  .container {
+    background-image: url('../../images/goats-bg.jpg');
+    padding-top: 120px;
+    gap: 2.5rem;
+  }
+
+  .goatList :global(.goat) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 960px) {
+    .goatList :global(.goat) {
+      flex-direction: row;
+    }
+  }
+</style>
