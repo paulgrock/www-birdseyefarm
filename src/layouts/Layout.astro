@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import Header from '../components/Header.astro'
 import '../styles/layout.css'
 
@@ -45,7 +45,7 @@ const currentYear = new Date().getFullYear()
       rel="stylesheet"
     />
 
-    <ViewTransitions />
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body>

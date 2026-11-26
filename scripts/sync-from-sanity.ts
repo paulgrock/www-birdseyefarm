@@ -67,7 +67,7 @@ interface SanityGoat {
 }
 
 // Normalized shapes that satisfy the Astro content Zod schema
-// (src/content/config.ts): sire.link / dam.link are required strings.
+// (src/content.config.ts): sire.link / dam.link are required strings.
 interface NormalizedAncestor {
   name: string;
   link: string;
@@ -130,7 +130,7 @@ const query = `*[_type == "goat"] | order(displayOrder asc) {
   }
 }`;
 
-// The Astro content-collection schema (src/content/config.ts) requires
+// The Astro content-collection schema (src/content.config.ts) requires
 // `sire.link` and `dam.link` as non-optional strings, and a fully-formed
 // `mate` object. Sanity omits empty link fields entirely, so pass everything
 // through these normalizers to guarantee schema-valid output ("" for missing
