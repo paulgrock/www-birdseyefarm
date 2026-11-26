@@ -205,7 +205,9 @@ const dayOptions = Array.from(
         function update() {
           const mode = new FormData(form).get('mode')
           const fromBreeding = mode === 'bred'
-          dateLabel.textContent = fromBreeding ? 'Breeding date' : 'Kidding date'
+          dateLabel.textContent = fromBreeding
+            ? 'Breeding date'
+            : 'Kidding date'
           resultLabel.textContent = fromBreeding ? 'Kids due' : 'Breed on'
 
           const days = Number(daysSelect.value)
