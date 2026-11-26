@@ -1,0 +1,227 @@
+---
+import SectionContainer from './SectionContainer.astro'
+import SectionTitle from './SectionTitle.astro'
+
+const MIN_DAYS = 145
+const MAX_DAYS = 155
+const DEFAULT_DAYS = 150
+const dayOptions = Array.from(
+  { length: MAX_DAYS - MIN_DAYS + 1 },
+  (_, i) => MIN_DAYS + i
+)
+---
+
+<SectionContainer id="gestation-calculator" className="calculatorContainer">
+  <SectionTitle className="sectionTitle">Gestation Calculator</SectionTitle>
+
+  <form class="calculator" data-gestation-calculator>
+    <fieldset class="mode">
+      <legend class="visually-hidden">Calculate from</legend>
+      <label class="mode-option">
+        <input type="radio" name="mode" value="bred" checked />
+        <span>Bred on</span>
+      </label>
+      <label class="mode-option">
+        <input type="radio" name="mode" value="due" />
+        <span>Want kids on</span>
+      </label>
+    </fieldset>
+
+    <div class="fields">
+      <label class="field">
+        <span class="field-label" data-date-label>Breeding date</span>
+        <input type="date" name="date" class="input" required />
+      </label>
+
+      <label class="field">
+        <span class="field-label">Gestation</span>
+        <select name="days" class="input">
+          {
+            dayOptions.map((days) => (
+              <option value={days} selected={days === DEFAULT_DAYS}>
+                {days} days
+              </option>
+            ))
+          }
+        </select>
+      </label>
+    </div>
+
+    <div class="result" aria-live="polite">
+      <span class="result-label" data-result-label>Kids due</span>
+      <output class="result-date" data-result>Pick a date</output>
+    </div>
+  </form>
+</SectionContainer>
+
+<style>
+  .calculatorContainer {
+    padding-top: 48px;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: 400px;
+    justify-self: center;
+    display: grid;
+    gap: 24px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .mode {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 2px solid var(--color-dark-purple);
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .mode-option {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--color-dark-purple);
+    font-weight: 700;
+  }
+
+  .mode-option input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .mode-option:has(input:checked) {
+    background: var(--color-dark-purple);
+    color: white;
+  }
+
+  .mode-option:has(input:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .fields {
+    display: grid;
+    gap: 16px;
+  }
+
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+
+  .field-label {
+    font-weight: 700;
+  }
+
+  .input {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    border: 2px solid var(--color-dark-purple);
+    border-radius: 0;
+    padding: 8px 10px;
+    background: white;
+    color: var(--color-darker-purple);
+    font: inherit;
+  }
+
+  .result {
+    display: grid;
+    gap: 4px;
+    padding: 20px;
+    background: var(--color-dark-purple);
+    color: white;
+    text-align: center;
+  }
+
+  .result-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85em;
+    opacity: 0.85;
+  }
+
+  .result-date {
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 600px) {
+    .fields {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+</style>
+
+<script>
+  const DAY_MS = 24 * 60 * 60 * 1000
+
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+
+  // Work in UTC so daylight-saving changes never shift the result by a day.
+  function shiftDate(value: string, days: number): string | null {
+    const [year, month, day] = value.split('-').map(Number)
+    if (!year || !month || !day) return null
+    const time = Date.UTC(year, month - 1, day) + days * DAY_MS
+    return formatter.format(new Date(time))
+  }
+
+  function setUp() {
+    document
+      .querySelectorAll<HTMLFormElement>('form[data-gestation-calculator]')
+      .forEach((form) => {
+        if (form.dataset.ready) return
+        form.dataset.ready = 'true'
+
+        const dateInput = form.elements.namedItem('date') as HTMLInputElement
+        const daysSelect = form.elements.namedItem('days') as HTMLSelectElement
+        const dateLabel = form.querySelector('[data-date-label]')!
+        const resultLabel = form.querySelector('[data-result-label]')!
+        const result = form.querySelector('[data-result]')!
+
+        function update() {
+          const mode = new FormData(form).get('mode')
+          const fromBreeding = mode === 'bred'
+          dateLabel.textContent = fromBreeding ? 'Breeding date' : 'Kidding date'
+          resultLabel.textContent = fromBreeding ? 'Kids due' : 'Breed on'
+
+          const days = Number(daysSelect.value)
+          const shifted = dateInput.value
+            ? shiftDate(dateInput.value, fromBreeding ? days : -days)
+            : null
+          result.textContent = shifted ?? 'Pick a date'
+        }
+
+        form.addEventListener('input', update)
+        form.addEventListener('change', update)
+        form.addEventListener('submit', (e) => e.preventDefault())
+        update()
+      })
+  }
+
+  // Runs on first load and after view-transition navigations.
+  document.addEventListener('astro:page-load', setUp)
+</script>
