@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import KiddingSchedule from '../../components/KiddingSchedule.astro'
+import GestationCalculator from '../../components/GestationCalculator.astro'
 import { sanityClient } from '../../lib/sanity'
 import { kiddingScheduleQuery } from '../../lib/queries'
 import type { Goat } from '../../types/sanity'
@@ -47,4 +48,5 @@ const sortedGoatsWithImages = goats.map((goat) => {
   description="Bird's Eye Farm 2026 Kidding Schedule"
 >
   <KiddingSchedule goats={sortedGoatsWithImages} />
+  <GestationCalculator />
 </Layout>
