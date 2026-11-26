@@ -39,6 +39,7 @@ export interface Goat {
   adgaPedigree: string // Required: All goats have ADGA pedigree link
   sire: SireOrDam // Required: All goats have sire
   dam: SireOrDam // Required: All goats have dam
+  goatType: 'doe' | 'buck' | 'wether' | 'reference'
   pedigree?: string
   kiddingDate?: string
   mate?: Mate

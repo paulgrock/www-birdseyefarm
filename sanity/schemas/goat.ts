@@ -4,6 +4,14 @@ export default defineType({
   name: 'goat',
   title: 'Goat',
   type: 'document',
+  fieldsets: [
+    {
+      name: 'records',
+      title: 'Herd records',
+      description: 'Filled in from Milk Manager. Not shown on the website.',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     defineField({
       name: 'name',
@@ -26,6 +34,7 @@ export default defineType({
         list: [
           { title: 'Doe', value: 'doe' },
           { title: 'Buck', value: 'buck' },
+          { title: 'Wether', value: 'wether' },
           { title: 'Reference', value: 'reference' },
         ],
         layout: 'radio',
@@ -190,6 +199,83 @@ export default defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: 'breed',
+      title: 'Breed',
+      type: 'string',
+      fieldset: 'records',
+    }),
+    defineField({
+      name: 'breedCategory',
+      title: 'Breed Category',
+      type: 'string',
+      fieldset: 'records',
+      options: {
+        list: [
+          { title: 'Purebred', value: 'purebred' },
+          { title: 'American', value: 'american' },
+          { title: 'Experimental', value: 'experimental' },
+          { title: 'Recorded Grade', value: 'recorded_grade' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'registry',
+      title: 'Registry',
+      type: 'string',
+      fieldset: 'records',
+    }),
+    defineField({
+      name: 'registrationNumber',
+      title: 'Registration Number',
+      type: 'string',
+      fieldset: 'records',
+    }),
+    defineField({
+      name: 'colorMarkings',
+      title: 'Color and Markings',
+      type: 'string',
+      fieldset: 'records',
+    }),
+    defineField({
+      name: 'hornStatus',
+      title: 'Horns',
+      type: 'string',
+      fieldset: 'records',
+      options: {
+        list: [
+          { title: 'Disbudded', value: 'disbudded' },
+          { title: 'Polled', value: 'polled' },
+          { title: 'Horned', value: 'horned' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'tattooRight',
+      title: 'Tattoo, Right Ear',
+      type: 'string',
+      fieldset: 'records',
+      description: 'Herd letters',
+    }),
+    defineField({
+      name: 'tattooLeft',
+      title: 'Tattoo, Left Ear',
+      type: 'string',
+      fieldset: 'records',
+      description: 'Year letter + number',
+    }),
+    defineField({
+      name: 'scrapieTag',
+      title: 'Scrapie Tag',
+      type: 'string',
+      fieldset: 'records',
+    }),
+    defineField({
+      name: 'microchip',
+      title: 'Microchip',
+      type: 'string',
+      fieldset: 'records',
     }),
   ],
   preview: {
